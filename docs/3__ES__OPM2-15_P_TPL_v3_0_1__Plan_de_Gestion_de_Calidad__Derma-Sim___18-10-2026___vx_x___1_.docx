@@ -1,0 +1,559 @@
+Derma-Sim** **Plan de Gestión de Calidad
+
+		
+
+Organización Los therians 
+
+Departamento De TI
+
+Plan de Gestión de Calidad 
+
+**Derma-Sim**
+
+Fecha: 		18/10/2026
+
+Versión: 	1.1 
+
+Versión de Plantilla: 3.0.1
+
+*Esta plantilla está basada en PM² V3.0*
+
+*Para consultar la última versión de esta plantilla por favor visite** el Wiki **PM²*
+
+*<**La Metodología PM² tiene su origen en la Comisión Europea. Open PM² proporciona directrices y plantillas para facilitar la gestión y documentación de sus proyectos**>*
+
+**Información de control del documento**
+|  | **Valor** |
+| --- | --- |
+| **Título del Documento:** | Plan de Gestión de Calidad |
+| **Nombre del Proyecto:** | Derma-Sim |
+| **Autor del Documento:** | Cristian Orlando Lasso Mulato |
+| **Propietario del Proyecto:** | Jair Enrique Sanclemente Castro |
+| **Director del Proyecto:** | Cristian Orlando Lasso Mulato (Líder del Equipo) |
+| **Versión del Documento: ** | 1.1 |
+| **Confidencialidad: ** | Básica |
+| **Fecha: ** | 18/10/2026 |
+
+**Aprobación y revisión del documento**
+
+NOTA: Se requieren todas las aprobaciones. Se deben mantener registros de cada aprobación. 
+
+Todos los revisores de la lista se consideran necesarios a menos que se indique explícitamente como Opcionales.
+
+| **Nombre** | **Rol** | **Acción** | **Fecha** |
+| --- | --- | --- | --- |
+| Jair Enrique Sanclemente Castro | Propietario del Proyecto (PP) y Responsable de Negocio (RN) | Aprueba |  |
+| Cristian Orlando Lasso Mulato | Director de Proyecto (DP) y autor | Revisa | 15/10/2026 |
+| Juan Pablo Nieto | Tester – Garantía de la Calidad del Proyecto (GCP) | revisa | 17/10/2026 |
+
+**Historial del documento**
+
+El Autor del Documento está autorizado a hacer los siguientes tipos de cambios al documento sin requerir que el documento sea aprobado nuevamente:
+
+- *Edición, formato y ortografía.*
+
+- *Aclaraciones.*
+
+Para solicitar un cambio en este documento, póngase en contacto con el Autor del Documento o el Propietario del Proyecto.
+
+Las modificaciones de este documento se resumen en la siguiente tabla en orden cronológico inverso (primero la última versión).
+
+| **Revisión** | **Fecha** | **Creada por** | **Breve descripción de los cambios** |
+| --- | --- | --- | --- |
+| 1.1 | 17/10/2026 | Juan Pablo Nieto Cobo |  |
+| 1.0 | 15/10/2026 | Cristian Orlando Lasso Mulato | Versión inicial del Plan de Gestión de Calidad. |
+|  |  |  |  |
+
+**Gestión de la configuración: Localización del documento **
+
+La última versión de este documento está guardada en la carpeta compartida del equipo del proyecto Derma-Sim (repositorio del proyecto).
+
+TABLA DE CONTENIDOS
+
+1. Introducción	6
+
+2. Objetivos de la Gestión de la Calidad	6
+
+3. Proceso de Gestión de Calidad	6
+
+3.1. Roles y Responsabilidades en la Gestión de la Calidad	11
+
+4. Herramientas y Técnicas	11
+
+5. Actividades de Aseguramiento de la Calidad	12
+
+6. Métricas	13
+
+7. Control de Calidad	14
+
+7.1. Revisiones de Calidad	14
+
+7.2. Revisiones de los Entregables	15
+
+7.3. Otras Actividades de Control de la Calidad.	15
+
+8. Registros de Calidad	15
+
+9. Gestión de la Configuración	15
+
+10. Planes PM² Relacionados	17
+
+Apéndice 1: Referencias y Documentos Relacionados	19
+
+ 
+
+Introducción
+
+Derma-Sim es un proyecto académico de Ingeniería de Sistemas de la Universidad Santiago de Cali que busca desarrollar una aplicación web para apoyar el aprendizaje de la dermatología mediante la simulación de casos clínicos. La aplicación permitirá que un estudiante consulte la historia de un caso y su imagen dermatoscópica, registre su decisión diagnóstica y reciba retroalimentación de un tutor basado en inteligencia artificial.
+
+La calidad del proyecto no depende únicamente de que la página web funcione. También es necesario que los casos utilizados sean apropiados para fines educativos, que las respuestas generadas por la inteligencia artificial sean coherentes y pertinentes, que el estudiante pueda completar las actividades sin dificultades innecesarias y que la información utilizada respete las condiciones de privacidad y licenciamiento.
+
+Por esta razón, el presente plan establece cómo se revisará el trabajo del equipo, cómo se comprobará el funcionamiento de la aplicación y cuáles serán los criterios para aceptar los entregables. Las actividades de calidad se desarrollarán durante las diez semanas previstas para el proyecto, desde la planificación inicial hasta la entrega final.
+
+El plan se aplicará a los cinco entregables principales: el aplicativo web, el banco inicial de casos clínicos, el agente tutor de IA y sus métricas, el informe de pruebas y validación, y la documentación técnica y de usuario.
+
+Objetivos de la Gestión de la Calidad
+
+El propósito de la gestión de la calidad es comprobar que Derma-Sim cumpla las necesidades educativas para las que fue propuesto y que sus entregables puedan revisarse y aceptarse con criterios verificables.
+
+Los objetivos específicos son:
+
+1. Verificar el funcionamiento de la aplicación web. Comprobar que el estudiante pueda seleccionar un caso, consultar su información, registrar su respuesta y recibir la retroalimentación del tutor de IA sin interrupciones en el recorrido principal.
+
+2. Revisar la calidad del banco de casos. Confirmar que los casos incluidos tengan información suficiente para la práctica educativa, que sean revisados por un docente o profesional de la salud y que las imágenes tengan una procedencia y licencia verificables.
+
+3. Evaluar la retroalimentación de la inteligencia artificial. Revisar una muestra de respuestas para determinar si son comprensibles, pertinentes y coherentes con la información del caso. La IA se utilizará como apoyo educativo y sus respuestas no se considerarán diagnósticos médicos certificados.
+
+4. Comprobar la facilidad de uso. Realizar pruebas con estudiantes para identificar dificultades de navegación, comprensión de instrucciones o finalización de los casos.
+
+5. Cumplir los requisitos técnicos y documentales. Revisar la arquitectura cliente-servidor por capas, la separación entre la interfaz y el servicio de IA, el registro de métricas y la documentación necesaria para utilizar y comprender la aplicación.
+
+6. Prevenir problemas de privacidad y cumplimiento. Verificar que se utilicen casos públicos, desidentificados o suministrados por el docente, con las autorizaciones correspondientes, y que se informe claramente al usuario sobre el propósito educativo y la intervención de la IA.
+
+7. Entregar productos verificables. Comprobar que los cinco entregables cumplan sus criterios de aceptación y que los defectos críticos identificados durante las pruebas estén resueltos antes de la entrega final.
+
+Proceso de Gestión de Calidad
+
+La gestión de calidad de Derma-Sim se desarrollará durante las diferentes etapas del proyecto, con el propósito de verificar que la aplicación web cumpla los requisitos establecidos y que sus entregables respondan a las necesidades educativas identificadas. Para ello, se tendrán en cuenta las actividades de planificación, revisión, pruebas y aceptación, adaptándolas al alcance académico del proyecto y al tiempo disponible para su desarrollo
+
+El proceso de gestión de la calidad de este proyecto consta de cinco pasos fundamentales:
+
+- Definir  las Características de Calidad (del Proyecto).
+
+- Realizar el Aseguramiento de la Calidad.
+
+- Realizar el Control de Calidad.
+
+- Llevar a cabo la Aceptación de los Entregables.
+
+- Realizar la Aceptación Final (del proyecto).
+
+**Paso**** 1: ****Definir las Características de Calidad**** **
+
+En este paso se identifican los objetivos, requisitos, criterios, actividades y responsabilidades de calidad que se utilizarán durante el proyecto. Para Derma-Sim, las características de calidad se establecerán a partir del acta de constitución, el plan de gestión del alcance, la EDT, el cronograma, los requisitos funcionales y no funcionales y los entregables previstos.
+
+Las principales características que se evaluarán son:
+
+- Funcionamiento de la aplicación: acceso a los casos, visualización de información e imágenes, registro de respuestas y presentación de retroalimentación.
+
+- Calidad del banco de casos: información adecuada para fines educativos, procedencia identificable de las fuentes y condiciones de uso verificables.
+
+- Calidad del tutor de IA: coherencia, pertinencia y utilidad educativa de las respuestas generadas.
+
+- Rendimiento: registro de los tiempos de respuesta y de los errores que se produzcan durante las pruebas.
+
+- Usabilidad: facilidad para que los estudiantes comprendan la interfaz y completen el flujo principal.
+
+- Documentación: correspondencia entre la aplicación desarrollada, sus funciones y las instrucciones de uso.
+
+- Seguridad y uso responsable: ausencia de datos personales identificables y presencia de una aclaración sobre el uso exclusivamente educativo.
+
+Los criterios se documentarán en listas de comprobación, casos de prueba y registros de revisión. Las características que requieran validación académica se presentarán al docente o a un revisor con conocimientos clínicos, si este último es designado.
+
+Las actividades relacionadas con la calidad de los entregables se apoyarán en el plan de pruebas y los casos de prueba, así como en el Informe de pruebas y validación (E4). Debido a que el proyecto no cuenta con un Plan de Aceptación de Entregables independiente confirmado, las actividades y los criterios de aceptación se describen en este plan y en la sección de verificación del alcance del proyecto.
+
+Las técnicas de planificación de la calidad aplicables incluyen:
+
+- Priorización de requisitos mediante MoSCoW.
+
+- Comparación con referencias pertinentes sobre simulación clínica e inteligencia artificial generativa aplicada a la educación.
+
+- Muestreo de casos clínicos y respuestas de la IA para su revisión.
+
+- Listas de comprobación de calidad para cada entregable.
+
+**Paso 2: Realizar el Aseguramiento de la Calidad.**
+
+El aseguramiento de la calidad comprende las actividades preventivas destinadas a comprobar que el equipo trabaja de acuerdo con los procedimientos, requisitos y criterios definidos. En Derma-Sim se aplicará durante la planificación, el desarrollo y el seguimiento del proyecto.
+
+Las actividades principales son la revisión de los documentos antes de considerarlos definitivos, el seguimiento de las actividades programadas, la revisión de cambios que afecten los requisitos y la comprobación de que las decisiones de calidad queden registradas.
+
+También se verificará que las imágenes y los materiales incorporados al banco de casos tengan una fuente identificable y condiciones de uso apropiadas. La información utilizada no deberá incluir datos personales identificables. La aplicación y su documentación deberán aclarar que el sistema tiene una finalidad educativa y no clínica.
+
+El director del proyecto coordinará el seguimiento general. El responsable de pruebas revisará los artefactos y evidencias de calidad con el apoyo de los integrantes del equipo. El docente podrá revisar el cumplimiento de los requisitos académicos y de los criterios de aceptación.
+
+Los resultados se conservarán en los registros de revisión, informes de seguimiento, listas de comprobación y registro de incidencias del proyecto
+
+**Paso**** 3: ****Realizar el Control de Calidad**
+
+El control de calidad de Derma-Sim consiste en comprobar mediante inspecciones y pruebas que los productos desarrollados cumplen los requisitos y criterios de calidad definidos. Se aplicará durante el desarrollo y antes de presentar cada entregable para su aceptación.
+
+Las actividades de control serán las siguientes:
+
+**1. Pruebas funcionales de la aplicación:** comprobar el acceso a los casos, la visualización de la información y las imágenes, el registro de respuestas y la presentación de la retroalimentación.
+
+**2. Verificación del banco de casos:** revisar la integridad de la información, la procedencia de los materiales, sus condiciones de uso y la ausencia de datos personales identificables.
+
+**3. Evaluación del tutor de inteligencia artificial:** revisar una muestra de respuestas para valorar su coherencia, pertinencia y utilidad educativa. Los resultados se registrarán como evaluación académica, no como validación para diagnóstico clínico.
+
+**4. Pruebas de integración:** comprobar la interacción entre la aplicación y el servicio de inteligencia artificial, registrando errores y comportamientos inesperados.
+
+**5. Evaluación del rendimiento:** registrar los tiempos de respuesta observados durante las pruebas y compararlos con los objetivos definidos por el equipo.
+
+**6. Pruebas de usabilidad:** observar si los estudiantes pueden completar el flujo principal de la aplicación y registrar las dificultades encontradas.
+
+**7. Revisión de la documentación:** comprobar que los manuales y documentos describan las funciones existentes y que sus instrucciones sean consistentes con la versión evaluada.
+
+**8. Registro de defectos:** documentar cada incidencia con su descripción, prioridad, responsable, estado y corrección aplicada.
+
+**9. Repetición de pruebas:** volver a comprobar las funciones corregidas para verificar que el problema haya sido resuelto y que la corrección no haya afectado otras funciones.
+
+**10. Verificación de los entregables:** comparar los resultados obtenidos con los criterios de calidad y aceptación definidos para E1, E2, E3, E4 y E5.
+
+El responsable de pruebas coordinará las comprobaciones y documentará sus resultados. El equipo de desarrollo y análisis participará en la identificación y corrección de defectos. El director del proyecto realizará seguimiento a las incidencias y a las acciones pendientes.
+
+Los resultados se registrarán en los casos de prueba, informes de pruebas, listas de comprobación y registro de incidencias. Los defectos que impidan cumplir los requisitos deberán corregirse y verificarse antes de solicitar la aceptación del entregable, según su prioridad y los criterios acordados.
+
+**Paso**** 4: ****Realizar la Aceptación de los Entregables**
+
+Antes de presentar cada entregable al docente, el equipo comprobará que esté completo y que cumpla los criterios de aceptación definidos en el Plan de Gestión del Alcance y en este plan.
+
+La revisión abarcará los cinco entregables del proyecto: el aplicativo web, el banco inicial de casos clínicos, el agente tutor de IA y sus métricas, el informe de pruebas y validación, y la documentación técnica y de usuario.
+
+El tester y el director del proyecto verificarán las evidencias disponibles y registrarán las observaciones encontradas. Posteriormente, el entregable se presentará al docente, quien podrá aceptarlo o solicitar ajustes. Las observaciones se documentarán y se asignarán a los responsables correspondientes para su corrección y posterior verificación.
+
+**Paso**** 5: ****Realizar la Aceptación Final.**** **
+
+Al finalizar el proyecto se realizará una revisión general para comprobar que los cinco entregables estén completos y que cumplan los criterios de aceptación acordados.
+
+Se verificará que el recorrido principal de la aplicación funcione, que las pruebas estén documentadas, que los criterios de calidad del producto hayan sido evaluados y que la documentación técnica y de usuario esté disponible. También se revisará el estado de las incidencias y se comprobará que no existan defectos críticos abiertos.
+
+El director del proyecto consolidará las evidencias y presentará los resultados al docente para la revisión final. La aceptación se registrará junto con las observaciones que deban conservarse como parte del cierre académico.
+
+Derma-Sim se considerará listo para la aceptación final cuando los entregables cumplan los criterios definidos, los defectos críticos estén resueltos y el docente haya realizado la revisión correspondiente.
+
+Roles y Responsabilidades en la Gestión de la Calidad
+
+El docente responsable de la asignatura, en calidad de propietario del proyecto, revisará los entregables y determinará su aceptación conforme a los requisitos académicos y los criterios acordados. El director del proyecto, Cristian Orlando Lasso Mulato, coordinará las actividades de gestión de la calidad, realizará seguimiento al cumplimiento de los criterios definidos y verificará que las observaciones y acciones correctivas tengan seguimiento.
+
+Juan Pablo Nieto Cobo, como responsable de pruebas, coordinará la ejecución y documentación de las pruebas de calidad, registrará los defectos identificados y comprobará las correcciones realizadas. Jhon Steven Buitrago Quitiaquez, como analista, apoyará la verificación de los requisitos y su correspondencia con los entregables. Harold Alexis Idrobo Puertocarrero y Jacobo Restrepo Cadavid, como desarrolladores, participarán en las pruebas técnicas y en la corrección de los defectos relacionados con la implementación.
+
+La aceptación de los entregables y del proyecto corresponderá al docente, según los criterios establecidos. La revisión de la pertinencia educativa de los casos y de la retroalimentación de la inteligencia artificial podrá contar con apoyo académico o clínico si se designa una persona para esta función.
+
+La siguiente matriz RASCI adapta las actividades de la plantilla a las responsabilidades previstas para Derma-Sim.
+
+| **Actividad** | **Docente / Propietario** | **Cristian – ****Director** | **Jhon – Analista** | **Juan Pablo – Tester** | **Harold y Jacobo – Desarrollo** | **Revisor académico o clínico*** |
+| --- | --- | --- | --- | --- | --- | --- |
+| Elaborar el Plan de Gestión de la Calidad | C | A | R | C | C | I |
+| Definir criterios de aceptación de entregables | A | R | C | C | C | C |
+| Realizar el aseguramiento de la calidad | I | A | C | R | S | C |
+| Realizar el control de calidad | I | A | C | R | S | C |
+| Revisar y aceptar los entregables | A | R | C | S | C | C |
+| Realizar la aceptación final del proyecto | A | R | I | C | I | C |
+
+******OGP****: Órgano de Gobernanza Pertinente*
+
+**La participación del revisor académico o clínico aplica únicamente si se designa una persona para esa función. Si no existe, se puede eliminar esa columna.** *
+
+**Significado de las letras RASCI:**
+
+- R — Responsable: ejecuta la actividad.
+
+- A — Aprobador: responde por la decisión o aprobación final.
+
+- S — Soporte: ayuda a realizar la actividad.
+
+- C — Consultado: aporta información u opinión.
+
+- I — Informado: recibe información sobre la actividad.
+
+Esta matriz es una propuesta adaptada a los roles conocidos del equipo; deben confirmar que las responsabilidades coincidan con lo acordado con el docente.
+
+Técnicas y Herramientas
+
+Para la gestión de la calidad del proyecto Derma-Sim, se utilizarán las siguientes técnicas, de acuerdo con las características de la aplicación web educativa y sus entregables:
+
+- **Revisión entre pares:** los integrantes del equipo revisarán los documentos, requisitos y componentes desarrollados para identificar errores, inconsistencias y oportunidades de mejora antes de su entrega.
+
+- **Pruebas funcionales**: se comprobará que las funciones principales de la aplicación operen según los requisitos definidos, incluyendo el acceso a los casos, el registro de respuestas y la presentación de la retroalimentación.
+
+- **Pruebas de integración:** se verificará la interacción entre la aplicación web y el servicio de inteligencia artificial, registrando los errores que puedan afectar el funcionamiento.
+
+- **Revisión de casos clínicos:** se comprobará que los casos tengan información suficiente para su propósito educativo, fuentes identificables y condiciones de uso apropiadas.
+
+- **Evaluación de respuestas de la inteligencia artificial:** se revisará una muestra de respuestas del tutor para valorar su coherencia, pertinencia y utilidad educativa.
+
+- **Pruebas de usabilidad:** se observará si los estudiantes pueden utilizar las funciones principales y completar un caso sin dificultades importantes.
+
+- **Reuniones de revisión del proyecto:** se revisará el avance, los defectos encontrados, las acciones correctivas y el cumplimiento de los criterios de calidad.
+
+- **Listas de comprobación:** se utilizarán para verificar los requisitos y criterios de calidad de cada entregable antes de su presentación.
+
+- **Pruebas de aceptación:** se comprobará que los entregables cumplan los criterios acordados antes de presentarlos al docente para su aceptación.
+
+Las auditorías formales y las comparaciones de benchmarking no se establecen como actividades obligatorias en esta versión, debido a que no se ha confirmado su necesidad para el alcance académico del proyecto.
+
+Se utilizarán las siguientes herramientas para la gestión de la calidad del proyecto:
+
+- Plan de Gestión de la Calidad de PM2.
+
+- Lista de Control de Revisión de la Calidad PM2.
+
+- Lista de Control de Aceptación de los Entregables PM2.
+
+- Plan de Pruebas y Casos de Prueba 
+
+- Registro de Resultados de Pruebas
+
+- Registro de Incidencias
+
+- Registro de Fuentes de los Casos Clínicos
+
+- Registro de Evaluación del Tutor de IA
+
+- Informe de Pruebas y Validación (E4)
+
+- Documentación Técnica y de Usuario (E5)
+
+- Repositorio del Proyecto
+
+- Documento de Aceptación de los Entregables PM²
+
+- Documento de Aceptación del Proyecto PM².
+
+- Informe de Revisión de Calidad PM2.
+
+- Lista de Control de Revisión de Salida de Fase PM²
+
+- Informe de Fin de Proyecto PM2.
+
+Las herramientas mencionadas se consideran previstas para el proyecto. Su utilización efectiva deberá reflejarse en los registros y evidencias correspondientes.
+
+Actividades de Aseguramiento de la Calidad
+
+El director del Proyecto (DP), Cristian Orlando Lasso Mulato, será el responsable de coordinar y realizar el seguimiento de las actividades de aseguramiento de la calidad de Derma-Sim. Juan Pablo Nieto Cobo, como responsable de pruebas, apoyará la revisión de los artefactos, la verificación de los requisitos y la documentación de los resultados. Los demás integrantes del equipo participarán en las revisiones y correcciones correspondientes a sus responsabilidades.
+
+Las actividades de aseguramiento de la calidad serán realizadas por el equipo del proyecto, con la participación del docente de Gestión de Proyectos TI en la revisión de los entregables y su aceptación. Cuando sea necesario, se podrá solicitar apoyo académico para revisar la pertinencia educativa de los casos clínicos y la retroalimentación generada por la inteligencia artificial.
+
+ Las actividades de aseguramiento de la calidad incluyen lo siguiente:
+
+- Verificación del cumplimiento de las políticas, normas y regulaciones de la organización, así como de las normas, reglamentos y legislación gubernamentales y sectoriales pertinentes.
+
+- Verificación del cumplimiento de los requisitos.
+
+- Revisión y aprobación de los artefactos.
+
+- Revisión del avance del proyecto.
+
+- Reuniones de situación del proyecto.
+
+- Reuniones de revisión del proyecto.
+
+- Revisiones de hitos.
+
+- Revisiones de salida de fase.
+
+- Revisión de los casos clínicos.
+
+- Revisión del tutor de inteligencia artificial.
+
+- Pruebas de aceptación de los entregables.
+
+- Revisión de las incidencias.
+
+- Revisión de aceptación del proyecto.
+
+- Registro de observaciones y acciones correctivas
+
+No se contemplan auditorías formales de certificación, acreditación de seguridad ni auditorías de contratistas como actividades obligatorias, debido a que no se han identificado como necesarias dentro del alcance académico de Derma-Sim. Tampoco se establecen hojas de registro de tiempos o informes mensuales como requisitos específicos, salvo que el docente o el equipo los soliciten.
+
+Métricas
+
+Las métricas permiten verificar el cumplimiento de los criterios de calidad de los artefactos de gestión y de los entregables. Los objetivos numéricos que aparecen a continuación son propuestas que el equipo debe aprobar antes de utilizarlas como criterios oficiales. Los resultados reales solo se registrarán después de ejecutar las actividades de medición.
+
+**Métricas**** del proceso de ****gestión**** **
+
+| **Nombre del Criterio** | **Frecuencia** | **Tolerancia** |
+| --- | --- | --- |
+| Revisión de artefactos | Una vez por fase o cuando se actualicen documentos importantes | Los documentos que se presenten como definitivos deben contar con revisión registrada. |
+| Reuniones de seguimiento realizadas | Semanal | Reprogramar y registrar cualquier reunión que no pueda realizarse. |
+| Revisión del cronograma y actividades | Semanal | Las desviaciones deben quedar identificadas y tener seguimiento. |
+| Revisión de hitos | En cada hito previsto | Los resultados y las observaciones deben quedar registrados. |
+| Revisión de salida de fase | Al finalizar cada fase aplicable | No avanzar sin revisar los pendientes relevantes para la fase siguiente. |
+| Revisión de entregables | Antes de cada presentación formal | Cada entregable debe contrastarse con sus criterios de aceptación. |
+| Seguimiento de incidencias | Durante la ejecución de pruebas | Cada incidencia debe tener prioridad, responsable y estado documentados. |
+
+**Métricas**** de los entregables**
+
+| **Nombre del Criterio** | **Método**** de ****evaluación** | **Objetivo ****propuesto** |
+| --- | --- | --- |
+| Funcionamiento del flujo principal de E1 | Ejecutar los casos de prueba del flujo principal | Todas las funciones definidas como indispensables deben superar sus pruebas. |
+| Calidad educativa de la retroalimentación de E3 | Revisar una muestra de respuestas mediante criterios de coherencia y pertinencia | Al menos el 80 % de la muestra cumple los criterios acordados. |
+| Tiempo de respuesta del tutor de IA | Registrar los tiempos durante las pruebas en condiciones normales de conectividad | Objetivo de referencia: 10 segundos o menos; el equipo debe confirmar su viabilidad. |
+| Usabilidad de E1 | Observar la resolución de casos por parte de participantes de prueba | Al menos el 80 % completa un caso sin ayuda, si se dispone de participantes suficientes. |
+| Cobertura de pruebas de requisitos prioritarios | Comparar los requisitos prioritarios con los casos de prueba ejecutados | El 100 % de los requisitos de alta prioridad debe contar con pruebas documentadas. |
+| Defectos críticos | Revisar el registro de incidencias antes de la aceptación | Ningún defecto crítico sin resolver al solicitar la aceptación, salvo decisión documentada del propietario del proyecto. |
+| Revisión de casos clínicos | Revisar el registro de casos y la evidencia de revisión | Propuesta inicial: al menos 10 casos revisados, si el alcance y los recursos lo permiten. |
+| Procedencia y uso de materiales | Verificar la información de fuentes y las condiciones de uso | El 100 % de los casos incorporados debe tener procedencia identificable y no contener datos personales identificables. |
+| Documentación E5 | Revisar la correspondencia con la versión entregada | Toda la documentación comprometida debe estar disponible y revisada. |
+| Aceptación de entregables | Comprobar las evidencias de revisión y aceptación | Los cinco entregables deben contar con la decisión o evidencia de aceptación correspondiente antes del cierre. |
+
+Control de Calidad
+
+El control de calidad se realizará mediante la revisión de los resultados de las pruebas, las listas de comprobación, los registros de incidencias y las evidencias asociadas a cada entregable. Su finalidad es identificar incumplimientos y determinar las correcciones necesarias antes de la aceptación.
+
+Revisiones de Calidad
+
+| **Actividad de revisión** | **Frecuencia prevista** | **Evidencia o resultado** |
+| --- | --- | --- |
+| Revisión de artefactos del proyecto | Por fase y cuando se produzcan cambios relevantes | Lista de revisión de calidad |
+| Revisión del avance y las incidencias | Semanal | Registro de seguimiento |
+| Revisión de los resultados de pruebas | Durante la ejecución de las pruebas y antes de cada entrega | Informe de pruebas |
+| Revisión de la calidad de casos y respuestas de IA | Antes de la aceptación de E2 y E3 | Registro de revisión académica |
+| Revisión de cierre de fase | Al alcanzar los hitos establecidos | Lista de revisión de salida de fase |
+
+Los resultados se analizarán para identificar desviaciones y oportunidades de mejora. Las acciones correctivas se asignarán a responsables y se mantendrán abiertas hasta que se verifique su resolución o exista una decisión documentada sobre su tratamiento.
+
+Cada vez que se ejecute el paso de Control de Calidad, se deberá evaluar la eficacia de las recomendaciones y de las medidas correctivas/de mejora del ciclo anterior.
+
+Revisiones de los Entregables
+
+Como no se ha confirmado la existencia de un Plan de Aceptación de Entregables independiente, las actividades de aceptación se describen en este plan y se relacionan con la verificación del alcance.
+
+| **Entregable** | **Aspectos que se revisarán** | **Evidencia de revisión** |
+| --- | --- | --- |
+| E1. Aplicación web | Funciones principales, navegación, visualización de casos, registro de respuestas y presentación de retroalimentación | Casos de prueba e informe de resultados |
+| E2. Banco inicial de casos clínicos | Integridad de la información, procedencia de fuentes, condiciones de uso y ausencia de datos personales identificables | Lista de comprobación y registro de fuentes |
+| E3. Tutor de IA y métricas | Integración, funcionamiento, coherencia de respuestas y resultados de las mediciones | Registro de evaluación e informe de pruebas |
+| E4. Informe de pruebas y validación | Cobertura de pruebas, resultados, defectos detectados, correcciones y limitaciones | Informe revisado |
+| E5. Documentación técnica y de usuario | Exactitud de las instrucciones, correspondencia con la aplicación y disponibilidad de la documentación acordada | Lista de revisión documental |
+
+El equipo revisará los entregables antes de presentarlos al docente. Las observaciones se registrarán y se corregirán cuando corresponda. La decisión final de aceptación corresponde al propietario del proyecto, de acuerdo con los criterios acordados.
+
+Otras Actividades de Control de la Calidad.
+
+Además de las revisiones anteriores, se aplicarán las siguientes actividades cuando sean pertinentes:
+
+- Verificar nuevamente las funciones afectadas después de corregir un defecto.
+
+- Comprobar que los cambios autorizados no introduzcan errores en funciones existentes.
+
+- Registrar los tiempos de respuesta observados y los errores de integración con el servicio de IA.
+
+- Revisar la presencia del aviso de uso educativo y comprobar que no se incluyan datos personales identificables.
+
+- Confirmar que los materiales del banco de casos tengan fuentes y condiciones de uso documentadas.
+
+- Comparar la versión final de la documentación con la versión de la aplicación que se entrega.
+
+- Registrar las limitaciones que no puedan resolverse dentro del alcance y comunicarlas al director del proyecto y al docente antes de la aceptación.
+
+Las actividades y sus resultados se documentarán en los casos de prueba, listas de comprobación, registro de incidencias e informes de revisión.
+
+Registros de Calidad
+
+Los registros de calidad (evidencia de que se han realizado actividades de gestión de la calidad) se archivan en el repositorio del proyecto, en la carpeta "Seguimiento y Control". Las diferentes versiones de los artefactos del proyecto (creadas en cada actualización de los artefactos) proporcionarán evidencias de la realización de estas actividades.  
+
+Gestión de la Configuración
+
+La gestión de la configuración tiene como propósito identificar y controlar las versiones de los artefactos y entregables de Derma-Sim, mantener una referencia fiable de la documentación vigente y evitar que se utilicen versiones incorrectas durante la revisión y aceptación.
+
+**Identificación de los elementos de configuración**
+
+Se consideran elementos de configuración los documentos de gestión, requisitos, cronograma, casos de prueba, código fuente, banco de casos, documentación y entregables finales.
+
+| **Elemento** | **Identificación o control previsto** |
+| --- | --- |
+| Planes de gestión del proyecto | Nombre del documento, versión y fecha |
+| Requisitos y alcance | Versión del documento y registro de cambios |
+| Código de la aplicación | Versión registrada en el repositorio utilizado por el equipo |
+| Banco de casos clínicos | Versión del conjunto de casos y registro de fuentes |
+| Plan y casos de prueba | Versión del documento y fecha de actualización |
+| Informe de pruebas y validación | Versión, fecha y responsable |
+| Documentación técnica y de usuario | Versión asociada con la aplicación entregada |
+| Entregables finales | Identificación del entregable, versión y evidencia de aceptación |
+
+**Registro de configuración**
+
+El equipo mantendrá un registro de configuración que permita identificar el nombre de cada artefacto, su versión vigente, ubicación, responsable y estado de revisión. Este registro deberá actualizarse cuando se incorpore un documento nuevo o se apruebe una modificación relevante.
+
+**Gestión de cambios**
+
+Las modificaciones que afecten los requisitos, entregables o criterios de calidad deberán ser identificadas y registradas. El director del proyecto revisará sus efectos sobre el alcance, el cronograma y la calidad, y coordinará la decisión con las personas responsables conforme al procedimiento de gestión de cambios del proyecto.
+
+Una modificación no deberá considerarse aprobada únicamente por haberse realizado técnicamente. Cuando corresponda, deberá revisarse y verificarse antes de incorporarla a la versión entregable.
+
+**Versionado y lanzamiento de artefactos y entregables**
+
+Se utilizará el repositorio de código y la carpeta compartida que el equipo haya acordado. Los documentos tendrán un nombre identificable y una versión, por ejemplo:
+
+Plan_Gestion_Calidad_Derma-Sim_v1.0.docx
+
+Las versiones posteriores deberán reflejar los cambios efectuados. La herramienta concreta para gestionar el versionado y la publicación debe corresponder con la que el equipo esté utilizando realmente.
+
+**Almacenamiento y archivo de los artefactos y entregables del proyecto**
+
+Los artefactos del proyecto se organizarán por fase PM², utilizando la siguiente estructura de carpetas:
+
+- 01 inicio
+
+- 02 planificación
+
+- 03 ejecución
+
+- 04 seguimiento y Control
+
+- 05 cierre
+
+El acceso a los archivos del proyecto se limitará a los integrantes del equipo y al docente, según los permisos acordados. Se mantendrán copias de respaldo en ubicaciones apropiadas y se conservarán los registros necesarios para demostrar la revisión y aceptación final. Los periodos definitivos de conservación y archivo deberán acordarse con el docente
+
+Planes PM² Relacionados
+
+**Manual del Proyecto**
+
+El Plan para la Dirección del Proyecto establece el enfoque general para cumplir los objetivos de Derma-Sim y reúne la planificación y los procedimientos de gestión aplicables. Se relaciona con este plan porque establece el contexto de alcance, cronograma, responsabilidades y seguimiento dentro del cual se desarrollan las actividades de calidad.
+
+**Plan de Gestión de las Comunicaciones**
+
+La gestión de las comunicaciones permite que los integrantes del equipo y el docente reciban la información necesaria sobre el avance, las observaciones, los defectos y la aceptación de los entregables. En Derma-Sim, su relación con la calidad se concreta en el seguimiento de los resultados y en la comunicación oportuna de incidencias y decisiones.
+
+**Plan de Aceptación de los Entreg****ables**
+
+No se ha confirmado un plan independiente de aceptación de entregables para Derma-Sim. Por ello, las actividades y los criterios de aceptación se describen en este Plan de Gestión de Calidad y se complementan con la sección de verificación del alcance del proyecto.
+
+Si posteriormente el equipo elabora un plan independiente, deberá actualizarse esta referencia para evitar duplicidades o contradicciones entre documentos
+
+**Plan de ****Gestión de ****Incidencias**
+
+El Plan de Gestión de Incidencias establece cómo se identifican, registran, priorizan, asignan y resuelven las incidencias del proyecto. Su relación con la calidad consiste en asegurar que los defectos detectados durante las pruebas reciban seguimiento y que se documente su resolución o la decisión adoptada sobre ellos.
+
+La ubicación y versión de cada documento relacionado deberán indicarse en el apéndice una vez que estén disponibles.
+
+- Apéndice 1: Referencias y Documentos Relacionados
+
+| **ID** | **Referencia o Documento Relacionado** | **Fuente o ****Enlace/Localización** |
+| --- | --- | --- |
+| 1 | Acta de Constitución del Proyecto – Derma-Sim (v1.0, 29/09/2026) | Carpeta compartida del equipo, 01 Inicio https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim&viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0 |
+| 2 | Matriz de Partes Interesadas – Derma-Sim (v1.0) | *Carpeta compartida del equipo, 01 Inicio* *https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim**&**viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0* |
+| 3 | Plan de Gestión del Alcance (v1.0, 06/10/2026) | Carpeta compartida del equipo, 02 Planificación https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim&viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0 |
+| 4 | Estructura de Desglose del Trabajo (EDT/WBS) (v1.0, 06/10/2026) | Carpeta compartida del equipo, 02 Planificación https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim&viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0 |
+| 5 | Plan de Gestión del Cronograma (v1.0, 06/10/2026) | Carpeta compartida del equipo, 02 Planificación https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim&viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0 |
+| 6 | Lista de Actividades (v1.0, 06/10/2026) | Carpeta compartida del equipo, 02 Planificación https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim&viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0 |
+| 7 | Lista de Hitos (v1.0, 06/10/2026) | Carpeta compartida del equipo, 02 Planificación https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim&viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0 |
+| 8 | Plan para la Dirección del Proyecto (v1.0, 15/10/2026) | Carpeta compartida del equipo, 02 Planificación https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim&viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0 |
+| 9 | Lista de Control de Revisión de la Calidad (PM²) | *Por elaborar a partir de la plantilla PM²; carpeta 02 Planificación* *https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim**&**viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0* |
+| 10 | Lista de Control de Aceptación de los Entregables (PM²) | *Por elaborar a partir de la plantilla PM²; carpeta 02 Planificación* *https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim**&**viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0* |
+| 11 | Carpeta del Proyecto | *Carpeta compartida del equipo del proyecto Derma-Sim** https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim**&**viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0* |
+| 12 | Registro de configuración | Por elaborar; carpeta 04 Seguimiento y Control |
+
+	Fecha: 18/10/2026                                                                                          4 / 16	  Versión: 1.1

@@ -1,0 +1,43 @@
+**LISTA DE HITOS**
+
+**DERMA-SIM**
+
+**UNIVERSIDAD SANTIAGO DE CALI (U****SC)**
+
+**Calle 5 62-00, barrio ****pampalinda**
+
+**FACULTAD DE INGENIERIA-INGENIERIA D****E SISTEMAS**
+
+**CALI,**** ****VALLE DEL CAUCA,**** C OLOMBIA**
+
+**0****6/10/2026**
+
+Un hito del Proyecto es un evento significativo que puede señalar la aceptación o verificación de la finalización de una fase, una tarea, una decisión o un entregable. los hitos no son actividades de trabajo, sino eventos importantes que normalmente tienen una duración de cero. El docente o el equipo pueden agregar hitos   durante la planeación del proyecto.
+
+Un resumen de los hitos se incluye en el acta de constitución y en el diccionario de la EDT, esta lista es la referencia independiente del plan.
+
+La lista de hitos es una tabla con la descripción de cada hito, su fecha de finalización planificada, si es obligatorio u opcional y como se verificará su cumplimiento. Es una referencia sencilla para todas las partes interesadas sobre que hitos tiene el proyecto  y cuando ocurrirán. Como toda la documentación del proyecto, cualquier cambio propuesto se debe seguir el proceso de gestión de cambios y comunicarse a todos los interesados; como los hitos pueden afectar el proyecto de varias formas, los cambios requieren la aprobación del docente.
+
+**Lista de hitos de Derma-Sim****:**
+
+| **Lista de ****Hitos** |
+| --- |
+| **Proyecto: **Derma-Sim: Simulador clínico de casos dermatológicos con agente tutor de IA** ** | **Fecha****: **06/10/2026 |
+| **No. de ****hito** | **Hito** | **Obligatorio****/****Opcional** | **Fecha**** de ****finalización**** (indicative)** | **(****Verificación****)** |
+| **001** | Acta de constitución del proyecto aprobada (cierre del inicio) | Obligatorio | S1 02/10/2026 | Aprobación del docente |
+| **002** | Plan de gestión y cronograma aprobados, y plan TSP del equipo (cierre de planeación) | Obligatorio | S2 09/10/2026 | Aprobación del docente; cronograma fijado como línea base |
+| **003** | Etapa de análisis completa: requisitos especificados, banco inicial de caos curado y supuestos validados | Obligatorio | S3 16/10/2026 | Línea base de requisitos aprobada por el director de proyecto y el docente; al menos 10 casos con licencia verificada |
+| **004** | Etapa de diseño completa: arquitectura , modelo de datos, interfaz y prompts del agente tutor aprobados | Obligatorio | S4 23/10/2026 | Revisión entre pares y aprobación del director de proyecto |
+| **005** | Primera versión funcional del aplicativo con el recorrido completo (caso-decisión-evaluación de la IA-retroalimentación) | Obligatorio | S6 06/11/2026 | Demostración del recorrido completo, sin intervención manual, ante el director de proyecto y el tester |
+| **006** | Aplicativo integrado con el banco de casos y con el registro de métricas del tutor | Obligatorio | S7 13/11/2026 | Demostración del aplicativo con los casos cargados y las métricas registradas en cada sesión |
+| **007** | Etapa de pruebas completa: pruebas funcionales, de las respuestas de la IA y de usabilidad ejecutadas y defectos críticos corregidos | Obligatorio | S8 20/11/2026 | Informe de pruebas y validación; ningún defecto crítico abierto; metas de calidad del acta verificadas |
+| **008** | Documentación técnica y de usuario entregada | Obligatorio | S9 27/11/2026 | Revisión del equipo y aceptación del docente; coincide con la versión final del aplicativo |
+| **009** | Entrega y sustentación final; cierre del proyecto | Obligatorio | S10 04/12/2026 | Sustentación y aceptación formal del docente |
+
+**Tiempo: **Las semanas se cuentan desde la aprobación del acta (S1= Semana del 28/09/2026). Las fechas corresponden al viernes de cada semana y son indicativas hasta confirmarlas con el calendario académico del semestre; prevalece la fecha final de entrega que fije el docente. Cada hito admite una desviación máxima de una semana (criterio de éxito del acta).
+
+**Calidad: **Un hito solo se da por cumplido cuando se satisface su criterio de la columna “verificación”; el director de proyecto lo registra en el informe de avance semanal.
+
+**Alcance: **Los nueve hitos corresponden a H1 a H9 del acta de constitución del proyecto y a los paquetes de trabajo de la EDT; cualquier hito nuevo o modificado sigue el proceso de gestión de cambios.
+
+2

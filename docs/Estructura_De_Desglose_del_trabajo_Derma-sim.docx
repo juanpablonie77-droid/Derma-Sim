@@ -1,0 +1,258 @@
+|  |  |  |
+| --- | --- | --- |
+
+Estructura De Desglose del trabajo (EDT)
+
+Derma Sim
+
+Universidad Santiago De Cali (USC)
+
+Facultad De Ingeniería _ Ingeniería De Sistemas
+
+Cali, Valle Del Cauca, Colombia
+
+06/10/2026
+
+                                                                                         
+
+**Introducción**
+
+La EDT es una vista del proyecto que muestra que trabajo abarca. Es una herramienta que ayuda a comunicar con facilidad el trabajo y los procesos necesarios para ejecutar el proyecto. El director de proyecto y el equipo usan la EDT para elaborar el cronograma y los requisitos de recursos. Este documento presenta la EDT de Derma Sim en cuatro vistas (esquema, estructura jerárquica, vista tabular y árbol)** **y su diccionario.
+
+La EDT se desarrolló hasta el tercer nivel. Cada elemento de tercer nivel es un paquete de trabajo de entre 4 y 40 horas de trabajo, que se descompone en las actividades de la lista de actividades (IDs 1001 a 1042).
+
+La estructura de desglose del trabajo aquí presentada representa todo el trabajo requerido para completar el proyecto Derma Sim, es decir, el 100% del alcance definido en el acta de constitución del proyecto y en el plan de gestión de alcance. Los códigos de la EDT se usan también en la lista de actividades y en la lista de hitos. Esta versión no incluye costos.
+
+**Vista de esquema **
+
+La vista de esquema presenta un formato fácil de ver y de entender de la EDT. También es un buen formato para elaborarla, porque permite hacer cambios con facilidad: la numeración automática de Microsoft Word actualiza el código de la EDT de forma automática. 
+
+- Derma Sim
+
+- Gestión del proyecto
+
+- Acta de Constitución del proyecto
+
+- Matriz de partes interesadas
+
+- Planes de gestión del alcance y del cronograma
+
+- Reunión de arranque y plan TSP del equipo
+
+- Seguimiento semanal y reportes de avance 
+
+- Gestión de riesgos y de cambios 
+
+- Análisis
+
+- Requisitos funcionales y no funcionales 
+
+- Curaduría del banco inicial de casos clínicos 
+
+- Verificación de licencias y desidentificación de los casos
+
+- Validación de supuestos línea base de requisitos 
+
+- Diseño
+
+- Arquitectura en capas
+
+- Modelo de datos de los casos
+
+- Diseño de la interfaz web
+
+- Diseño del agente tutor de IA y de las métricas
+
+- Revisión y aprobación del diseño
+
+- Construcción
+
+- Visor de casos 
+
+- Captura de la decisión diagnostica y pantalla de resultado
+
+- API y lógica de negocio
+
+- Integración del agente tutor de IA
+
+- Registro de métricas de la sesión
+
+- Carga del banco de casos e integración final
+
+- Pruebas
+
+- Plan de pruebas y casos de prueba
+
+- Pruebas funcionales 
+
+- Pruebas de las respuestas de la IA con revisión clínica
+
+- Prueba de usabilidad con estudiantes
+
+- Corrección de defectos 
+
+- Informe de pruebas y validación
+
+- Documentación y cierre
+
+- Documentación técnica 
+
+- Guía de usuario 
+
+- Demostración técnica
+
+- Entrega y sustentación final
+
+- Aceptación formal de los entregables
+
+- Lecciones aprendidas y archivo del proyecto
+
+**Estructura jerárquica**
+
+La estructura jerárquica es similar a la vista de esquema, pero sin sangría. Aunque este formato es más difícil de leer, puede ser útil cuando hay muchos niveles y la sangría de cada uno haría la tabla demasiado grande para el documento.
+
+| **Nivel** | **Código EDT** | **Nombre**** del ****elemento** |
+| --- | --- | --- |
+| 1 | 1 | Derma Sim |
+| 2 | 1.1 | Gestión del Proyecto |
+| 3 | 1.1.1 | Acta de Constitución del Proyecto |
+| 3 | 1.1.2 | Matriz de partes interesadas |
+| 3 | 1.1.3 | Planes de gestión del alcance y del cronograma |
+| 3 | 1.1.4 | Reunión de arranque y plan TSP del equipo |
+| 3 | 1.1.5 | Seguimiento semanal y reportes de avance |
+| 3 | 1.1.6 | Gestión de riesgos y de cambios |
+| 2 | 1.2 | Análisis |
+| 3 | 1.2.1 | Requisitos funcionales y no funcionales |
+| 3 | 1.2.2 | Curaduría del banco inicial de casos clínicos |
+| 3 | 1.2.3 | Verificación de licencias y desidentificación de los casos |
+| 3 | 1.2.4 | Validación de supuestos y línea base de requisitos |
+| 2 | 1.3 | Diseño |
+| 3 | 1.3.1 | Arquitectura en capas |
+| 3 | 1.3.2 | Modelo de datos de los casos |
+| 3 | 1.3.3 | Diseño de la interfaz web |
+| 3 | 1.3.4 | Diseño del agente tutor de IA y de las métricas |
+| 3 | 1.3.5 | Revisión y aprobación del diseño |
+| 2 | 1.4 | Construcción |
+| 3 | 1.4.1 | Visor de casos |
+| 3 | 1.4.2 | Captura de la decisión diagnóstica y pantalla de resultado |
+| 3 | 1.4.3 | API y lógica de negocio |
+| 3 | 1.4.4 | Integración del agente tutor de IA |
+| 3 | 1.4.5 | Registro de métricas de la sesión |
+| 3 | 1.4.6 | Carga del banco de casos e integración final |
+| 2 | 1.5 | Pruebas |
+| 3 | 1.5.1 | Plan de pruebas y casos de prueba |
+| 3 | 1.5.2 | Pruebas funcionales |
+| 3 | 1.5.3 | Pruebas de las respuestas de la IA con revisión clínica |
+| 3 | 1.5.4 | Prueba de usabilidad con estudiantes |
+| 3 | 1.5.5 | Corrección de defectos |
+| 3 | 1.5.6 | Informe de pruebas y validación |
+| 2 | 1.6 | Documentación y Cierre |
+| 3 | 1.6.1 | Documentación técnica |
+| 3 | 1.6.2 | Guía de usuario |
+| 3 | 1.6.3 | Demostración y preparación de la sustentación |
+| 3 | 1.6.4 | Entrega y sustentación final |
+| 3 | 1.6.5 | Aceptación formal de los entregables |
+| 3 | 1.6.6 | Lecciones aprendidas y archivo del proyecto |
+
+**Vista tabular**
+
+La vista tabular es una vista de la EDT bien organizada en una tabla. Es una buena opción para las organizaciones que prefieren los formatos de tabla.
+
+| Nivel 1 | Nivel 2 | Nivel 3 |
+| --- | --- | --- |
+| 1 | 1.1 Gestión del proyecto | Acta de Constitución del proyecto Matriz de partes interesadas Planes de gestión del alcance y del cronograma Reunión de arranque y plan TSP del equipo Seguimiento semanal y reportes de avance Gestión de riesgos y de cambios |
+|  | Análisis | 1.2.1 Requisitos funcionales y no funcionales 1.2.2 Curaduría del banco inicial de casos clínicos 1.2.3 Verificación de licencias y desidentificación de los casos 1.2.4 Validación de supuestos línea base de requisitos |
+|  | Diseño | Arquitectura en capas Modelo de datos de los casos Diseño de la interfaz web Diseño del agente tutor de IA y de las métricas Revisión y aprobación del diseño |
+|  | 1.4 Construcción | 1.4.1 Visor de casos 1.4.2 Captura de la decisión diagnostica y pantalla de resultado API y lógica de negocio Integración del agente tutor de IA Registro de métricas de la sesión Carga del banco de casos e integración final |
+|  | 1.5 Pruebas | Plan de pruebas y casos de prueba Pruebas funcionales 1.5.3 Pruebas de las respuestas de la IA con revisión clínica 1.5.4 Prueba de usabilidad con estudiantes 1.5.5 Corrección de defectos 1.5.6 Informe de pruebas y validación |
+|  | 1.6 Documentación y cierre | 1.6. Documentación técnica 1.6.2 Guía de usuario 1.6.3 Demostración técnica 1.6.4 Entrega y sustentación final 1.6.5 Aceptación formal de los entregables 1.6.6 Lecciones aprendidas y archivo del proyecto |
+
+**Vista de ****árbol **
+
+La vista de árbol es el formato mas popular de la EDT. Presenta una vista fácil de entender; sin embargo, es difícil de crear sin una aplicación diseñada para este tipo de organigramas. El árbol siguiente muestra las seis ramas de la EDT de Derma Sim con sus 33 paquetes de trabajo y las semanas 
+
+** **
+
+**Diccionario de la EDT**	
+
+El diccionario de la EDT contiene todos los detalles de la EDT necesarios para completar con éxito el proyecto. Lo más importante es que contiene la definición de cada paquete de trabajo, que puede entenderse como una mini declaración del alcance. Los integrantes del equipo consultan el diccionario para determinar el alcance del paquete de trabajo que se les asigno, por lo que es importante que la definición sea clara. Cada definición indica la semana prevista (S1 a S10). Las columnas de costo no se incluyen en esta versión.          
+
+                                                                                                                                                                                                                                                        
+
+| Nivel | Código EDT | Nombre del elemento | Definición |
+| --- | --- | --- | --- |
+| 1 | 1 | Derma Sim | Todo el trabajo para gestionar y desarrollar el aplicativo web Derma Sim (simulador dermatológico con agente tutor de IA), con su banco inicial de casos, métricas del tutor y la documentación dentro del calendario académico del semestre (S1 a S10) |
+| 2 | 1.1 | Gestión del proyecto | Trabajo de inicio, planeación, seguimiento, su impacto, su rol PM2 y la somete a la aprobación del docente, semana S1. |
+| 3 | 1.1.1 | Acta de constitución del proyecto | El director de proyecto redacta el acta sobre la plantilla PM y la somete a la aprobación del docente. Semana S1 |
+| 3 | 1.1.2 | Matriz de partes interesadas | Se identifican las partes interesadas, su impacto su rol PM2, sus canales de comunicación y la estrategia para gestionar. Semana S1 |
+| 3 | 1.1.3 | Planes de gestión alcance y de cronograma | Se elabora el plan de gestión del alcance, la EDT, el plan de gestión del cronograma, la lista de actividades y la lista de hitos |
+| 3 | 1.1.4 | Reunión de arranque y plan TSP del equipo | Se realiza la reunión de arranque y se elabora el plan TSP del equipo: metas, roles y tareas por semana |
+| 3 | 1.1.5 | Seguimiento semanal y reportes de avance | Reunión semanal de seguimiento frente a los hitos con registro de las desviaciones de alcance, tiempo y calidad |
+| 3 | 1.1.6 | Gestion de riesgos y de cambios | Se mantiene el registro de riesgos y se tramitan, las solicitudes de cambio según el proceso definido en el plan de gestión del alcance, semana S2 a S10 |
+| 2 | 1.2 | Análisis | Etapa TSP de análisis: especificación de los requisitos y curaduría del banco inicial de casos. Semanas S2 a S3 |
+| 3 | 1.2.1 | Requisitos funcionales y no funcionales | Se levantan y especifican los requisitos, con su prioridad y criterios de aceptación, a partir de las necesidades N1 a N5 del acta. Semanas S2 a S3 |
+| 3 | 1.2.2 | Curaduría del banco inicial de casos clínicos | Se seleccionan y estructuran al menos 10 casos con historia clínica, imagen dermatoscopia y diagnostico de referencia, de fuentes publicas o suministrados por el docente, semanas S2 a S3 |
+| 3 | 1.2.3 | Verificación de licencias y desidentificación de los casos | Se verifica, la licencia de cada imagen y se confirma que ningún caso contiene datos identificables |
+| 3 | 1.2.4 | Validación de supuestos y línea base de requisitos | Se valida los supuestos del acta y se fija la linea base de requisitos, que solo cambia mediante el proceso de gestión de cambios. |
+| 2 | 1.3 | Diseño | Etapa TSP de diseño: arquitectura, datos, interfaz y agente tutor de IA |
+| 3 | 1.3.1 | Arquitectura en capas | Se define la arquitectura cliente servidor en capas, con el agente de IA desacoplado desacoplado de la interfaz. |
+| 3 | 1.3.2 | Modelo de datos de los casos | Se diseña el modelo de datos de casos, sesiones y métricas. Semana S4 |
+| 3 | 1.3.3 | Diseño de la interfaz web | Se elaboran los prototipos del visor del caso, de la captura de la decisión y de la pantalla de resultado, con el aviso de uso educativo. |
+| 3 | 1.3.4 | Diseño del agente tutor de IA y de las métricas | Se diseñan los prompts del tutor y se definen las métricas de coherencia, pertinencia y tiempo de respuesta. Semana S4 |
+| 3 | 1.3.5 | Revisión y aprobación del diseño | Revisión entre pares de la arquitectura, los datos, la interfaz, y los prompts, y aprobación del director de Proyecto. |
+| 2 | 1.4 | Construcción | Etapa TSP de construcción de la interfaz web, la API, la integración del agente tutor de IA y el registro de |
+| 3 | 1.4.1 | Visor de casos | Se construye el visor que presenta la historia clínica y la imagen, dermatoscopia del caso. |
+| 3 | 1.4.2 | Captura de la decisión diagnostica y pantalla de resultado | Se construyen la captura de la decisión del estudiante y lA pantalla de resultado |
+| 3 | 1.4.3 | API y lógica de negocio | Se construyen la API y la lógica de negocio que gestionan los casos y las sesiones. Semanas S5 a S6 |
+| 3 | 1.4.4 | Integración del agente tutos de IA | Se integra el agente evaluador para que el flujo caso, decisión, evaluación, retroalimentación funcione sin intervención manual, Semana S6 |
+| 3 | 1.4.5 | Registro de métricas de la sesión | Se registran en cada sesión la coherencia, la pertinencia y el tiempo de respuesta del tutor. |
+| 3 | 1.4.6 | Carga del banco de casos e integración final | Se carga el banco de casos y se integran todos los módulos en la versión integrada del aplicativo. |
+| 2 | 1.5 | Pruebas | Etapa TSP de pruebas: verificación y validación de la funcionalidad, de las respuestas de la IA y de la usabilidad, Semanas S7 a S8 |
+| 3 | 1.5.1 | Plan de pruebas y casos de prueba | Se elaboran el plan y los casos de prueba para cada requisito de prioridad alta. |
+| 3 | 1.5.2 | Pruebas funcionales | Se ejecutan los casos de prueba y se registran los defectos encontrados. Semana S8 |
+| 3 | 1.5.3 | Pruebas de las respuestas de la IA | Se mide la coherencia y la pertinencia de la retroalimentación con una muestra de casos revisada por un docente o profesional de la salud |
+| 3 | 1.5.4 | Prueba de usabilidad con estudiantes | Estudiantes de ciencias de la salud completan un caso y se mide cuantos lo logran sin ayuda del equipo. |
+| 3 | 1.5.5 | Corrección de defectos | Se corrigen los defectos y se repiten las pruebas afectadas; no deben quedar defectos críticos abiertos |
+| 3 | 1.5.6 |  | Se consolidan los resultados. Los defectos. Las correcciones y el cumplimiento de los criterios de éxito del acta |
+| 2 | 1.6. | Documentación y cierre | Documentación técnica y de usuario entrega y sustentación final, aceptación formal y cierre del proyecto. |
+| 3 | 1.6.1 | Documentación técnica | Se documentan la arquitectura, el modelo de datos y la instalación del aplicativo. Semana S9 |
+| 3 | 1.6.2 | Guía de usuario | Se elabora la guía de usuario para docentes y estudiantes, con el aviso de uso educativo. Semana S9 |
+| 3 | 1.6.3 | Demostración y preparación de la sustentación | Se prepara la demostración del aplicativo y la presentación de la sustentación final |
+| 3 | 1.6.4 | Entrega y sustentación final | El equipo entrega los productos y sustenta el aplicativo ante el docente en la fecha fijada por el calendario académico. |
+| 3 | 1.6.5 | Aceptación formal de los entregables | El docente verifica los entregables frente a los criterios de éxito del acta y los acepta formalmente. |
+| 3 | 1.6.6 | Lecciones aprendidas y archivo del proyecto | Se documentan las lecciones aprendidas y se archivan los documentos y el código del proyecto. |
+
+**Glosario de términos**
+
+Se incluye un glosario de términos porque algunos no son comprendidos por personas sin formación en gestión de proyectos. Por ejemplo, lo que el practice standard for work Breakdown Structures del PMI llama código de la EDT se conoce comúnmente como numero de la EDT.
+
+Nivel de esfuerzo:
+
+El nivel de esfuerzo (LOE, por Leve lof Effort) es la cantidad de trabajo necesario para completar una tarea.
+
+Código EDT:
+
+Identificador único asignado a cada elemento de la EDT para designar su ubicación jerárquica dentro de ella.
+
+Paquete de trabajo: 
+
+Un paquete de trabajo es una entregable o componente de trabajo en el nivel mas bajo de su rama de la EDT.
+
+Componente de la EDT:
+
+Componente de la EDT ubicado en cualquier nivel.puede ser un paquete de trabajo o un elemento de la EDT; no hay restricción sobre lo que es.
+
+Elemento de la EDT:
+
+Un elemento de la EDT es un solo componente de la EDT con sus atributos asociados, ubicado en cualquier parte de ella. Puede contener trabajo, otros elemento o paquetes de trabajo.
+
+TSP: 
+
+Team Software Process: Proceso de desarrollo de software para equipos pequeños que Derma Simsigue en sus etapas de análisis, diseño, construcción y pruebas.
+
+Semana S1 a S10:
+
+Semanas del proyecto contadas desde la aprobación del acta; S1es la semana del 28/09/2026
+
+|  |  |  |
+| --- | --- | --- |

@@ -1,0 +1,446 @@
+Derma-Sim** ** Acta de Constitución
+
+		
+
+Organización Los therians
+
+Departamento De TI
+
+Acta de Constitución del Proyecto
+
+**Derma-Sim**
+
+Fecha: 		29/09/2026
+
+Versión: 	1.0 
+
+Versión de Plantilla: 3.0.1
+
+*Esta plantilla está basada en PM² V3.**0*
+
+*Para consultar la última versión de esta plantilla por favor visite **el Wiki** PM²*
+
+**Información de Control del Documento**
+| **Descripción** | **Valor** |
+| --- | --- |
+| **Título del Documento****:** | Acta de Consitución del Proyecto |
+| **Título del Proyecto:** | Derma-Sim |
+| **Autor del Documento:** | Cristian Orlando Lasso Mulato |
+| **Propietario del Proyecto:**** ** | Jair Enrique sanclemente castro |
+| **Proveedor de Soluciones** | Equipo de proyecto derma -sim |
+| **Director de Proyecto****:**** ** | Cristian Orlando Lasso Mulato |
+| **Versión**** del Documento****: ** | 1.0 |
+| **Confidencialidad****: ** | Limitada |
+| **Fecha: ** | 29/09/2026 |
+
+**Aprobación y revisión del documento:**
+
+NOTA: Se requieren todas las aprobaciones. Se deben mantener registros de cada aprobación. 
+
+Todos los revisores de la lista se consideran necesarios a menos que se indiquen explícitamente como Opcionales. El Director del Proyecto (DP) se responsabiliza de este documento salvo indicación expresa de lo contrario.
+
+| **Nombre** | **Rol** | **Acción** | **Fecha** |
+| --- | --- | --- | --- |
+| Jair enrique sanclemente | Propietario del proyecto | *Aprueba* |  |
+| Cristian Orlando Laso Mulato | Director de proyecto | Revisa | 29/09/2026 |
+|  |  |  |  |
+
+**Historial de documentos:**
+
+El Autor del Documento está autorizado a hacer los siguientes tipos de cambios al documento sin requerir que el documento sea aprobado nuevamente:
+
+- *Editorial, formato y ortografía**.*
+
+- *Aclaraciones.*
+
+Para solicitar un cambio en este documento, póngase en contacto con el Autor del Documento o el Propietario del Proyecto.
+
+Las modificaciones de este documento se resumen en la siguiente tabla en orden cronológico inverso (primero la última versión).
+
+| **Revisión** | **Fecha** | **Creada por** | **Breve descripción de los cambios** |
+| --- | --- | --- | --- |
+| 1.0 | 29/09/2026 | Cristian Orlando Lasso Mulato | Versión inicial del acta de constitución del proyecto |
+|  |  |  |  |
+|  |  |  |  |
+
+**Gestión de la configuración: Localización del documento **
+
+La última versión de este documento está guardada en [https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim&viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0](https://usceduco7466-my.sharepoint.com/my?id=%2Fpersonal%2Fcristian%5Flasso01%5Fusc%5Fedu%5Fco%2FDocuments%2FGestion%20de%20proyectos%20TI%20derma%2Dsim&viewid=2bd12bd3%2Dae41%2D491c%2D8873%2D3573c92de5e0)
+
+| *<**Estas notas se deben borrar en la versión final.**>* **Nota para el uso de la plantilla:** *Texto en **<**naranja**>**: **se debe definir.* *Texto en **<**azul**>**: guía cómo usar esta plantilla. Se debe borrar en la versión final.* *Texto en **verde: **se debe personalizar. Se debe colorear en negro en la versión final.* |
+| --- |
+
+**TABL****A DE CONTENIDOS**
+
+1	Resumen Ejecutivo	4
+
+2	Consideraciones sobre el Caso de Negocio	4
+
+3	Descripción del Proyecto	5
+
+3.1	Alcance	5
+
+3.1.1	Incluido ("dentro del" alcance)	5
+
+3.1.2	Excluido ("fuera del" alcance)	5
+
+3.1.3	Declaración del Alcance	5
+
+3.2	Criterios de Éxito o de Aceptación	5
+
+3.3	Necesidades de las Partes Interesadas y de los Usuarios	5
+
+3.4	Entregables	6
+
+3.5	Características	6
+
+3.6	Restricciones	7
+
+3.7	Supuestos	7
+
+3.8	Riesgos	7
+
+4	Coste, tiempo y recursos	8
+
+4.1	Coste	8
+
+4.2	Plazos e hitos	10
+
+4.3	Recursos Planificados	10
+
+5	Enfoque	11
+
+5.1	Metodología	11
+
+5.2	Gestión de Cambios	11
+
+5.2.1	Cambio del Proyecto	11
+
+5.2.2	Gestión de la Configuración	11
+
+5.2.3	Cambio de la Organización	11
+
+6	Gobernanza y Partes Interesadas	12
+
+6.1	Estructura	12
+
+6.2	Roles and Responsabilidades	12
+
+6.3	Otras Partes Interesadas	12
+
+Resumen Ejecutivo
+
+*Derma-sim es un aplicativo web de simulación clínica de la línea **onco**-sim, que permite que estudiantes de ciencias de la salud **practiquen el razonamiento clínico dermatológico: analizan un caso con historia clínica e imagen dermatoscopia, proponen un **diagnostico** y reciben la evaluación y una retroalimentación explicable de un agente tutor de inteligencia artificial (IA)*
+
+*Esta acta autoriza formalmente el inicio del proyecto y establece su alcance **( un** aplicativo web funcional, un **banco  inicial**  de casos des identificados, las métricas del agente tutor y la documentación técnica y de usuario) los hitos de tiempo dentro del calendario académico del semestre y los criterios de calidad con los que se aceptaran los entregables.** **Las gestión** sigue la guía PMBOK (6ª edición) y el desarrollo del producto, el **team** software **process** (**Tsp**) en **cuatro etapa**: análisis, diseño, construcción y pruebas*
+
+*Derma-sim tiene fines exclusivamente educativos: la IA apoya el aprendizaje del estudiante y no diagnostica pacientes reales.*
+
+Consideraciones sobre el Caso de Negocio
+
+Situación actual: La formación clínica en dermatología tiene limites reales: los casos poco frecuentes se ven pocas veces durante la rotación, practicar con pacientes reales esta limitado por la seguridad del paciente y por la escasez de docentes clínicos, y la usc no cuenta con un simulador digital propio con retroalimentación automatizada. El cáncer de piel es la neoplasia maligna mas común y su diagnostico parte de la inspección visual, por lo que entrenar el ojo clínico con casos variados es clave
+
+Impacto y urgencia. El impacto es alto, porque la afecta directamente la calidad  de la formación clínica y la seguridad diagnóstica de los futuros egresados. La urgencia es media: no hay emergencia operativa, pero el proyecto debe ejecutarse dentro del calendario académico del semestre y llega en un momento en que la IA generativa ya se usa como paciente simulado y el evaluador en educación medica.
+
+Influencias externas, interfaces y requisitos reglamentarios. El proyecto se inserta en el macroproyecto onco-AI / onco-sim de la usc y depende de un servicio externo de IA generativa y de imágenes dermatoscopias publicas como HAM10000, Cuyas licencias deben respetarse. Aplica la ley 1581 de 2012 y el decreto 1377 de 2013 (protección de datos personales; los datos de salud son sensibles), la resolución 2654 de 2019 (telesalud) y los lineamientos nacionales de ética de la IA. Por ello Derma-Sim usara solo casos des identificados, públicos o suministrados por el docente, sin datos de pacientes reales, con aviso de uso educativo y con transparencia sobre el uso de IA
+
+Descripción del Proyecto
+
+		Alcance
+
+		Incluido ("dentro del" alcance)
+
+Análisis: levantamiento y especificación de los requisitos funcionales y no funcionales del simulador y la curaduría del banco inicial de casos clínicos
+
+Diseño: arquitectura cliente-servidor en capas ( con el agente de IA desacoplado de la interfaz), modelo de datos de los casos ( historia clínica, imagen y diagnostico de referencia) interfaz web y prompts del agente tutor de IA
+
+Construcción: aplicativo web con visor del caso ( historia e imagen dermatoscopica), captura de la decisión diagnóstica y pantalla de resultado con retroalimentación explicable; Api y lógica de negocio ( gestión de casos y sesiones); integración del agente tutor de IA y registro de métricas de la sesión
+
+Banco inicial de casos con imagen, desidentificados, de fuentes publicas o suministradas por el docente y revisados por un docente o profesional de la salud.
+
+Pruebas: Verificación y validación de la funcionalidad, de la cohenrencia y pertinencia de las respuestas de la IA y de la usabilidad, con estudiantes de ciencias de la salud.
+
+Documentación: técnica y de usuario, como aporte a la línea onco-sim
+
+Gestión del proyecto con PMBOK (6ª edición) durante todo el ciclo ( inicio, planeación, ejecución, monitoreo y control, y cierre) incluida la sustentación final del aplicativo.
+
+Adopcion: demostración del aplicativo y guía de usuario para docentes y estudiantes, con aviso  de uso educativo.
+
+		Excluido ("fuera del" alcance)
+
+Uso clínico real: Derma-sim no diagnostica pacientes reales, no sustituye el criterio clínico y no tiene validación diagnostica certificada
+
+- Tratamiento de datos de paciente reales o identificables.
+
+- Entrenamiento o desarrollo de modelos de IA propios: se usa un modelo de IA generativa  existente.
+
+- Otras especialidades o módulos distintos a dermatología ( la extensión de onco-sim  a otras especialidades queda como trabajo futuro)
+
+- Integraciones con sistemas institucionales (plataformas académicas , historia clínica electrónica) y aplicaciones móviles nativas.
+
+- Puesta en producción institucional, soporte y mantenimientos posteriores al cierre del proyecto.
+
+Estas exclusiones delimitan el alcance demostrativo y académico del proyecto y solo podrán reconsiderarse mediante el proceso de gestión de cambios (sección 5.2)
+
+		Declaración del Alcance
+
+Gestionar y desarrollar dentro del calendario académico del semestre, un aplicativo web funcional que presente casos clínicos dermatológicos con imagen capture la decisión, diagnostica del estudiante y entregue una evaluación y retroalimentación explicable de un agente tutor de IA, junto con un banco inicial de casos des identificados, métricas del autor y documentación, confines exclusivamente educativos
+
+		Criterios de Éxito
+
+El proyecto se considerara exitoso su cumple los criterios siguientes agrupados en alcance, tiempo y calidad. Los marcados como ( critico) son aquellos cuya ausencia impide considerar el proyecto un éxito
+
+Alcance
+
+- Se entregan los cincos entregables definidos en la sección 3.4 y el docente los acepta
+
+- El aplicativo completa el recorrido caso-decisión-evaluación de la IA y finalmente retroalimentación, sin intervención manual del equipo ( critico)
+
+- El banco inicial reúne al menos 10 casos con historia, imagen y diagnostico de referencia, revisados por un docente o profesional de la salud
+
+Tiempo
+
+- La entrega final se realiza en la fecha fijada por el calendario académico ( critico)
+
+- Cada hito de la sección 4.2 se cumple con una desviación máxima de una semana
+
+Calidad (del producto)
+
+- Todos los requisitos funcionales de prioridad alta se verifican con casos de prueba aprobados y no queda ningún defecto critico abierto (critico)
+
+- La retroalimentación del agente tutor es coherente y pertinente frente al diagnostico de referencia en al menos el 80% de los casos revisados por el docente o profesional de la salud (critico)
+
+- El tiempo de respuesta del tutor se mide y registra en cada sesión; objetivo: no mas de 10 segundos en condiciones normales de conexión
+
+- Al menos el 80% de los estudiantes de la prueba de usabilidad completa un caso sin ayuda del equipo
+
+- Todos los casos desintenficados y de licencia verificada, el aviso de uso educativo es visible y el estudiante sabe cuando interactúa con IA (critico)
+
+- La documentación técnica y de usuario esta completa y coincide con la versión final del aplicativo
+
+		Necesidades de las Partes Interesadas y de los Usuarios
+
+Las necesidades clave de las partes interesadas y de los usuarios que el proyecto aborda son:
+
+| **ID** | **Descripción de la Necesidad** | **Pri****oridad** |
+| --- | --- | --- |
+| N1 | Estudiantes de ciencias de la salud: practicar el razonamiento clínico dermatológico con casos variados y con imagen, de forma repetible y segura. Hoy la practica se limita a la revisión bibliográfica y a la observación clínica ocasional | alta |
+| N2 | Estudiante: recibir evaluación y retroalimentación inmediata y explicable (evidencia visual o criterio clínico) sobre su decisión diagnostica, y no un resultado binario | alta |
+| N3 | Docentes y profesionales de la salud: validar el contenido clínico de los casos y de las respuestas de la IA y contar con trazabilidad del desempeño del estudiante | media |
+| N4 | Programa de ingeniería de sistemas ( línea onco-sim): disponer de un simulador propio, documentado y replicable a otras especialidades, con el agente de IA desacoplado de la interfaz | Media |
+| N5 | Usc y usuarios: uso ético y legal de la IA y de los datos ( casos des identificados, aviso de uso educativo y transparencia sobre la interacción con IA) | alta |
+
+		Entregables
+
+*Entregables del producto **( no** se incluyen los artefactos de gestión del proyecto*
+
+| **ID** | **Nombre del Entregable** | **Descripción del Entregable** |
+| --- | --- | --- |
+| E1 | Aplicativo web derma-sim | Aplicativo web con visor de casos ( historia e imagen dermatoscopica), captura de la decisión diagnostica, pantalla de resultado y retroalimentación, y api y lógica de negocio para la gestión de casos y sesiones |
+| E2 | Banco inicial de caos clinicos | Conjunto estructurado de casos desidentificados ( historia clínica, imagen y diagnostico de referencia) , de fuentes publicas o suministrados por el docente, con licencias verificadas y revisión clinica |
+| E3 | Agente tutor de IA y metricas | Agente evaluador integrado al aplicativo ( prompts, orquestación y retroalimentacion explicable) y registro de métricas por sesión: coherencia, pertinencia y tiempo de respuesta |
+| E4 | Informe de pruebas y validación | Resultados de pruebas funcionales, de las respuestas de la IA y de usabilidad, con los defectos encontrados, las correcciones y el cumplimiento de los criterios de éxito. |
+| E5 | Documentación técnica y de usuario | Documentación de arquitectura, modelo de datos e instalación y guía de usuario del aplicativo, como aporte a la línea ONCO-SIM |
+
+		Características
+
+*Las características se alinean con las necesidades de la sección 3.3 y describen que capacidades debe tener el producto, sin detallar como se implementaran **( eso** se define en la etapa de diseño*
+
+| **Necesidad Relacionada** | **Característica ** | **Entregable** |
+| --- | --- | --- |
+| N1 | Presentación de casos clínicos con historia e imagen dermatoscopica, tomados de un banco de caso variado; el estudiante puede repetir la practica con nuevos casos | E1,E2 |
+| N2 | Evaluación de la decisión diagnostica por un agente tutor de IA que devuelve retroalimentación explicable (evidencia o criterio clínico que lo soporta | E1,E3 |
+| N3 | Casos revisables por el docente y registro de métricas de cada sesión ( coherencia, pertinencia | E2,E3,E4 |
+| N4 | Arquitectura en capas con el agente de IA desacoplado de la interfaz y documentación técnica que facilite replicar el simulador en otras especialidades | E1,E5 |
+| N5 | Aviso de uso educativo visible, identificación clara de que se interactúa con IA y uso exclusivo de casos des identificados con licencia verificada | E1, E2 |
+
+Restricciones
+
+- **Tiempo: **el Proyecto Debe terminarse dentro del calendario académico del semestre; las fechas finales de entrega las fijan el docente
+
+- **Personas: **el Equipo está conformado Por Cinco estudiantes con dedicación parcial, compartida con otras áreas 
+
+- **Método: la gestión sigue ****PMBOK **(6.ª ed.) y el desarrollo, TSP, según lo definido en el curso de Gestión de Proyectos TI y en Moodle; se usan los formatos y criterios de evaluación del curso.
+
+- **Tecnología: **Aplicativo web con arquitectura cliente/servidor en capas; el agente tutor usa un modelo de IA generativa existente, sujeto a sus límites de uso
+
+		Supuestos
+
+		- **Tecnología****:** se dispone durante todo el proyecto, de un modelo de IA generativa con límites de uso suficientes para el desarrollo y las pruebas. Si no se valida: interrupciones o degradación del agente tutor.
+
+		- **Recursos:** el equipo tiene el tiempo y los conocimientos para construir la interfaz web e integrar la IA. Si no se valida: retrasos en el cronograma y entregables incompletos.
+
+		- **Alcance:** un banco inicial de casos con imagen, de fuentes públicas, desidentificadas o suministradas por el docente, es suficiente para demostrar el aplicativo. Si no se valida: casos insuficientes para evaluar el tutor.
+
+		- **Entorno organizativo:** un docente o un profesional de la salud puede revisar la coherencia clínica de los casos y las respuestas de la IA. Si no se valida: casos o retroalimentación clínicamente incorrectos.
+
+		- **Expectativas y plazos:** el cronograma depende del calendario académico y de la disponibilidad del equipo, y hay estudiantes disponibles para las pruebas dentro del semestre. Si no se valida: validación limitada y resultados poco representativos.
+
+		Estos supuestos se validarán en la etapa de análisis; los que n o se validen pasarán a la etapa de riesgos.
+
+		Riesgos
+
+		Riesgos clave identificados en esta etapa inicial (probabilidad e impacto en una escala de 1 a 5; nivel de riesgo = probabilidad x impacto). La evaluación completa se hará en la planeación en el registro de riesgos del proyecto.
+
+| **ID** | **Descripción y Detalles**** del Riesgo** | **Estado** | **Probabilidad**[^18964] | **Impacto**[^12184] | **Nivel de Riesgo**[^11872] | **Dueño del Riesgo** | **Estrategia de Respuesta al Riesgo**[^27086] | **Detalles de la Acción** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| R1 | Indisponibilidad, cambios o límites de uso del servicio de IA generativa que afecten al agente tutor (supuesto de tecnología) | Abierto | 3 | 2 | 12 | Desarrollador | Reducir | Probar el servicio desde Análisis: diseñar el agente desacoplado de la interfaz para poder cambiar de modelo; definir un plan de contingencia con retroalimentación de referencia por caso. |
+| R2 | Retrasos en el cronograma por la carga académica del equipo o por falta de conocimientos para integrar la IA (supuesto de recursos) | Abierto | 4 | 41 | 16 | Director de proyecto | Reducir | Plan por hitos con seguimiento semanal (TSP): priorizar los requisitos de prioridad alta; capacitación temprana en integración de IA. |
+| R3 | Banco de casos insuficiente o con licencias no verificadas (supuesto de alcance) | Abierto | 3 | 41 | 12 | Analista | Reducir | Iniciar la curaduría en análisis con fuentes públicas (por ejemplo, HAM 10000); verificar licencias y validar los casos con el docente. |
+| R4 | Retroalimentación de la IA incoherente o clínicamente incorrecta. | Abierto | 3 | 51 | 15 | Tester | Reducir | Incluir el diagnostico de referencias en los prompts; revisar una muestra de respuestas con un docente o profesional de la salud; medir coherencia y pertinencia; mantener el aviso de uso educativo. |
+| R5 | Falta de un docente o profesional de la salud que revise los caso, o de estudiantes disponibles para las pruebas | Abierto | 3 | 3 | 9 | Director de proyecto | Reducir | Acordar la revisión clínica y programar las pruebas desde análisis; prever participantes alternos. |
+| R6 | Incumplimiento de la protección de datos o de licencias por usar imágenes con datos identificables. | Abierto | 2 | 5 | 10 | Analista | Evitar | Usar solo casos des identificados, públicos o suministrados por el docente; documentar la fuente y la licencia de cada imagen. |
+
+Coste, tiempo y recursos
+
+		Coste
+
+<Esta sección debe describir la estructura de financiación: gastos, líneas presupuestarias, recursos e importes. Proporcione también un resumen de las inversiones anteriores en esta área (p.ej., cuando ese trata de un proyecto de seguimiento).>
+
+<Proporcionar el Coste Total para la Propiedad (CTP) de la solución entregada (producto del proyecto). Calcular el coste de la participación del equipo del proyecto y de todas las partes interesadas (incluidos los costes, si los hubiere, de otras organizaciones y/o partes interesadas externas).>
+
+<Proporcionar al menos la información solicitada en la tabla siguiente y, si es necesario, añadir más detalles, como p.ej., los ahorros de costes resultantes.>
+
+|  | **20****2****a** | **20****2****b** | **20****2****c** | **20****2****d** | **20****20****e** |  |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Gasto** | **Línea presupuestaria** | **Importe**[^14126] | **Línea presupuestaria** | **Importe** | **Línea presupuestaria** | **Importe** | **Línea presupuestaria** | **Importe** | **Línea presupuestaria** | **Importe** | **Coste Total** |
+| Desarrollo de la Solución[^18567] (k€) |  |  |  |  |  |  |  |  |  |  |  |
+| Mantenimiento de la Solución[^21189] (k€) |  |  |  |  |  |  |  |  |  |  |  |
+| Asistencia [^27755] (k€) |  |  |  |  |  |  |  |  |  |  |  |
+| Formación[^22368] (k€) |  |  |  |  |  |  |  |  |  |  |  |
+| Infraestructura[^23268] (k€) |  |  |  |  |  |  |  |  |  |  |  |
+| **Total**** por año**** (k€)** |  |  |  |  |  |  |  |  |  |  |  |
+| **EJC de personal interno**** por año **[^11125]** ** |  |  |  |  |  |  |  |  |  |  |  |
+
+		- 5.1 Plazos e hitos
+
+		Los hitos se expresan en semanas contadas desde la aprobación del acta (SI). Las fechas calendario se confirmará con el calendario académico del semestre; prevalece la fecha final de entrega que fije el docente.
+
+| **ID** | **Descripción del Hito** | **Fecha objetivo de entrega** |
+| --- | --- | --- |
+| H1 | Acta de constitución del proyecto aprobada (cierre de inicio) | **S1** |
+| H2 | Plan de gestión y cronograma detallado aprobados, y plan TSP del equipo (cierre de planeación) | **S2** |
+| H3 | Etapa de análisis completa: requisitos funcionales y no funcionales especificados, banco inicial de casos curado y supuestos validados | **S3** |
+| H4 | Etapa de diseño completa: arquitectura, modelo de datos, interfaz y prompts del agente tutor aprobados. | **S4** |
+| H5 | Primera versión funcional del aplicativo con el recorrido completo (caso-decisión-evaluación de la IA = retroalimentación) | **S6** |
+| H6 | Aplicativo integrado con el banco de casos y con el registro de métricas del tutor | **S7** |
+| H7 | Etapa de pruebas completa: pruebas funcionales, de las respuestas de la IA y de usabilidad ejecutadas y defectos críticos corregidos | **S8** |
+| H8 | Documentación técnica y de usuario entregado. | **S9** |
+| H9 | **Entrega y ****sustentación**** final; cierre del proyecto.** | **S10** |
+
+		- 5.2 Recursos Planificados
+
+		Recursos humanos y no humanos requeridos y rol responsable de su aprovisionamiento
+
+| **ID** | **Recurso Requerido** | **Descripción** |
+| --- | --- | --- |
+| RC1 | Equipo de proyecto | Cinco estudiantes de Ingeniería de Sistemas. Roles TSP según la matriz de equipo: planeador (Cristian Orlando Lasso Mulato, también líder del equipo y director del proyecto), Analista (Jhon Steven Buitrago Quitiaquez), Desarrollador (Harold Alexis Idrobo Puertocarrero) y Tester (Juan Pablo Nieto Cobo). Jacobo Restrepo Cadavid: rol por definir. Responsable: Director del proyecto |
+| RC2 | Docente y revisor clínico | Docente de gestión de proyectos TI (Propietario del proyecto) y un docente o profesional de la salud que revise la coherencia clínica de los casos y de las respuestas de la IA. Re(sponsable :Director de proyecto |
+| RC3 | Participantes para las pruebas | Estudiantes de ciencias de la salud disponibles dentro del cronograma para la prueba de usabilidad. Responsable:Tester |
+| RC4 | Equipos de cómputo y conectividad | Computadores de los integrantes y acceso a internet para el desarrollo, la integración con la IA y las pruebas. Responsable: cada integrante |
+| RC5 | Servicio de IA generativa | Acceso a un modelo de la IA generativa (API) con límites de uso suficientes para el desarrollo y las pruebas. Responsable: Desarrollador |
+| RC6 | Fuentes de datos | Imágenes dermatoscopicas públicas (por ejemplo, HAM 10000) y casos suministrados por el docente, con licencia verificada. Responsable: Analista |
+| RC7 | Herramientas de gestión y colaboración | Moodle del curso, repositorio de código y carpeta compartida del proyecto para el control de versiones y la documentación. Responsable: Planeador |
+
+- 6
+Enfoque
+
+		- 6.1 Metodología
+
+		La gestión del proyecto sigue la guía PMBOK (6.ª edición; PMI, 2017) y cubre sus cinco grupos de procesos: inicio, planeación, ejecución, monitoreo, control, y cierre. Esta acta usa la estructura de la plantilla PM2 (Open PM2) como formato de documentación; la metodología de gestión adoptada es PMBOK, según lo definido en el curso, sin desviaciones adicionales.
+
+		El desarrollo del producto de software sigue el Team software process (TSP; Humphrey,2000), que guía a equipos pequeños a planificar y controlar su trabajo en cuatro etapas: Análisis (requisitos y curaduría de casos), Diseño (arquitectura y agente tutor de IA), construcción (Interfaz web e integración de la IA) y pruebas (ciclos de prueba y ajuste).
+
+		Control del alcance, el tiempo y la calidad:
+
+		- **Alcance:**** **línea base de requisitos al cierre de Análisis; todo cambio sigue el proceso de la sección 5,2
+
+		- **Tiempo:** Seguimiento semanal del avance frente a los hitos de la sección 4,1 con registro de las desviaciones
+
+		- **Calidad: **Revisiones entre pares de requisitos, diseño y código; pruebas funcionales, de las respuestas de la IA y de usabilidad; verificación de los criterios de éxito de la sección 3,2 antes de la entrega.
+
+		- 6.2 Gestión de Cambios
+
+		A continuación, se describe como se gestionan los cambios del proyecto, de la configuración y de la organización.
+
+- **6.2.1 ****Cambio del Proyecto**
+
+Cualquier integrante del equipo o el docente puede solicitar un cambio, por escrito y con su justificación. El director del proyecto evalúa su impacto en el alcance, el tiempo y la calidad y lo registra en el registro de cambios. Los cambios menores que no afectan al alcance, a los hitos ni a los criterios de éxito los aprueba el director del proyecto; los que si los afectan requieren la aprobación del propietario del proyecto (docente)y generan una nueva versión de esta acta.
+
+- **6.2.2 ****Gestión de la Configuración**
+
+Están bajo control de cambios de esta acta, la línea base de requisitos y alcance, el cronograma e hitos, el banco de casos, los prompts del agente tutor, el código fuente y la documentación. Se guardan en un repositorio compartido con control de versiones (versiones vXX en los documentos: ramas y revisión entre pares en el código). Solo el director de proyecto autoriza cambios en alcance y los hitos, previa aprobación del docente cuando corresponda; los demás elementos los cambian los responsables de cada rol, previa revisión de un compañero.
+
+- **6.2.3 ****Cambio de la Organización**
+
+El cambio organizacional es acotado: se busca que docentes y estudiantes conozcan y usen Derma-sim como apoyo a la práctica clínica. Para ello se realizará una demostración del aplicativo y se entregará una guía de usuario, con el aviso de uso educativo. La implementación institucional posterior al cierre esta fuera del alcance.
+
+- 7 gobernanza y Partes Interesadas
+
+- 7.1 Estructura
+
+El proyecto se gobierna con la estructura PM2 adaptada al contexto académico: el docente cumple los roles de propietario del proyecto (PP) y responsable de Negocio (RN): el equipo de estudiantes actúa como proveedor de soluciones (PS); y el Líder del equipo ejerce como director de proyecto (DP).
+
+| **Propietario del Proyecto (PP) y Responsable de Negocio (RN)** Jair Enrique Sanclemente castro– USC |
+| --- |
+| **Director de Proyecto (DP) y Planeador** Cristian Orlando Lasso Mulato |
+| **Analista** Jhon Steven Buitrago Quitiaquez | **Desarrollador** Harold Alexis Idrobo Puertocarrero | **Tester** Juan Pablo Nieto Cobo | **desarrollador** Jacobo Restrepo Cadavid |
+
+- 7.2 Roles and Responsabilidades
+
+| **Rol** | **Responsable** | **Responsabilidades** |
+| --- | --- | --- |
+| Propietario del Proyecto (PP) y Responsable de Negocio (RN) | Jair enrique Sanclemente castro | Aprueba esta acta, el alcance, los hitos y los cambios que los afecten; valida y acepta los entregables. |
+| Director de Proyecto (DP) y Planeador | Cristian Orlando Lasso Mulato | Planea y controla alcance, tiempo y calidad; coordina al equipo; reporta el avance; gestiona cambios y riesgos; mantiene esta acta. |
+| Analista | Jhon Steven Buitrago Quitiaquez | Levanta y especifica los requisitos; realiza la curaduría del banco de casos; valida los supuestos. |
+| Desarrollador | Harold Alexis Idrobo Puertocarrero | Diseña la arquitectura y construye el aplicativo; integra el agente tutor de IA. |
+| Tester | Juan Pablo Nieto Cobo | Elabora y ejecuta el plan de pruebas; mide coherencia, pertinencia y tiempo de respuesta del tutor; verifica los criterios de éxito. |
+| Desarrollador | Jacobo Restrepo Cadavid | Apoya en el diseño de la arquitectura y construye el aplicativo |
+| Revisor clínico | Por designar (docente o profesional de la salud) | Revisa la coherencia clínica de los casos y de las respuestas de la IA. |
+
+- 7.3 Otras Partes Interesadas
+
+Estudiantes de ciencias de la salud de la USC (usuarios): practican con los casos y reciben la retroalimentación; esperan una herramienta accesible, segura y con retroalimentación inmediata.
+
+Docentes y profesionales de la salud: revisan el contenido clínico; les importa la corrección clínica de los casos y de las respuestas de la IA y que la herramienta se use con fines educativos, no clínicos.
+
+Programa de Ingeniería de sistemas y línea ONCO-SIM/macroproyecto ONCO-AI: reciben un módulo documentado y replicable; esperan que respete la arquitectura y los principios de explicabilidad del macroproyecto
+
+Proveedor del servicio de IA y fuentes de datos publicas: partes externas de las que dependen el agente tutor y el banco de casos; deben respetarse sus condiciones de uso y licencias.  
+
+**Apéndice 1: ****Referencias y Documentos Relacionados**
+
+| ** ID** | **Referencia o Documento relacionado** | **Fuente o Enlace/Ubicación** |
+| --- | --- | --- |
+| 1 | Formulación de ideas de proyectos de TI – Derma-Sim (Formato_Proyectos_TI_2026_DermaSim_Completo.docx) | Carpeta compartida del equipo del proyecto |
+| 2 | Directorio del Proyecto | Carpeta compartida del equipo del proyecto Derma-Sim |
+| 3 | Presentación Derma-Sim (DermaSim_Presentacion_completa.pptx) | Carpeta compartida del equipo del proyecto |
+| 4 | Matriz de Registro de Equipos de TI – equipo Derma-Sim (Matriz_Registro_de_Equipos_de_TI.xlsx) | Carpeta compartida del equipo del proyecto |
+| 5 | Project Management Institute. (2017). Guía de los fundamentos para la dirección de proyectos (Guía del PMBOK) (6.ª ed.) | Project Management Institute |
+| 6 | Humphrey, W. S. (2000). The Team Software Process (TSP) (Informe técnico CMU/SEI-2000-TR-023) | [https://apps.dtic.mil/sti/tr/pdf/ADA387279.pdf](https://apps.dtic.mil/sti/tr/pdf/ADA387279.pdf) |
+| 7 | Congreso de la República de Colombia. (2012). Ley Estatutaria 1581 de 2012; Presidencia de la República de Colombia. (2013). Decreto 1377 de 2013 | [https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981](https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981) [https://www.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=53646](https://www.funcionpublica.gov.co/eva/gestornormativo/norma_pdf.php?i=53646) |
+| 8 | Ministerio de Salud y Protección Social. (2019). Resolución 2654 de 2019 (telesalud y telemedicina) | [https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-2654-de-2019.pdf](https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-2654-de-2019.pdf) |
+| 9 | Esteva, A. et al. (2017). Dermatologist-level classification of skin cancer with deep neural networks. Nature, 542(7639), 115–118. | [https://doi.org/10.1038/nature21056](https://doi.org/10.1038/nature21056) |
+| 10 | Kononowicz, A. A. et al. (2019). Virtual patient simulations in health professions education. Journal of Medical Internet Research, 21(7), e14676. | [https://doi.org/10.2196/14676](https://doi.org/10.2196/14676) |
+| 11 | Holderried, F. et al. (2024a, 2024b). Simulated patient with GPT: history taking and automated feedback. JMIR Medical Education, 10, e53961 y e59213. | [https://doi.org/10.2196/53961](https://doi.org/10.2196/53961) [https://doi.org/10.2196/59213](https://doi.org/10.2196/59213) |
+| 12 | Tschandl, P., Rosendahl, C., & Kittler, H. (2018). The HAM10000 dataset. Scientific Data, 5, 180161. | [https://doi.org/10.1038/sdata.2018.161](https://doi.org/10.1038/sdata.2018.161) |
+
+		
+
+	Fecha: 29/09/2026                                                                                          2 / 2                                                                         Versión: 1.0   	                              
+
+	Date: 29/09/2026                                                                                          12 / 12                                                                      Version: 1.0   	                                
+
+		Date: 29/09/2026                                                                                                                                                                         8 / 12	                   					   	           Doc. Versión: 1.0   	                                                           
+
+[^18964]: Valor numérico que indica la probabilidad de ocurrencia del riesgo.
+[^12184]: Valor numérico que indica la severidad relativa del impacto del riesgo, en caso de ocurrir.
+[^11872]: Nivel de riesgo. Es el producto de probabilidad e impacto (NR=P*I).
+[^27086]: Las posibles estrategias de respuesta al riesgo son:  Evitar / Aceptar / Reducir / Transferir para riesgos negativos (amenazas) y Explotar / Aceptar / Mejorar / Compartir para riesgos positivos (oportunidades).
+[^14126]: Si no puede proporcionar un importe, proporcione al menos una estimación cualitativa (p.ej., 20 días de capacitación, 2 ordenadores portátiles, etc.)
+[^18567]: Desarrollo (recursos humanos): proporcionar el coste total (previsto) para el desarrollo de la solución.
+[^21189]: Mantenimiento (recursos humanos): proporcionar el coste total (previsto) en k€ por año para mantener la solución.
+[^27755]: Asistencia (recursos humanos): proporcionar el coste total (anticipado) en k€ por año para prestar asistencia a la solución (p.ej., sitio web, servicio de asistencia técnica, operaciones, etc.).
+[^22368]: Formación (recursos humanos): proporcionar el coste total (previsto) para garantizar la formación de los usuarios, el personal de apoyo y de operaciones, etc.
+[^23268]: Infraestructura: proporcionar el coste total (previsto) de la infraestructura necesaria para entregar, apoyar, operar y mantener la solución entregada.
+[^11125]: Equivalente a Jornada Completa (EJC): proporcione el esfuerzo total (anticipado) que el personal interno empleará en el proyecto (en días-persona, personas-semana, personas-mes u personas-año).

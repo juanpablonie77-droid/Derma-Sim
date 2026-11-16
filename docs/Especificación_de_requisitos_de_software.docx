@@ -1,0 +1,259 @@
+Especificación de requisitos de software
+SRS
+
+DERMA SIM
+Basado en ISO/IEC/IEEE 29148:2018
+
+Universidad Santiago De Cali (USC)
+
+Facultad De Ingeniería - Ingeniería De Sistemas
+
+Cali, Valle Del Cauca, Colombia
+
+16/10/2026
+
+**Control del documento**
+
+| **Campo** | Descripción |
+| --- | --- |
+| Nombre del sistema | Derma Sim |
+| Tipo de documento | Especificacion |
+| Versión | 1.0 |
+| Documento base | Plan de Gestión del alcance Derma Sim versión 1.0 |
+| Propósito | Describir las funciones y restricciones principales del sistema para orientar su diseño, construcción y pruebas |
+| Estado | Borrador académico para revisión y aprobación del equipo y del docente |
+
+- **Introducción**
+
+- **Propósito **
+
+Este documento especifica los requisitos principales de Derma Sim, un aplicativo web de simulación clínica dermatológica con fines exclusivamente educativos. Se organiza tomando como referencia la estructura y los principios de una Especificación de Requisitos de Software (SRS) de ISO/IEC/IEEE 29148:2018.
+
+- **Alcance del producto**
+
+Derma Sim permite que estudiantes de ciencias de la salud revisen un caso dermatológico compuesto por historia clínica e imagen dermatoscopia, registren una decisión diagnóstica y reciban una evaluación y retroalimentación explicable de un agente tutor de inteligencia artificial. El sistema administra casos y sesiones y registra métricas de la interacción.
+
+- **Objetivos**
+
+- Ofrecer un entorno digital para practicar el análisis de casos dermatológicos.
+
+- Permitir registrar la decisión diagnóstica del estudiante y mostrar el resultado de la evaluación.
+
+- Proporcionar retroalimentación del tutor de IA que sea coherente y pertinente.
+
+- Conservar métricas por sesión para apoyar la evaluación del funcionamiento del tutor.
+
+- Disponer de un banco inicial de al menos 10 casos revisados y des identificados.
+
+- **Definiciones y abreviaturas **
+
+| **Término** | **Definición** |
+| --- | --- |
+| SRS | Software Requirements Specification o Especificación de Requisitos de Software. |
+| RF | Requisito funcional: comportamiento o servicio que el sistema debe ofrecer. |
+| RNF | Requisito no funcional: condición de calidad, seguridad, rendimiento o restricción. |
+| IA | Inteligencia artificial. |
+| Caso desidentificado | Caso al que se han retirado datos que permitan identificar a una persona. |
+| Sesión | Interacción en la que el estudiante consulta un caso, registra su decisión y recibe evaluación. |
+
+- **Usuarios previstos**
+
+Los usuarios principales son estudiantes de ciencias de la salud. El docente o profesional de la salud participa en la revisión del contenido clínico y en la aceptación académica de los entregables. El equipo de desarrollo y pruebas utiliza esta especificación para construir y verificar el aplicativo.
+
+- **Descripcion**** general **
+
+- **Contexto del producto**
+
+Derma-Sim forma parte de la línea ONCO-SIM de la Universidad Santiago de Cali. Se plantea como un aplicativo web con arquitectura cliente-servidor en capas. El modelo de IA generativa se consume como un servicio existente y permanece desacoplado de la interfaz.
+
+- **Funciones principales**
+
+- Mostrar la historia clínica y la imagen dermatoscópica del caso.
+
+- Capturar la decisión diagnóstica propuesta por el estudiante.
+
+- Enviar la información necesaria al agente tutor y mostrar evaluación y retroalimentación.
+
+- Gestionar los casos clínicos y las sesiones de práctica.
+
+- Registrar métricas de coherencia, pertinencia y tiempo de respuesta del tutor.
+
+- Facilitar pruebas funcionales, de calidad de respuestas y de usabilidad.
+
+	
+
+	
+
+	
+
+- **Limites**** y exclusiones **
+
+- No está destinado al uso clínico real ni a emitir diagnósticos certificados.
+
+- No utilizará datos de pacientes reales identificables.
+
+- No incluye entrenar ni desarrollar un modelo propio de IA.
+
+- No incluye otras especialidades médicas, aplicaciones móviles nativas ni integraciones con sistemas institucionales.
+
+- No incluye puesta en producción institucional, soporte o mantenimiento después del cierre.
+
+- **Supuestos y dependencias**
+
+- Habrá un servicio de IA generativa disponible con límites suficientes durante el proyecto.
+
+- El equipo contará con tiempo y conocimientos para desarrollar la interfaz e integrar el servicio de IA.
+
+- Un docente o profesional de la salud podrá revisar los casos y una muestra de las respuestas.
+
+- Habrá estudiantes disponibles para las pruebas de usabilidad.
+
+- Los casos e imágenes tendrán fuente y licencia verificables.
+
+- **Requisitos específicos**
+
+Los requisitos siguientes se derivan del alcance documentado del proyecto. Los identificadores permiten relacionarlos con casos de prueba y entregables.
+
+- **Requisitos funcionales**
+
+| **ID** | **Nombre** | **Declaración del requisito** |
+| --- | --- | --- |
+| RF-01 | Visualización del caso | El sistema debe mostrar la historia clínica y la imagen dermatoscópica del caso seleccionado. |
+| RF-02 | Registro de decisión | El sistema debe permitir que el estudiante registre su decisión diagnóstica para el caso. |
+| RF-03 | Evaluación por IA | El sistema debe enviar la información necesaria al agente tutor para evaluar la decisión registrada. |
+| RF-04 | Retroalimentación | El sistema debe mostrar al estudiante el resultado y una retroalimentación explicable del agente tutor. |
+| RF-05 | Gestión de casos | El sistema debe permitir administrar y cargar el banco inicial de casos clínicos. |
+| RF-06 | Gestión de sesiones | El sistema debe gestionar la información necesaria para relacionar cada caso con la sesión del estudiante. |
+| RF-07 | Registro de métricas | El sistema debe registrar por sesión la coherencia, la pertinencia y el tiempo de respuesta del tutor. |
+| RF-08 | Aviso educativo | El sistema debe mostrar de forma visible que el aplicativo tiene fines exclusivamente educativos. |
+| RF-09 | Flujo integrado | El recorrido caso → decisión → evaluación de IA → retroalimentación debe completarse sin intervención manual. |
+| RF-10 | Revisión de casos | El banco inicial debe incluir al menos 10 casos revisados por un docente o profesional de la salud. |
+
+- **Requisitos no funcionales y restricciones**
+
+| **ID** | **Categoría** | **Declaración del requisito** |
+| --- | --- | --- |
+| RNF-01 | Calidad de retroalimentación | La retroalimentación del tutor debe ser coherente y pertinente en al menos el 80 % de los casos revisados. |
+| RNF-02 | Usabilidad | Al menos el 80 % de los estudiantes participantes debe completar un caso sin ayuda del equipo. |
+| RNF-03 | Defectos críticos | Al finalizar las pruebas no debe quedar ningún defecto crítico abierto. |
+| RNF-04 | Verificación funcional | Los requisitos de prioridad alta deben verificarse mediante casos de prueba aprobados. |
+| RNF-05 | Privacidad de casos | Los casos deben estar desidentificados; no se deben utilizar datos identificables de pacientes. |
+| RNF-06 | Licencias | La fuente y la licencia de cada imagen utilizada deben estar verificadas. |
+| RNF-07 | Arquitectura | El aplicativo debe utilizar arquitectura cliente-servidor en capas y mantener el agente de IA desacoplado de la interfaz. |
+| RNF-08 | Plazo | El proyecto debe completarse dentro del calendario académico de 10 semanas, de S1 a S10, con desviación máxima de una semana por hito. |
+| RNF-09 | Aviso de uso | El aviso de uso exclusivamente educativo debe estar visible en el aplicativo. |
+| RNF-10 | Dependencia de IA | El tutor utilizará un modelo de IA generativa existente, sujeto a sus límites de uso. |
+
+- **Interfaces externas**
+
+| **Interfaz** | **Descripción** |
+| --- | --- |
+| Interfaz de usuario | Aplicativo web con visor de caso, captura de decisión y pantalla de resultados. |
+| Servicio de IA | Servicio externo existente que recibe el contexto necesario y devuelve evaluación y retroalimentación. |
+| Datos del caso | Información estructurada de historia clínica, imagen dermatoscópica y diagnóstico de referencia. |
+| Registro de métricas | Componente lógico que almacena métricas de coherencia, pertinencia y tiempo de respuesta por sesión. |
+
+- **Criterios generales de aceptación**
+
+- El docente acepta formalmente los cinco entregables: E1 aplicativo web; E2 banco inicial de casos; E3 agente tutor de IA y métricas; E4 informe de pruebas y validación; E5 documentación técnica y de usuario.
+
+- El flujo principal funciona de principio a fin sin intervención manual.
+
+- El banco incluye al menos 10 casos revisados, desidentificados y con licencias verificadas.
+
+- La retroalimentación alcanza la meta mínima del 80 % de coherencia y pertinencia en los casos revisados.
+
+- Al menos el 80 % de los participantes completa un caso sin ayuda y no quedan defectos críticos abiertos.
+
+- **Trazabilidad entre requisitos y entregables**
+
+| **Entregable** | **Requisitos relacionados** | **Evidencia de verificación** |
+| --- | --- | --- |
+| E1. Aplicativo web Derma-Sim | RF-01, RF-02, RF-04, RF-06, RF-08, RF-09; RNF-07, RNF-09 | Demostración del flujo completo y revisión de la interfaz. |
+| E2. Banco inicial de casos | RF-01, RF-05, RF-10; RNF-05, RNF-06 | Lista de casos, revisión clínica, fuentes y licencias. |
+| E3. Agente tutor de IA y métricas | RF-03, RF-04, RF-07, RF-09; RNF-01, RNF-10 | Resultados de evaluación de respuestas y registros de métricas. |
+| E4. Informe de pruebas y validación | RNF-01 a RNF-04 | Casos de prueba, defectos encontrados, correcciones y resultados. |
+| E5. Documentación técnica y de usuario | RF-08; RNF-07, RNF-09 | Documentación de arquitectura, datos, instalación y guía de uso. |
+
+- **Caso de uso general del sistema**
+
+- **Actores**
+
+| **Actor** | **Descripción ** |
+| --- | --- |
+| Estudiante | Consulta el caso, Analiza la información, registra su decisión diagnostica y revisa la retroalimentación. |
+| Docente o revisor clínico | Revisa y valida contenido de los casos y la pertinencia de las respuestas como parte de la validación académica. |
+| Servicio de IA | Servicio externo que evalúa la decisión y genera la retroalimentación del tutor. |
+
+- **Diagrama general de casos de uso**
+
+- **Especificaciones del caso de uso principal**
+
+| **Campo** | **Descripción** |
+| --- | --- |
+| ID | CU-01 |
+| Nombre | Resolver caso dermatológico y recibir retroalimentación |
+| Actor principal | Estudiante de ciencias de la salud |
+| Actores secundarios | Servicio de IA; docente/revisor clínico participa en la validación del contenido, no necesariamente durante cada sesión. |
+| Objetivo | Practicar el análisis de un caso dermatológico y recibir evaluación educativa de la decisión registrada. |
+| Precondiciones | El aplicativo está disponible; existe un caso cargado en el banco; el servicio de IA está disponible. |
+| Disparador | El estudiante selecciona un caso para comenzar la práctica. |
+| Postcondiciones | La decisión queda asociada a la sesión y se muestra el resultado con la retroalimentación generada por el tutor; las métricas de sesión quedan registradas. |
+
+**Flujo principal**
+
+- El estudiante abre Derma-Sim y selecciona un caso disponible.
+
+- El sistema presenta la historia clínica y la imagen dermatoscópica.
+
+- El estudiante analiza la información y registra su decisión diagnóstica.
+
+- El sistema envía al agente tutor el contexto del caso y la decisión registrada.
+
+- El servicio de IA devuelve la evaluación y la retroalimentación.
+
+- El sistema muestra el resultado al estudiante.
+
+- El sistema registra las métricas de la sesión, incluyendo coherencia, pertinencia y tiempo de respuesta.
+
+- **Flujos alternativos y excepciones **
+
+- A1. Datos incompletos: si falta información necesaria para enviar la decisión, el sistema informa al estudiante y solicita completar los campos requeridos.
+
+- A2. Servicio de IA no disponible: el sistema informa que no fue posible obtener la evaluación en ese momento. No debe mostrar una respuesta inventada como si proviniera del tutor.
+
+- A3. Error al guardar métricas: el sistema debe registrar o comunicar el error según las capacidades implementadas, sin presentar como guardada información que no se haya almacenado.
+
+- A4. Caso no disponible: el sistema informa que el caso no se encuentra disponible y permite regresar a la selección de casos
+
+- **Casos de uso secundarios**
+
+| **ID** | **Caso de uso** | **Actor** | **Resultado esperado** |
+| --- | --- | --- | --- |
+| CU-02 | Consultar caso clínico | Estudiante | Visualiza la historia clínica y la imagen del caso. |
+| CU-03 | Registrar decisión diagnóstica | Estudiante | La decisión queda vinculada al caso y a la sesión. |
+| CU-04 | Evaluar decisión y generar retroalimentación | Servicio de IA | Se obtiene una evaluación educativa que el sistema puede presentar. |
+| CU-05 | Registrar métricas de sesión | Sistema | Quedan registradas las métricas definidas para el tutor. |
+| CU-06 | Revisar y validar casos | Docente/revisor clínico | Se comprueba la pertinencia clínica, la desidentificación y la fuente/licencia. |
+
+- **Verificación y gestión de cambios**
+
+- Cada requisito debe verificarse mediante inspección, demostración o prueba según corresponda. El Tester valida los entregables frente a los criterios definidos y reporta desviaciones al director de proyecto. Los requisitos de prioridad alta deben tener casos de prueba aprobados.
+
+- Toda solicitud de cambio debe presentarse por escrito al director de proyecto. Se evalúa su impacto en alcance, tiempo y calidad. Los cambios que afecten el alcance, los hitos o los criterios de éxito requieren aprobación del docente a través del comité de control de cambios. Una vez aprobado el cambio, se actualizan la especificación y los documentos relacionados.
+
+- **Referencias**
+
+- Plan de Gestión del Alcance Derma-Sim, versión 1.0, Universidad Santiago de Cali, 06/10/2026.
+
+- ISO/IEC/IEEE 29148:2018. Systems and software engineering — Life cycle processes — Requirements engineering. https://www.iso.org/standard/72089.html
+
+- PlantUML. Herramienta para elaborar diagramas a partir de texto. [https://plantuml.com/es/](https://plantuml.com/es/)
+
+- **Revision**** y ****aprobacion**
+
+| **Responsable** | **Nombre / función** | **Aprobación y fecha** |
+| --- | --- | --- |
+| Director de Proyecto | Cristian Orlando Lasso Mulato | ____________________________ |
+| Patrocinador académico | Docente de Gestión de Proyectos TI | ____________________________ |
+| Equipo del proyecto | Derma-Sim | ____________________________ |

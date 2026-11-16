@@ -1,0 +1,197 @@
+Plan de Gestión del Alcance
+
+Derma-Sim
+
+Universidad Santiago de Cali (USC)
+
+Facultad de Ingeniería – Ingeniería de Sistemas
+
+Cali, Valle del Cauca, Colombia
+
+06/10/2026 · Versión 1.0
+
+Tabla de Contenido
+
+	Introducción	3
+
+	Enfoque de la Gestión del Alcance	4
+
+	Roles y Responsabilidades	4
+
+	Definición del Alcance	6
+
+	Declaración del Alcance del Proyecto	6
+
+	Estructura de Desglose del Trabajo (EDT)	8
+
+	Verificación del Alcance	12
+
+	Control del Alcance	12
+
+	Aceptación del Patrocinador	13
+
+Introducción
+
+La gestión del alcance es el conjunto de procesos que aseguran que el proyecto incluya todo el trabajo requerido para completarlo con éxito, y solo ese trabajo. El Plan de Gestión del Alcance detalla cómo se definirá, desarrollará y verificará el alcance del proyecto; define con claridad quién es responsable de gestionarlo y sirve de guía para su control.
+
+La gestión del alcance sigue un proceso de cinco pasos: recopilar requisitos, definir el alcance, crear la EDT, verificar el alcance y controlar el alcance.
+
+- Recopilar requisitos: es el proceso mediante el cual se definen y documentan los requisitos necesarios para cumplir los objetivos del proyecto. Su base es el Acta de Constitución del Proyecto y la matriz de partes interesadas. A partir de ellas, el equipo identifica los requisitos, conversa con docentes y estudiantes para aclararlos y los documenta con el detalle suficiente para medirlos durante la ejecución. Esta documentación es también la entrada del paso siguiente: definir el alcance.
+
+- Definir el alcance: este paso es decisivo para el éxito del proyecto, porque exige elaborar una descripción detallada del proyecto y del producto, con los entregables, los supuestos y las restricciones, y establece el marco dentro del cual debe realizarse el trabajo.
+
+- Crear la EDT: este proceso divide los entregables del proyecto en componentes progresivamente más pequeños y manejables que, en el nivel más bajo, se llaman paquetes de trabajo. Esta estructura jerárquica facilita programar, monitorear y controlar el proyecto.
+
+- Verificar el alcance: es el proceso mediante el cual el equipo obtiene del docente (patrocinador) la aceptación formal de los entregables.
+
+- Controlar el alcance: es el proceso de monitorear el alcance del proyecto y del producto y de gestionar los cambios en la línea base del alcance. Los cambios pueden ser necesarios, pero es indispensable controlarlos e integrarlos para evitar que el alcance crezca sin control.
+
+Este plan establece el marco del alcance de Derma-Sim. Documenta el enfoque de gestión del alcance, los roles y responsabilidades, la definición del alcance, las medidas de verificación y control, el control de cambios y la Estructura de Desglose del Trabajo (EDT) del proyecto. Es coherente con el Acta de Constitución del Proyecto (versión 1.0), cuyo alcance, criterios de éxito y exclusiones desarrolla. Toda comunicación del proyecto que afecte al alcance debe ceñirse a este plan.
+
+Derma-Sim es un aplicativo web de simulación clínica de la línea ONCO-SIM de la Universidad Santiago de Cali: el estudiante de ciencias de la salud analiza un caso dermatológico con historia clínica e imagen dermatoscópica, propone un diagnóstico y recibe la evaluación y una retroalimentación explicable de un agente tutor de inteligencia artificial (IA). El proyecto incluye el análisis, el diseño, la construcción y las pruebas del aplicativo, la curaduría de un banco inicial de casos desidentificados, las métricas del tutor y la documentación. No se prevé contratar recursos externos ni outsourcing; el modelo de IA generativa se usa como servicio existente. El aplicativo tiene fines exclusivamente educativos.
+
+Enfoque de la Gestión del Alcance
+
+La gestión del alcance de Derma-Sim busca mantener el desarrollo del proyecto dentro de los objetivos, actividades y entregables definidos desde su planificación. Para ello, se establece una forma de trabajo que permita identificar las tareas necesarias, comprobar su cumplimiento y evaluar cualquier cambio que pueda afectar el desarrollo del objetivo.
+
+**R****esponsab****le**** de ****la gestión del alcance.** La coordinación de este proceso esta a cargo de Cristian Orlando Lasso Mulato, en su función de Director de Proyecto. Entre sus responsabilidades se encuentran revisar el avance del equipo, verificar el cumplimiento de los entregables, evaluar las solicitudes de cambio y mantener actualizada la documentación cuando se aprueben modificaciones.
+
+**Definición y seguimiento del alcance.** El equipo utilizara como referencia el Acta de Constitución del Proyecto, la declaración del alcance y la Estructura de Desglose del Trabajo (EDT) y su diccionario. Estos documentos permiten relacionar las actividades con los resultados esperados y comprobar que el trabajo realizado corresponda a lo acordado. El seguimiento también tendrá en cuenta los criterios de aceptación y las listas de verificación definidas para los entregables.
+
+**Gestión de los cambios**. Los cambios del alcance pueden ser solicitados por cualquier integrante del equipo o por el docente, siempre que se exponga por escrito y se justifiquen. El Director de Proyecto evalúa su impacto en el alcance, el tiempo y la calidad. Los cambios menores, que no afectan al alcance, a los hitos ni a los criterios de éxito, los aprueba el Director de Proyecto. Los que sí los afectan se presentan al Comité de Control de Cambios (CCC), integrado por el Director de Proyecto y el docente, y requieren la aprobación del docente. Una vez aprobado el cambio, el Director de Proyecto actualiza todos los documentos del proyecto, genera una nueva versión del acta cuando corresponde y comunica el cambio al equipo y a los interesados.
+
+**Verificación**** y aceptación de los entregables**. Durante el desarrollo el Director de Proyecto y el Tester revisaran los resultados para comprobar que cumplan los requisitos y criterios establecidos. el docente será responsable de aceptar formalmente los entregables finales y el alcance del proyecto.
+
+Roles y Responsabilidades
+
+Para gestionar con éxito el alcance de un proyecto es importante que todos los roles y responsabilidades estén claramente definidos. Esta sección define el papel del docente, del Director de Proyecto y de cada integrante del equipo en la gestión del alcance.
+
+El docente, el Director de Proyecto y el equipo tienen un papel clave en la gestión del alcance de Derma-Sim. Por eso deben conocer sus responsabilidades, para asegurar que el trabajo se mantenga dentro del alcance establecido durante toda la vida del proyecto. La tabla siguiente define los roles y responsabilidades de la gestión del alcance.
+
+| **Nombre** | **Rol** | **Responsabilidades** |
+| --- | --- | --- |
+| Jair Enrique Sanclemente Castro | Patrocinador (aprobador académico) | Aprobar o rechazar las solicitudes de cambio del alcance que afecten el alcance, los hitos o los criterios de éxito Evaluar la necesidad de las solicitudes de cambio del alcance Aceptar formalmente los entregables del proyecto |
+| Cristian Orlando Lasso Mulato | Director de Proyecto (Planeador) | Medir y verificar el alcance del proyecto Facilitar las solicitudes de cambio del alcance y sus evaluaciones de impacto Convocar y dirigir las reuniones de control de cambios Comunicar los resultados de las solicitudes de cambio Actualizar los documentos del proyecto cuando se aprueben los cambios |
+| Jhon Steven Buitrago Quitiaquez | Analista | Mantener y validar los requisitos y su línea base Validar las solicitudes de cambio frente a los requisitos Participar en las evaluaciones de impacto de las solicitudes de cambio Comunicar los resultados de los cambios al equipo |
+| Harold Alexis Idrobo Puertocarrero | Desarrollador | Construir solo el trabajo descrito en el diccionario de la EDT Evaluar la necesidad de cambios y comunicarlos al Director de Proyecto Participar en la definición de las resoluciones de los cambios |
+| Jacobo Restrepo Cadavid | Desarrollador | Construir solo el trabajo descrito en el diccionario de la EDT Evaluar la necesidad de cambios y comunicarlos al Director de Proyecto Participar en la definición de las resoluciones de los cambios |
+| Juan Pablo Nieto Cobo | Tester | Medir y verificar el alcance y la calidad de los entregables frente a los criterios de éxito Validar los entregables antes de presentarlos al docente Reportar al Director de Proyecto cualquier desviación del alcance |
+
+**Tabla 1.1,** *Roles y responsabilidades de la gestión del alcance*
+
+Definición del Alcance
+
+La sección de definición del alcance detalla el proceso de elaborar una descripción detallada del proyecto y de sus entregables. Solo puede completarse después de identificar y definir los requisitos.
+
+El alcance de Derma-Sim se definió a partir del Acta de Constitución del Proyecto y de la formulación inicial de la idea (formato de proyectos de TI), que recogen el problema (limitaciones de la práctica clínica en dermatología y ausencia de un simulador digital propio en la USC), las necesidades de los usuarios (N1 a N5) y los lineamientos de la línea ONCO-SIM. A partir de ellos se establecieron los requisitos funcionales y no funcionales, que se especifican y validan en la etapa de Análisis (paquetes de trabajo 1.2.1 y 1.2.4) y quedan como línea base de requisitos. El alcance responde a esos requisitos: ningún entregable ni paquete de trabajo existe sin un requisito o una necesidad que lo justifique.
+
+La descripción del proyecto y de los entregables se elaboró con las siguientes técnicas: juicio de expertos (el docente y, cuando se designe, un revisor clínico), análisis del producto (estudio de la literatura sobre simulación clínica y sobre IA generativa en educación médica) y sesiones de trabajo del equipo con el enfoque TSP (análisis, diseño, construcción y pruebas).
+
+Declaración del Alcance del Proyecto
+
+La declaración del alcance detalla los entregables del proyecto y el trabajo necesario para crearlos. Para Derma-Sim contiene los componentes siguientes:
+
+- **Descripción del alcance del producto:** aplicativo web con visor de casos (historia clínica e imagen dermatoscópica), captura de la decisión diagnóstica del estudiante, pantalla de resultado con retroalimentación explicable de un agente tutor de IA, API y lógica de negocio para casos y sesiones, y registro de métricas por sesión, con fines exclusivamente educativos.
+
+- **Criterios de aceptación del producto** (alcance, tiempo y calidad):
+
+- *Alcance:* el docente acepta los cinco entregables (E1 a E5); el aplicativo completa el recorrido caso → decisión → evaluación de la IA → retroalimentación sin intervención manual; el banco inicial reúne al menos 10 casos revisados por un docente o profesional de la salud.
+
+- *Tiempo:* la entrega final se realiza en la fecha fijada por el calendario académico; cada hito se cumple con una desviación máxima de una semana.
+
+- *Calidad:* los requisitos de prioridad alta se verifican con casos de prueba aprobados y no queda ningún defecto crítico abierto; la retroalimentación del tutor es coherente y pertinente en al menos el 80 % de los casos revisados; al menos el 80 % de los estudiantes de la prueba de usabilidad completa un caso sin ayuda; los casos son desidentificados y de licencia verificada, y el aviso de uso educativo es visible.
+
+- **Entregables del proyecto:** E1 Aplicativo web Derma-Sim; E2 Banco inicial de casos clínicos; E3 Agente tutor de IA y métricas; E4 Informe de pruebas y validación; E5 Documentación técnica y de usuario.
+
+- **Exclusiones del proyecto:** uso clínico real o validación diagnóstica certificada; datos de pacientes reales o identificables; entrenamiento o desarrollo de modelos de IA propios; otras especialidades médicas; integraciones con sistemas institucionales y aplicaciones móviles nativas; puesta en producción institucional, soporte y mantenimiento posteriores al cierre.
+
+- **Restricciones del proyecto:** el proyecto debe cerrarse dentro del calendario académico del semestre (10 semanas, S1 a S10); el equipo son cinco estudiantes con dedicación parcial; la gestión sigue PMBOK (6.ª ed.) y el desarrollo, TSP; el aplicativo usa una arquitectura cliente–servidor en capas y un modelo de IA generativa existente, sujeto a sus límites de uso; solo se usan casos desidentificados, públicos o suministrados por el docente (Ley 1581 de 2012, Decreto 1377 de 2013 y licencias); el contenido clínico requiere revisión de un docente o profesional de la salud.
+
+- **Supuestos del proyecto:** hay un modelo de IA generativa disponible con límites de uso suficientes durante todo el proyecto; el equipo tiene el tiempo y los conocimientos para construir la interfaz web e integrar la IA; un banco inicial de casos es suficiente para demostrar el aplicativo; un docente o profesional de la salud puede revisar los casos y las respuestas de la IA; y hay estudiantes disponibles para las pruebas dentro del semestre.
+
+La declaración del alcance describe el proyecto, los entregables, las restricciones, las exclusiones, los supuestos y los criterios de aceptación. Además, indica qué trabajo no debe realizarse, para eliminar el trabajo implícito pero innecesario que queda fuera del alcance del proyecto.
+
+En síntesis, el proyecto incluye el análisis, el diseño, la construcción y las pruebas de un simulador clínico dermatológico con agente tutor de IA, su banco inicial de casos y su documentación. Se aceptará como completo cuando el docente verifique que se cumplen los criterios de aceptación anteriores. No incluye el uso clínico ni el soporte y mantenimiento posteriores al cierre, y solo puede trabajarse con los recursos del equipo y sus supuestos.
+
+Estructura de Desglose del Trabajo (EDT)
+
+La Estructura de Desglose del Trabajo (EDT) y su diccionario son elementos clave de la gestión eficaz del alcance. Esta sección explica cómo se subdivide el alcance del proyecto en entregables más pequeños y cómo se gestionan estos componentes durante la vida del proyecto.
+
+Para gestionar con eficacia el trabajo, el proyecto se subdivide en paquetes de trabajo individuales de entre 4 y 40 horas de trabajo, lo que permite al Director de Proyecto controlar mejor el alcance mientras el equipo realiza las tareas. El proyecto se divide en seis componentes de segundo nivel: Gestión del Proyecto; Análisis, Diseño, Construcción y Pruebas (las cuatro etapas del TSP); y Documentación y Cierre. Cada uno se subdivide en paquetes de trabajo, para un total de 33 (ver la figura 1.1, el documento de EDT y el diccionario siguiente).
+
+**Figura 1.1,** *Estructura de Desglose del Trabajo (EDT) de Derma-Sim, niveles 1 y 2*
+
+Para definir con más claridad el trabajo necesario, se usa el diccionario de la EDT, que incluye una entrada por cada elemento de la EDT: la descripción del trabajo, los entregables y los recursos. El equipo lo usará como declaración de trabajo de cada elemento. La columna de presupuesto se deja en blanco en esta versión del plan.
+
+| **Nivel** | **Código EDT** | **Nombre del ****elemento** | **Descripción**** del ****trabajo** | **Entregables** | **Presupuesto** | **Recursos** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **1** | **1** | **Derma-Sim** | Todo el trabajo para gestionar y desarrollar el aplicativo web Derma-Sim (simulador clínico dermatológico con agente tutor de IA), con su banco inicial de casos, las métricas del tutor y la documentación, dentro del calendario académico del semestre (S1 a S10). | Aplicativo Derma-Sim, banco inicial de casos, agente tutor de IA y métricas, informe de pruebas y documentación (E1 a E5) |  | Equipo Derma-Sim (5 integrantes) |
+| **2** | **1.1** | **Gestión**** del Proyecto** | Trabajo de inicio, planeación, seguimiento, control y cierre del proyecto según la guía PMBOK (6.ª ed.). Semanas S1 a S10. | Acta, matriz de interesados, planes de gestión e informes de avance |  | C. Lasso (Director de Proyecto) |
+| 3 | 1.1.1 | Acta de Constitución del Proyecto | El Director de Proyecto redacta el acta sobre la plantilla PM² (resumen, caso de negocio, alcance, criterios de éxito, riesgos e hitos) y la somete a la aprobación del docente. Semana S1. | Acta de Constitución aprobada |  | C. Lasso; J. Buitrago |
+| 3 | 1.1.2 | Matriz de partes interesadas | Se identifican las partes interesadas, su impacto, su rol PM², sus canales de comunicación y la estrategia para gestionarlas. Semana S1. | Matriz de partes interesadas v1.0 |  | C. Lasso; J. Buitrago |
+| 3 | 1.1.3 | Planes de gestión del alcance y del cronograma | Se elaboran el plan de gestión del alcance, la EDT, el plan de gestión del cronograma, la lista de actividades y la lista de hitos, y se someten a la aprobación del docente. Semana S2. | Cinco documentos de planeación aprobados |  | C. Lasso; J. Buitrago |
+| 3 | 1.1.4 | Reunión de arranque y plan TSP del equipo | Se realiza la reunión de arranque y se elabora el plan TSP del equipo: metas, roles y tareas por semana. Semana S2. | Acta de la reunión de arranque y plan TSP |  | Todo el equipo |
+| 3 | 1.1.5 | Seguimiento semanal y reportes de avance | Reunión semanal de seguimiento frente a los hitos, con registro de las desviaciones de alcance, tiempo y calidad. Semanas S2 a S10. | Informes de avance semanales |  | C. Lasso; todo el equipo |
+| 3 | 1.1.6 | Gestión de riesgos y de cambios | Se mantiene el registro de riesgos y se tramitan las solicitudes de cambio según el proceso definido en el plan de gestión del alcance. Semanas S2 a S10. | Registro de riesgos y registro de cambios actualizados |  | C. Lasso |
+| **2** | **1.2** | **Análisis** | Etapa TSP de análisis: especificación de los requisitos y curaduría del banco inicial de casos. Semanas S2 a S3. | Requisitos aprobados y banco inicial de casos |  | J. Buitrago (Analista) |
+| 3 | 1.2.1 | Requisitos funcionales y no funcionales | Se levantan y especifican los requisitos, con su prioridad y criterios de aceptación, a partir de las necesidades N1 a N5 del acta. Semanas S2 a S3. | Documento de especificación de requisitos |  | J. Buitrago; C. Lasso |
+| 3 | 1.2.2 | Curaduría del banco inicial de casos clínicos | Se seleccionan y estructuran al menos 10 casos con historia clínica, imagen dermatoscópica y diagnóstico de referencia, de fuentes públicas o suministrados por el docente. Semanas S2 a S3. | Banco inicial de casos (E2) |  | J. Buitrago; J. P. Nieto |
+| 3 | 1.2.3 | Verificación de licencias y desidentificación de los casos | Se verifica la licencia de cada imagen y se confirma que ningún caso contiene datos identificables (riesgos R3 y R6). Semana S3. | Registro de fuente y licencia por caso |  | J. Buitrago; C. Lasso |
+| 3 | 1.2.4 | Validación de supuestos y línea base de requisitos | Se validan los supuestos del acta y se fija la línea base de requisitos, que solo cambia mediante el proceso de gestión de cambios. Semana S3. | Línea base de requisitos aprobada |  | C. Lasso; J. Buitrago |
+| **2** | **1.3** | **Diseño** | Etapa TSP de diseño: arquitectura, datos, interfaz y agente tutor de IA. Semana S4. | Diseño aprobado del aplicativo |  | H. Idrobo; J. Restrepo (Desarrolladores) |
+| 3 | 1.3.1 | Arquitectura en capas | Se define la arquitectura cliente–servidor en capas, con el agente de IA desacoplado de la interfaz. Semana S4. | Documento de arquitectura |  | H. Idrobo; J. Restrepo |
+| 3 | 1.3.2 | Modelo de datos de los casos | Se diseña el modelo de datos de casos, sesiones y métricas (historia clínica, imagen y diagnóstico de referencia). Semana S4. | Modelo de datos |  | J. Restrepo; H. Idrobo |
+| 3 | 1.3.3 | Diseño de la interfaz web | Se elaboran los prototipos del visor del caso, de la captura de la decisión y de la pantalla de resultado, con el aviso de uso educativo. Semana S4. | Prototipos de la interfaz |  | J. Restrepo; H. Idrobo |
+| 3 | 1.3.4 | Diseño del agente tutor de IA y de las métricas | Se diseñan los prompts del tutor (con el diagnóstico de referencia) y se definen las métricas de coherencia, pertinencia y tiempo de respuesta. Semana S4. | Diseño del agente tutor y definición de métricas |  | H. Idrobo; J. Buitrago; J. P. Nieto |
+| 3 | 1.3.5 | Revisión y aprobación del diseño | Revisión entre pares de la arquitectura, los datos, la interfaz y los prompts, y aprobación del Director de Proyecto. Semana S4. | Diseño aprobado |  | C. Lasso; J. P. Nieto |
+| **2** | **1.4** | **Construcción** | Etapa TSP de construcción de la interfaz web, la API, la integración del agente tutor de IA y el registro de métricas. Semanas S5 a S7. | Aplicativo web Derma-Sim integrado (E1) y agente tutor (E3) |  | H. Idrobo; J. Restrepo (Desarrolladores) |
+| 3 | 1.4.1 | Visor de casos | Se construye el visor que presenta la historia clínica y la imagen dermatoscópica del caso. Semanas S5 a S6. | Módulo visor de casos |  | J. Restrepo; H. Idrobo |
+| 3 | 1.4.2 | Captura de la decisión diagnóstica y pantalla de resultado | Se construyen la captura de la decisión del estudiante y la pantalla de resultado con la retroalimentación. Semanas S5 a S6. | Módulo de decisión y resultado |  | J. Restrepo; H. Idrobo |
+| 3 | 1.4.3 | API y lógica de negocio | Se construyen la API y la lógica de negocio que gestionan los casos y las sesiones. Semanas S5 a S6. | API y lógica de negocio |  | H. Idrobo; J. Restrepo |
+| 3 | 1.4.4 | Integración del agente tutor de IA | Se integra el agente evaluador para que el flujo caso → decisión → evaluación → retroalimentación funcione sin intervención manual. Semana S6. | Agente tutor de IA integrado (E3) |  | H. Idrobo; J. Restrepo |
+| 3 | 1.4.5 | Registro de métricas de la sesión | Se registran en cada sesión la coherencia, la pertinencia y el tiempo de respuesta del tutor. Semana S7. | Registro de métricas por sesión |  | H. Idrobo; J. P. Nieto |
+| 3 | 1.4.6 | Carga del banco de casos e integración final | Se carga el banco de casos y se integran todos los módulos en la versión integrada del aplicativo. Semana S7. | Aplicativo web Derma-Sim integrado (E1) |  | J. Restrepo; J. Buitrago |
+| **2** | **1.5** | **Pruebas** | Etapa TSP de pruebas: verificación y validación de la funcionalidad, de las respuestas de la IA y de la usabilidad. Semanas S7 a S8. | Informe de pruebas y validación (E4) |  | J. P. Nieto (Tester) |
+| 3 | 1.5.1 | Plan de pruebas y casos de prueba | Se elaboran el plan y los casos de prueba para cada requisito de prioridad alta. Semana S7. | Plan y casos de prueba |  | J. P. Nieto; J. Buitrago |
+| 3 | 1.5.2 | Pruebas funcionales | Se ejecutan los casos de prueba y se registran los defectos encontrados. Semana S8. | Resultados de las pruebas funcionales |  | J. P. Nieto; J. Buitrago |
+| 3 | 1.5.3 | Pruebas de las respuestas de la IA con revisión clínica | Se mide la coherencia y la pertinencia de la retroalimentación con una muestra de casos revisada por un docente o profesional de la salud (meta: al menos 80 %). Semana S8. | Resultados de las métricas del tutor |  | J. P. Nieto; J. Buitrago; revisor clínico |
+| 3 | 1.5.4 | Prueba de usabilidad con estudiantes | Estudiantes de ciencias de la salud completan un caso y se mide cuántos lo logran sin ayuda del equipo (meta: al menos 80 %). Semana S8. | Resultados de la prueba de usabilidad |  | J. P. Nieto; C. Lasso; estudiantes |
+| 3 | 1.5.5 | Corrección de defectos | Se corrigen los defectos y se repiten las pruebas afectadas; no deben quedar defectos críticos abiertos. Semana S8. | Aplicativo corregido |  | H. Idrobo; J. Restrepo |
+| 3 | 1.5.6 | Informe de pruebas y validación | Se consolidan los resultados, los defectos, las correcciones y el cumplimiento de los criterios de éxito del acta. Semana S8. | Informe de pruebas y validación (E4) |  | J. P. Nieto; C. Lasso |
+| **2** | **1.6** | **Documentación**** y Cierre** | Documentación técnica y de usuario, entrega y sustentación final, aceptación formal y cierre del proyecto. Semanas S9 a S10. | Documentación (E5), entrega final y aceptación |  | C. Lasso; todo el equipo |
+| 3 | 1.6.1 | Documentación técnica | Se documentan la arquitectura, el modelo de datos y la instalación del aplicativo. Semana S9. | Documentación técnica (E5) |  | H. Idrobo; J. Restrepo |
+| 3 | 1.6.2 | Guía de usuario | Se elabora la guía de usuario para docentes y estudiantes, con el aviso de uso educativo. Semana S9. | Guía de usuario (E5) |  | J. Buitrago; J. P. Nieto |
+| 3 | 1.6.3 | Demostración y preparación de la sustentación | Se prepara la demostración del aplicativo y la presentación de la sustentación final. Semana S10. | Presentación y guion de la demostración |  | C. Lasso; J. P. Nieto |
+| 3 | 1.6.4 | Entrega y sustentación final | El equipo entrega los productos y sustenta el aplicativo ante el docente en la fecha fijada por el calendario académico. Semana S10. | Entregables E1 a E5 entregados |  | Todo el equipo |
+| 3 | 1.6.5 | Aceptación formal de los entregables | El docente verifica los entregables frente a los criterios de éxito del acta y los acepta formalmente. Semana S10. | Constancia de aceptación del docente |  | C. Lasso; docente |
+| 3 | 1.6.6 | Lecciones aprendidas y archivo del proyecto | Se documentan las lecciones aprendidas y se archivan los documentos y el código del proyecto. Semana S10. | Lecciones aprendidas y archivo del proyecto |  | C. Lasso; todo el equipo |
+
+**Tabla 1.2,** *Diccionario de la EDT*
+
+Verificación del Alcance
+
+La verificación del alcance describe cómo se verificarán los entregables frente al alcance original y cómo se aceptarán formalmente. Los entregables deben aceptarse y firmarse a lo largo del ciclo de vida del proyecto, y no dejarse todos para el final.
+
+A medida que avanza el proyecto, el Director de Proyecto y el Tester verificarán los entregables intermedios frente al alcance definido en la declaración del alcance, la EDT y su diccionario, y frente a los criterios de aceptación (alcance, tiempo y calidad). Cuando verifiquen que el entregable cumple los requisitos definidos en el plan del proyecto, el Director de Proyecto lo presentará al docente en una reunión de aceptación formal. El docente aceptará el entregable firmando un documento de aceptación de entregables o dejando constancia escrita de su aprobación. La aceptación se realiza por etapa, siguiendo los hitos H1 a H9, y no solo al final, lo que asegura que el trabajo se mantenga dentro del alcance de forma constante durante la vida del proyecto.
+
+Control del Alcance
+
+El control del alcance es el proceso de monitorear el estado del alcance del proyecto. Esta sección también detalla el proceso de cambio para modificar la línea base del alcance.
+
+El Director de Proyecto y el equipo trabajarán juntos para controlar el alcance. El equipo usará el diccionario de la EDT como declaración de trabajo de cada elemento: solo realizará el trabajo descrito en él y generará los entregables definidos para cada elemento. El Director de Proyecto supervisará al equipo y el avance del proyecto, mediante la reunión semanal de seguimiento, para asegurar que se cumpla este proceso de control del alcance.
+
+Si se necesita un cambio en el alcance del proyecto, debe seguirse el proceso para recomendarlo. Cualquier integrante del equipo o el docente puede solicitar cambios al alcance. Todas las solicitudes deben presentarse al Director de Proyecto en un formato de solicitud de cambio. El Director de Proyecto revisará el cambio sugerido y lo rechazará si no corresponde a la intención del proyecto, o convocará una reunión de control de cambios con el equipo y el docente para analizarlo y evaluar su impacto en el alcance, el tiempo y la calidad. Si el cambio recibe la aprobación inicial del Director de Proyecto y del docente, el Director de Proyecto lo presentará formalmente al Comité de Control de Cambios (CCC), formado por él mismo y el docente. Si el CCC aprueba el cambio, el docente lo acepta formalmente firmando el documento de control de cambios. Con la aceptación del cambio, el Director de Proyecto actualiza todos los documentos del proyecto, incluida una nueva versión del acta cuando corresponde, y comunica el cambio a todos los integrantes del equipo y a los interesados.
+
+Aceptación del Patrocinador
+
+Aprobado por el Patrocinador del Proyecto (aprobador académico):
+
+			Fecha:
+
+Docente de Gestión de Proyectos TI (nombre por completar)
+
+Universidad Santiago de Cali – Facultad de Ingeniería
+
+Esta plantilla gratuita de Plan de Gestión del Alcance del Proyecto es cortesía de [www.ProjectManagementDocs.com](http://www.ProjectManagementDocs.com)
+
+1

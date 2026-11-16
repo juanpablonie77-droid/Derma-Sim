@@ -1,0 +1,621 @@
+Derma-Sim · Informe de patrones de diseño aplicados
+
+**Informe de Patrones**
+
+**de Diseño Aplicados**
+
+Diseño de software: patrones aplicados en la arquitectura del aplicativo
+
+**Derma-Sim**
+
+*Simulador clínico de casos dermatológicos con agente tutor de IA*
+
+**Universidad Santiago de Cali (USC)**
+
+Facultad de Ingeniería – Ingeniería de Sistemas
+
+Cali, Valle del Cauca, Colombia
+
+**Equipo del proyecto**
+
+Cristian Orlando Lasso Mulato
+
+Jhon Steven Buitrago Quitiaquez
+
+Harold Alexis Idrobo Puertocarrero
+
+Jacobo Restrepo Cadavid
+
+Juan Pablo Nieto Cobo
+
+21/10/2026 · Versión 1.0
+
+**Control del documento**
+
+| **Campo** | **Valor** |
+| --- | --- |
+| **Título** | Informe de patrón o patrones de diseño aplicados – Derma-Sim |
+| **Proyecto** | Derma-Sim: simulador clínico de casos dermatológicos con agente tutor de IA |
+| **Autor** | Cristian Orlando Lasso Mulato (Director de Proyecto) y equipo Derma-Sim |
+| **Aprobador académico** | Docente de Gestión de Proyectos TI (nombre por completar) |
+| **Versión / fecha** | 1.0 / 21/10/2026 |
+| **Relación con la EDT** | Paquetes 1.3.1, 1.3.4 y 1.3.5 (Diseño; hito 004); implementación en 1.4.3 a 1.4.5; verificación en 1.5.2 y 1.5.3. |
+| **Estado** | Para revisión del docente y del equipo (revisión del diseño). |
+
+**Contenido**
+
+	**1. Introducción****	3**
+
+	1.1 Propósito del informe	3
+
+	1.2 Relación con el proyecto	3
+
+	1.3 Criterio de selección	3
+
+	**2. Patrones de diseño y contexto técnico****	4**
+
+	2.1 Qué es un patrón de diseño	4
+
+	2.2 Contexto técnico del diseño	4
+
+	**3. Problemas de diseño y patrones elegidos****	6**
+
+	**4. Resumen de los patrones aplicados****	7**
+
+	**5. Descripción de los patrones aplicados****	8**
+
+	5.1 Subsistema del tutor de IA	8
+
+	5.2 Lógica de negocio	11
+
+	5.3 API y presentación	13
+
+	**6. Colaboración de los patrones****	15**
+
+	**7. Evaluación del catálogo de patrones****	16**
+
+	**8. Calidad, alcance y tiempo****	17**
+
+	8.1 Verificación de los patrones	17
+
+	8.2 Beneficios y compromisos	17
+
+	**9. Conclusiones****	18**
+
+	**10. Referencias****	19**
+
+# 1. Introducción
+
+## 1.1 Propósito del informe
+
+Este informe documenta los **patrones de diseño aplicados** en el diseño de Derma-Sim. Para cada patrón se explica qué problema concreto del proyecto resuelve, cómo se aplica (clases, responsabilidades y un fragmento ilustrativo), qué consecuencias tiene y cómo se verificará. También se revisa el catálogo completo de 22 patrones para justificar cuáles se aplican y cuáles no.
+
+## 1.2 Relación con el proyecto
+
+Derma-Sim es un aplicativo web de simulación clínica de la línea ONCO-SIM: el estudiante de ciencias de la salud analiza un caso dermatológico, propone un diagnóstico y recibe una evaluación y una retroalimentación explicable de un agente tutor de inteligencia artificial (IA). El informe pertenece a la **etapa de Diseño** (paquetes de trabajo 1.3.1 Arquitectura en capas, 1.3.4 Agente tutor y métricas, y 1.3.5 Revisión del diseño; hito 004). Los patrones se implementan en la etapa de Construcción (paquetes 1.4.3 a 1.4.5, semanas S5 a S7) y se verifican en la etapa de Pruebas (paquetes 1.5.2 y 1.5.3).
+
+Las tres variables de la gestión del proyecto se mantienen controladas:
+
+- **Alcance:** un patrón se aplica solo si resuelve un problema que sale de una necesidad, un criterio de éxito o un riesgo del acta; no se agrega funcionalidad nueva.
+
+- **Tiempo:** los patrones se implementan dentro de paquetes de trabajo ya planificados; no se agregan paquetes ni se mueven hitos.
+
+- **Calidad:** cada patrón tiene una verificación concreta (sección 8) y mejora la mantenibilidad y la facilidad de prueba del producto.
+
+## 1.3 Criterio de selección
+
+- **Identificar** los problemas de diseño que se derivan del acta, de los riesgos y de la arquitectura en capas (sección 3).
+
+- **Revisar** el catálogo de patrones (22 patrones, sección 7) y elegir el que mejor resuelve cada problema.
+
+- **Aplicar** el patrón solo si simplifica el diseño; no se usa un patrón «por decoración».
+
+- **Documentar** su aplicación y la forma de verificarlo.
+
+# 2. Patrones de diseño y contexto técnico
+
+## 2.1 Qué es un patrón de diseño
+
+Un patrón de diseño es una solución reutilizable y probada a un problema que se repite al diseñar software orientado a objetos. No es código que se copia, sino un esquema de clases y responsabilidades que se adapta a cada caso. Su valor está en que da un vocabulario común al equipo («aquí hay un adaptador», «esto es una fachada») y evita reinventar soluciones.
+
+El catálogo clásico los agrupa en tres categorías según el tipo de problema que atacan:
+
+| **Categoría** | **Se ocupa de…** | **Ejemplos aplicados en Derma-Sim** |
+| --- | --- | --- |
+| **Creacionales** | Cómo se crean los objetos, para no depender de clases concretas. | Factory Method, Builder |
+| **Estructurales** | Cómo se combinan clases y objetos en estructuras mayores. | Adapter, Decorator, Facade |
+| **De comportamiento** | Cómo se reparten las responsabilidades y se comunican los objetos. | Strategy, State, Chain of Responsibility, Observer |
+
+## 2.2 Contexto técnico del diseño
+
+Los patrones se aplican sobre la arquitectura en capas del producto. La pila tecnológica es una propuesta del equipo para la etapa de Diseño y se confirma en la revisión del diseño (paquete 1.3.5):
+
+- **Presentación:** aplicación de una sola página con Vue 3, Pinia (estado) y Vue Router.
+
+- **API:** Node.js con Express, servicios REST en formato JSON.
+
+- **Datos:** MongoDB mediante Mongoose.
+
+- **Integración externa:** servicio de IA generativa consumido por su API (agente tutor), siempre a través de un adaptador.
+
+*Figura 1. Arquitectura en capas de Derma-Sim, donde se ubican los patrones*
+
+# 3. Problemas de diseño y patrones elegidos
+
+La tabla relaciona cada problema de diseño con su origen en los documentos del proyecto y con el patrón que lo resuelve.
+
+| **N.º** | **Problema de diseño** | **Origen** | **Patrón** |
+| --- | --- | --- | --- |
+| **P1** | El tutor depende de un proveedor externo de IA cuya interfaz puede cambiar o dejar de estar disponible; el negocio no debe verse afectado. | Riesgo R1; necesidad N4 (tutor desacoplado) | Adapter |
+| **P2** | El tutor debe crearse con una configuración en producción y con otra en pruebas, para no consumir los límites del servicio de IA. | Riesgo R1; plan de pruebas (1.5.1) | Factory Method |
+| **P3** | La forma de la retroalimentación (explicable o breve) debe poder cambiar sin modificar al integrador. | Necesidad N2 (retroalimentación explicable) | Strategy |
+| **P4** | Hay que medir el tiempo de respuesta del tutor en cada sesión, sin mezclar esa medición con la lógica de la IA. | Criterio de éxito: respuesta de 10 s o menos | Decorator |
+| **P5** | La solicitud al modelo se arma con varias partes y siempre debe incluir el diagnóstico de referencia. | Riesgo R4 (respuestas incoherentes) | Builder |
+| **P6** | Practicar un caso involucra varios servicios (casos, sesiones, IA, métricas); la interfaz no debe conocerlos. | Arquitectura en capas (1.3.1) | Facade |
+| **P7** | La sesión sigue reglas de estado: no se evalúa sin decisión y la decisión se conserva si falla la IA. | Riesgo R1; necesidad N2 | State |
+| **P8** | Cada solicitud debe pasar por varias comprobaciones (identidad, rol, validación, límite de uso). | Necesidad N5 (uso ético y seguro) | Chain of Responsibility |
+| **P9** | Varias partes (interfaz y métricas) deben enterarse cuando cambia una sesión, sin acoplarse entre sí. | Necesidad N3 (trazabilidad de métricas) | Observer |
+
+# 4. Resumen de los patrones aplicados
+
+| **Patrón** | **Categoría** | **Capa** | **Clases de Derma-Sim** | **Paquete EDT** |
+| --- | --- | --- | --- | --- |
+| **Adapter** | Estructural | Integración IA | TutorIAAdapter | 1.4.4 (S6) |
+| **Factory Method** | Creacional | Integración IA | TutorFactory, TutorFactoryReal, TutorFactorySimulado | 1.4.4 (S6) |
+| **Strategy** | Comportamiento | Integración IA | EstrategiaRetro, RetroExplicable, RetroBreve | 1.4.4 (S6) |
+| **Decorator** | Estructural | Integración IA | TutorMetricasDecorator | 1.4.5 (S7) |
+| **Builder** | Creacional | Integración IA | PromptBuilder | 1.4.4 (S6) |
+| **Facade** | Estructural | Lógica de negocio | SesionService | 1.4.3 (S5–S6) |
+| **State** | Comportamiento | Lógica de negocio | Iniciada, DecisionRegistrada, Evaluada, ErrorIA, Finalizada | 1.4.3 (S5–S6) |
+| **Chain of Responsibility** | Comportamiento | API | Middleware de Express: autenticar, requerirRol, validar, limitarUso | 1.4.3 (S5–S6) |
+| **Observer** | Comportamiento | Presentación y servidor | Stores de Pinia y EventEmitter de Node.js | 1.4.2 y 1.4.5 |
+
+# 5. Descripción de los patrones aplicados
+
+## 5.1 Subsistema del tutor de IA
+
+Cinco patrones colaboran para que el resto del sistema use al tutor como una pieza sencilla e intercambiable. La figura 2 muestra sus clases; el flujo completo está en la sección 6.
+
+*Figura 2. Diagrama de clases del subsistema del tutor de IA (Adapter, Factory Method, Strategy, Decorator y Builder)*
+
+### 5.1.1 Adapter (estructural)
+
+**Intención.** Convertir la interfaz de una clase en otra que esperan los clientes, para que clases con interfaces incompatibles puedan trabajar juntas.
+
+**Problema en Derma-Sim.** El negocio necesita una operación simple, evaluar(caso, decision), pero cada proveedor de IA expone su propia API y formato de respuesta. Si el negocio los usara directamente, cambiar de proveedor obligaría a modificar muchas partes del sistema.
+
+**Solución aplicada.** TutorIAAdapter implementa la interfaz TutorIA, traduce el caso y la decisión a la solicitud del proveedor y convierte su respuesta al formato interno { resultado, retroalimentacion, evidencia }. Solo esta clase conoce al proveedor.
+
+// Interfaz que usa el negocio:
+
+//   evaluar(caso, decision) -> { resultado, retroalimentacion, evidencia }
+
+class TutorIAAdapter {
+
+  constructor({ cliente, estrategia }) {
+
+    this.cliente = cliente;        // acceso HTTP al proveedor de IA
+
+    this.estrategia = estrategia;  // forma de la retroalimentación
+
+  }
+
+  async evaluar(caso, decision) {
+
+    const prompt = new PromptBuilder()
+
+      .conCaso(caso).conDecision(decision).conReferencia(caso.diagnosticoReferencia)
+
+      .conInstrucciones(this.estrategia.armarInstrucciones({ caso }))
+
+      .build();
+
+    const r = await this.cliente.completar(prompt);   // formato propio del proveedor
+
+    return {
+
+      resultado: r.veredicto, retroalimentacion: r.texto, evidencia: r.evidencia,
+
+    };
+
+  }
+
+}
+
+**Consecuencias.** Cambiar de proveedor o de modelo solo exige un adaptador nuevo, sin tocar la interfaz ni el negocio (mitiga el riesgo R1). El costo es una clase adicional que traduce formatos.
+
+**Verificación.** Prueba unitaria del adaptador con un cliente simulado: la respuesta del proveedor se convierte al formato interno (paquete 1.5.2).
+
+### 5.1.2 Factory Method (creacional)
+
+**Intención.** Definir un método para crear objetos y dejar que las subclases decidan qué clase concreta instanciar.
+
+**Problema en Derma-Sim.** En producción el tutor usa el servicio real de IA, pero en las pruebas conviene un cliente simulado que no consuma los límites de uso del servicio ni dependa de la conexión.
+
+**Solución aplicada.** TutorFactory define el método de creación crear() y delega en crearCliente(), que redefinen TutorFactoryReal y TutorFactorySimulado. El resto del sistema pide el tutor a la fábrica y nunca usa new sobre clases concretas.
+
+class TutorFactory {
+
+  crearCliente(config) { throw new Error('Lo define cada fábrica concreta'); }
+
+  crear(config, metricas) {
+
+    const adapter = new TutorIAAdapter({
+
+      cliente: this.crearCliente(config),
+
+      estrategia: config.retro === 'breve' ? new RetroBreve() : new RetroExplicable(),
+
+    });
+
+    return new TutorMetricasDecorator(adapter, metricas);
+
+  }
+
+}
+
+class TutorFactoryReal extends TutorFactory {
+
+  crearCliente(c) { return new ClienteHTTP(c.urlIA, c.claveIA); }
+
+}
+
+class TutorFactorySimulado extends TutorFactory {
+
+  crearCliente() { return new ClienteSimulado(); }
+
+}
+
+**Consecuencias.** La creación del tutor queda en un solo lugar y las pruebas no dependen del servicio externo. El costo es una jerarquía pequeña de fábricas.
+
+**Verificación.** Con la fábrica simulada se ejecutan las pruebas funcionales sin conexión; con la real se ejecutan las pruebas de las respuestas de la IA (paquetes 1.5.2 y 1.5.3).
+
+### 5.1.3 Strategy (comportamiento)
+
+**Intención.** Definir una familia de algoritmos, encapsular cada uno y hacerlos intercambiables sin cambiar a quien los usa.
+
+**Problema en Derma-Sim.** La retroalimentación debe ser explicable, pero el equipo puede necesitar otra forma (por ejemplo, más breve) para cumplir el tiempo de respuesta o para probar qué entiende mejor el estudiante.
+
+**Solución aplicada.** EstrategiaRetro es la interfaz y RetroExplicable y RetroBreve son sus variantes; el adaptador recibe la estrategia por configuración. Una segunda familia, EstrategiaSeleccionCaso (aleatoria, por dificultad, sin repetir casos), aplica el mismo patrón al elegir el caso de una práctica.
+
+class RetroExplicable {
+
+  armarInstrucciones({ caso }) {
+
+    return `Evalúa la decisión frente a "${caso.diagnosticoReferencia.nombre}"
+
+      y explica la evidencia visual y clínica.`;
+
+  }
+
+}
+
+class RetroBreve {
+
+  armarInstrucciones() { return 'Indica en tres frases si acertó y cuál fue la pista principal.'; }
+
+}
+
+**Consecuencias.** Se cambia el estilo de la retroalimentación con una opción de configuración, sin condicionales dentro del adaptador. El costo es una clase por variante.
+
+**Verificación.** Pruebas con ambas estrategias sobre el mismo caso: ambas incluyen el diagnóstico de referencia y la variante explicable incluye evidencia (paquete 1.5.3).
+
+### 5.1.4 Decorator (estructural)
+
+**Intención.** Agregar responsabilidades a un objeto de forma dinámica, envolviéndolo en otro que tiene su misma interfaz.
+
+**Problema en Derma-Sim.** Cada sesión debe registrar el tiempo de respuesta del tutor (meta de 10 segundos o menos). Medirlo dentro del adaptador mezclaría una preocupación técnica con la traducción de formatos.
+
+**Solución aplicada.** TutorMetricasDecorator implementa TutorIA, envuelve al adaptador, mide el tiempo de la llamada y lo agrega al resultado. Para el resto del sistema sigue siendo «un tutor».
+
+class TutorMetricasDecorator {
+
+  constructor(interno, metricas) { this.interno = interno; this.metricas = metricas; }
+
+  async evaluar(caso, decision) {
+
+    const t0 = Date.now();
+
+    const resultado = await this.interno.evaluar(caso, decision);
+
+    resultado.tiempoMs = Date.now() - t0;
+
+    this.metricas.registrarLatencia(resultado.tiempoMs);
+
+    return resultado;
+
+  }
+
+}
+
+**Consecuencias.** La medición se activa o desactiva sin modificar el adaptador y se pueden apilar otros decoradores (por ejemplo, registro de eventos). El costo es que el orden de los decoradores importa.
+
+**Verificación.** Prueba de rendimiento con la IA real: el tiempo queda registrado en cada sesión y se compara con la meta de 10 s (paquete 1.5.3).
+
+### 5.1.5 Builder (creacional)
+
+**Intención.** Separar la construcción de un objeto complejo de su representación, para construirlo paso a paso.
+
+**Problema en Derma-Sim.** El mensaje enviado al modelo se compone de la historia clínica, la decisión del estudiante, el diagnóstico de referencia y las instrucciones. Si falta el diagnóstico de referencia, las respuestas pueden ser incoherentes (riesgo R4).
+
+**Solución aplicada.** PromptBuilder arma la solicitud por partes con una interfaz fluida y su método build() rechaza una solicitud que no incluya el diagnóstico de referencia.
+
+class PromptBuilder {
+
+  constructor() { this.partes = []; this.tieneReferencia = false; }
+
+  conCaso(c) { this.partes.push(`Caso: ${c.historiaClinica.descripcion}`); return this; }
+
+  conDecision(d) { this.partes.push(`Decisión del estudiante: ${d.diagnostico}`); return this; }
+
+  conReferencia(dx) {
+
+    this.partes.push(`Diagnóstico de referencia: ${dx.nombre}`);
+
+    this.tieneReferencia = true; return this;
+
+  }
+
+  conInstrucciones(t) { this.partes.push(t); return this; }
+
+  build() {
+
+    if (!this.tieneReferencia) throw new Error('Falta el diagnóstico de referencia');
+
+    return this.partes.join('\n');
+
+  }
+
+}
+
+**Consecuencias.** La regla de calidad queda forzada por el diseño y la construcción es legible. El costo es una clase adicional.
+
+**Verificación.** Prueba unitaria: build() sin referencia lanza un error; con todas las partes devuelve el texto esperado (paquete 1.5.2).
+
+## 5.2 Lógica de negocio
+
+### 5.2.1 Facade (estructural)
+
+**Intención.** Ofrecer una interfaz única y sencilla a un conjunto de interfaces de un subsistema.
+
+**Problema en Derma-Sim.** Practicar un caso involucra varios servicios: elegir el caso, guardar la sesión, llamar al tutor y registrar métricas. La API y la interfaz no deben conocer esa coordinación.
+
+**Solución aplicada.** SesionService es la fachada de la práctica y expone solo iniciar, registrarDecision y evaluar. Internamente coordina CasoService, el repositorio de sesiones, el tutor y las métricas.
+
+class SesionService {
+
+  constructor({ sesiones, casos, tutor, eventos }) {
+
+    Object.assign(this, { sesiones, casos, tutor, eventos });
+
+  }
+
+  async evaluar(id) {
+
+    const sesion = await this.sesiones.obtener(id);
+
+    const caso = await this.casos.obtener(sesion.casoId);
+
+    try {
+
+      const r = await this.tutor.evaluar(caso, sesion.decision);
+
+      await this.sesiones.guardarEvaluacion(id, r);
+
+      this.eventos.emit('sesion.evaluada', { sesionId: id, tiempoMs: r.tiempoMs });
+
+      return r;
+
+    } catch (e) {
+
+      await this.sesiones.marcarErrorIA(id);              // la decisión se conserva
+
+      throw new ErrorIANoDisponible();
+
+    }
+
+  }
+
+}
+
+**Consecuencias.** Los controladores quedan delgados y el recorrido se puede probar completo en un solo punto. El riesgo es que la fachada crezca demasiado, por lo que se limita a la coordinación de la práctica.
+
+**Verificación.** Prueba de integración del recorrido caso, decisión, evaluación y retroalimentación sin intervención manual (paquete 1.5.2).
+
+### 5.2.2 State (comportamiento)
+
+**Intención.** Permitir que un objeto cambie su comportamiento cuando cambia su estado interno.
+
+**Problema en Derma-Sim.** Una sesión no puede evaluarse sin decisión; si la IA falla, la sesión debe poder reintentarse sin perder la decisión del estudiante.
+
+**Solución aplicada.** Cada estado es una clase (Iniciada, DecisionRegistrada, Evaluada, ErrorIA, Finalizada) que sabe qué operaciones permite y a qué estado pasa. La figura 3 muestra las transiciones.
+
+class Iniciada {
+
+  registrarDecision(sesion, decision) {
+
+    sesion.decision = decision;
+
+    sesion.estado = new DecisionRegistrada();
+
+  }
+
+  evaluar() { throw new Error('Primero se registra la decisión'); }
+
+}
+
+class DecisionRegistrada {
+
+  evaluar(sesion, resultado) {
+
+    sesion.evaluacion = resultado;
+
+    sesion.estado = new Evaluada();
+
+  }
+
+  fallarIA(sesion) { sesion.estado = new ErrorIA(); }   // la decisión se conserva
+
+}
+
+class ErrorIA { reintentar(sesion) { sesion.estado = new DecisionRegistrada(); } }
+
+**Consecuencias.** Las reglas del ciclo de vida de la sesión quedan en un lugar y las transiciones inválidas se rechazan. El costo es una clase por estado.
+
+**Verificación.** Pruebas de transiciones: evaluar sin decisión falla; tras un fallo de la IA se puede reintentar y la decisión sigue guardada (paquete 1.5.2).
+
+*Figura 3. Diagrama de estados de la sesión de práctica*
+
+## 5.3 API y presentación
+
+### 5.3.1 Chain of Responsibility (comportamiento)
+
+**Intención.** Pasar una solicitud por una cadena de manejadores; cada uno decide si la procesa o la pasa al siguiente.
+
+**Problema en Derma-Sim.** Cada solicitud a la API debe verificarse en orden: identidad, rol, validez de los datos y límite de uso. Poner todo eso dentro de cada controlador sería repetitivo y propenso a errores.
+
+**Solución aplicada.** Los middleware de Express forman la cadena: autenticar, requerirRol, validar y limitarUso. Cada uno responde con un error o llama a next().
+
+router.post('/:id/decision',
+
+  autenticar,                      // 401 si no hay sesión válida
+
+  requerirRol('estudiante'),       // 403 si el rol no corresponde
+
+  validar(esquemaDecision),        // 400 si el cuerpo no es válido
+
+  limitarUso,                      // 429 si se excede el límite
+
+  sesionController.registrarDecision);
+
+**Consecuencias.** Las comprobaciones se reutilizan en todas las rutas y se agregan o quitan sin tocar los controladores. El orden de la cadena importa y debe documentarse.
+
+**Verificación.** Pruebas de la API: sin credenciales responde 401, con un rol inadecuado 403 y con datos inválidos 400 (paquete 1.5.2).
+
+### 5.3.2 Observer (comportamiento)
+
+**Intención.** Definir una dependencia de uno a muchos, de modo que cuando un objeto cambia su estado se notifique a los que lo observan.
+
+**Problema en Derma-Sim.** Al evaluarse una sesión deben actualizarse la pantalla de resultado y las métricas, sin que los módulos que lo hacen se conozcan entre sí.
+
+**Solución aplicada.** En el cliente, los componentes de Vue observan el estado reactivo de los stores de Pinia. En el servidor, la fachada emite el evento sesion.evaluada y MetricasService se suscribe a él.
+
+// Servidor (Node.js)
+
+const eventos = new EventEmitter();
+
+eventos.on('sesion.evaluada', ({ sesionId, tiempoMs }) =>
+
+  metricas.registrar(sesionId, tiempoMs));
+
+ 
+
+// Cliente (Vue 3 + Pinia): los componentes observan el estado
+
+const sesion = useSesionStore();
+
+watch(() => sesion.estado, (e) => { if (e === 'evaluada') mostrarResultado(); });
+
+**Consecuencias.** Se pueden agregar nuevos observadores (por ejemplo, un registro de auditoría) sin modificar la fachada. Con muchos observadores, el flujo puede ser más difícil de seguir.
+
+**Verificación.** Prueba de integración: al evaluar una sesión se crea el registro de métricas y la interfaz muestra el resultado (paquetes 1.5.2 y 1.5.4).
+
+# 6. Colaboración de los patrones
+
+El caso de uso principal, evaluar la decisión del estudiante, muestra cómo trabajan juntos los patrones:
+
+- La solicitud llega a la API y atraviesa la cadena de middleware (**Chain of Responsibility**).
+
+- El controlador llama a la fachada SesionService (**Facade**), que consulta el estado de la sesión (**State**).
+
+- La fachada pide el tutor, creado por la fábrica configurada (**Factory Method**), y llama a evaluar().
+
+- El decorador mide el tiempo (**Decorator**) y delega en el adaptador (**Adapter**).
+
+- El adaptador construye la solicitud con PromptBuilder (**Builder**), aplica la estrategia de retroalimentación (**Strategy**) y llama al proveedor.
+
+- La respuesta vuelve convertida al formato interno; la sesión pasa a «evaluada» (**State**) y se emite el evento sesion.evaluada (**Observer**).
+
+- Las métricas se registran y la interfaz muestra el resultado y la retroalimentación (**Observer**).
+
+Si el servicio de IA falla en el paso 5, la fachada marca la sesión en «error de IA», conserva la decisión y permite reintentar; el estudiante no pierde su trabajo.
+
+# 7. Evaluación del catálogo de patrones
+
+Se revisaron los 22 patrones del catálogo. La tabla indica si se aplican y por qué; descartar un patrón es una decisión de diseño tan importante como aplicarlo, porque evita complejidad que no aporta valor.
+
+| **Patrón** | **Categoría** | **¿Se aplica?** | **Justificación** |
+| --- | --- | --- | --- |
+| **Patrones creacionales** |
+| **Factory Method** | Creacional | **Sí** | Crea el tutor real o el simulado (5.1.2). |
+| **Abstract Factory** | Creacional | No | Solo hay una familia de productos relacionados (el cliente de IA); basta un método de fábrica. |
+| **Builder** | Creacional | **Sí** | Arma la solicitud al modelo por partes y exige el diagnóstico de referencia (5.1.5). |
+| **Prototype** | Creacional | No | No se clonan objetos costosos; los casos se leen de la base de datos. |
+| **Singleton** | Creacional | Implícito | La conexión a MongoDB y la configuración se crean una sola vez como módulos de Node.js; no se implementa una clase aparte. |
+| **Patrones estructurales** |
+| **Adapter** | Estructural | **Sí** | Aísla al proveedor de IA (5.1.1). |
+| **Bridge** | Estructural | No | Hay una sola abstracción con una sola implementación a la vez; el adaptador es suficiente. |
+| **Composite** | Estructural | No | Los casos y las sesiones no forman jerarquías de partes y todos. |
+| **Decorator** | Estructural | **Sí** | Agrega la medición del tiempo de respuesta al tutor (5.1.4). |
+| **Facade** | Estructural | **Sí** | Simplifica el recorrido de la práctica (5.2.1). |
+| **Flyweight** | Estructural | No | El volumen de objetos es bajo (banco inicial de al menos 10 casos); no hay problema de memoria. |
+| **Patrones de comportamiento** |
+| **Chain of Responsibility** | Comportamiento | **Sí** | Cadena de middleware de la API (5.3.1). |
+| **Command** | Comportamiento | No | No hay deshacer ni colas de operaciones dentro del alcance. |
+| **Iterator** | Comportamiento | Implícito | Lo ofrecen el lenguaje (for…of) y los cursores de MongoDB. |
+| **Mediator** | Comportamiento | No | Pinia ya centraliza el estado de la interfaz; no se necesita otro intermediario. |
+| **Memento** | Comportamiento | No | No hay función de deshacer; la decisión se conserva en la propia sesión. |
+| **Observer** | Comportamiento | **Sí** | Reactividad de Pinia y evento sesion.evaluada (5.3.2). |
+| **State** | Comportamiento | **Sí** | Ciclo de vida de la sesión (5.2.2). |
+| **Strategy** | Comportamiento | **Sí** | Estilo de retroalimentación y selección de casos (5.1.3). |
+| **Template Method** | Comportamiento | No | No se usa como patrón independiente: la estructura de crear() ya es el método de fábrica. |
+| **Visitor** | Comportamiento | No | No hay una estructura de objetos heterogéneos que recorrer. |
+
+# 8. Calidad, alcance y tiempo
+
+## 8.1 Verificación de los patrones
+
+| **Patrón** | **Prueba** | **Paquete EDT** | **Semana** |
+| --- | --- | --- | --- |
+| **Adapter** | Con un cliente simulado, la respuesta del proveedor se convierte al formato interno. | 1.5.2 | S8 |
+| **Factory Method** | La fábrica simulada permite ejecutar las pruebas sin conexión; la real se usa con la IA. | 1.5.2, 1.5.3 | S8 |
+| **Strategy** | Ambas estrategias incluyen el diagnóstico de referencia; la explicable incluye evidencia. | 1.5.3 | S8 |
+| **Decorator** | El tiempo de respuesta queda registrado y se compara con la meta de 10 s. | 1.5.3 | S8 |
+| **Builder** | build() sin diagnóstico de referencia lanza un error. | 1.5.2 | S8 |
+| **Facade** | El recorrido completo funciona sin intervención manual. | 1.5.2 | S8 |
+| **State** | Las transiciones inválidas se rechazan y la decisión se conserva tras un fallo de la IA. | 1.5.2 | S8 |
+| **Chain of Responsibility** | Respuestas 401, 403, 400 y 429 según la comprobación que falle. | 1.5.2 | S8 |
+| **Observer** | Al evaluar una sesión se registran las métricas y la interfaz muestra el resultado. | 1.5.2, 1.5.4 | S8 |
+
+## 8.2 Beneficios y compromisos
+
+| **Aspecto** | **Efecto de aplicar los patrones** |
+| --- | --- |
+| **Alcance** | No se agrega funcionalidad; los patrones organizan el código que ya exige el alcance. Se aplican nueve patrones y se descartan los que no resuelven un problema real. |
+| **Tiempo** | Se implementan dentro de los paquetes 1.4.3 a 1.4.5 (S5 a S7); no se crean paquetes nuevos ni se modifican los hitos. Se asumen unas pocas clases más por patrón. |
+| **Calidad** | Mejoran la mantenibilidad (cambios localizados), la facilidad de prueba (fábrica simulada) y la fiabilidad ante fallos de la IA (State y Facade). |
+| **Riesgos** | Reducen R1 (dependencia del proveedor de IA) y R4 (respuestas incoherentes). El riesgo de sobrediseño se controla con el criterio de selección de la sección 1.3. |
+
+# 9. Conclusiones
+
+- Se aplican **nueve patrones** de diseño, cada uno ligado a un problema concreto del proyecto y a un requisito, necesidad o riesgo del acta.
+
+- El subsistema del tutor de IA concentra cinco patrones (Adapter, Factory Method, Strategy, Decorator y Builder), lo que desacopla el producto del proveedor y facilita probarlo.
+
+- La fachada, los estados, la cadena de middleware y los observadores ordenan el recorrido de la práctica y protegen la decisión del estudiante ante fallos.
+
+- Se revisó el catálogo completo y se descartaron los patrones que añadirían complejidad sin resolver un problema real.
+
+- Siguientes pasos: validar este informe en la revisión del diseño (paquete 1.3.5), implementar los patrones en la etapa de Construcción y verificarlos en la de Pruebas.
+
+# 10. Referencias
+
+- Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). Design patterns: Elements of reusable object-oriented software. Addison-Wesley.
+
+- Refactoring.Guru. (s. f.). Catálogo de patrones de diseño. https://refactoring.guru/es/design-patterns/catalog
+
+- Project Management Institute. (2017). Guía de los fundamentos para la dirección de proyectos (Guía del PMBOK) (6.ª ed.).
+
+- Equipo Derma-Sim. (2026). Acta de Constitución del Proyecto (v1.0), Plan de Gestión del Alcance, EDT, Lista de Actividades, Lista de Hitos y Plan de Gestión de Calidad. Universidad Santiago de Cali.
+
+Universidad Santiago de Cali · Página  de

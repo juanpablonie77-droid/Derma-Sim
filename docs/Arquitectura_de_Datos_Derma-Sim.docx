@@ -1,0 +1,512 @@
+Arquitectura de Datos – Derma-Sim
+
+Universidad Santiago de Cali (USC) · Facultad de Ingeniería · Ingeniería de Sistemas
+
+Versión 1.0 (borrador académico) · 25/10/2026 · Paquetes EDT 1.3.1 y 1.3.2 (actividades 1017 y 1018)
+
+	- Introducción y alcance
+
+Este documento define cómo se recolectan, almacenan, transforman, distribuyen y consumen los datos de Derma-Sim, y detalla el diseño de su base de datos. Es la base para la construcción (EDT 1.4) y la documentación técnica (E5).
+
+Documentos de referencia
+
+	- Especificación de requisitos de software (SRS) v1.0, ISO/IEC/IEEE 29148:2018.
+
+	- Matriz de trazabilidad de requisitos, EDT y lista de actividades de Derma-Sim.
+
+	- Diagrama de casos de uso (actores Estudiante y Revisor Clínico).
+
+	- IBM, "Arquitectura de datos": plano técnico de cómo fluyen los datos por los sistemas de almacenamiento.
+
+Requisitos que gobiernan los datos
+
+| **Requisito** | **Impacto**** ****en**** ****los**** ****datos** |
+| --- | --- |
+| RF-01, RF-05, RF-10 | Banco de casos con historia clínica, imagen, diagnóstico de referencia y estado de revisión. |
+| RF-02, RF-06 | Sesiones y decisiones asociadas al caso y al estudiante. |
+| RF-03, RF-04 | Datos enviados al tutor y retroalimentación almacenada. |
+| RF-07 | Métricas por sesión: coherencia, pertinencia y tiempo de respuesta. |
+| RF-08, RNF-09 | Avisos educativos y de transparencia, con registro de aceptación. |
+| RNF-05, RNF-06 | Datos desidentificados; fuente y licencia verificadas por imagen. |
+| RNF-07 | IA desacoplada: los datos viajan por un contrato definido. |
+| RNF-10 | Manejo de límites y fallos del servicio de IA. |
+
+*Nota de consistencia: la SRS usa RF-01 a RF-10 y la matriz de trazabilidad usa RF1 a RF7 y RNF1 a RNF7. Conviene unificar la numeración antes de la revisión final.*
+
+	- Visión de la arquitectura de datos
+
+Los datos entran por curaduría de casos y por el uso de estudiantes y revisores; la API es el único punto que escribe y lee los almacenes y que habla con el servicio de IA.
+
+**Todo**** ****dato**** ****pasa**** ****por**** ****la**** ****API**** ****antes**** ****de**** ****llegar**** ****a**** ****un**** ****almacén**
+
+**Fuentes**** ****de**** ****casos**
+
+HAM10000 y docente
+
+curaduría
+
+**Base**** ****relacional**
+
+casos y sesiones
+
+**Estudiante**
+
+ve casos y decide
+
+**API**** ****y**** ****lógica**** ****de**** negocio**
+
+valida y transforma los datos mide tiempos de respuesta orquesta al agente tutor
+
+**Imágenes**
+
+archivos y rutas
+
+**Revisor**** ****Clínico**
+
+valida y consulta
+
+**Registro**** ****técnico**
+
+fallos y tiempos
+
+contexto y evaluación
+
+**Servicio**** ****de**** ****IA**
+
+agente tutor desacoplado
+
+La interfaz y el servicio de IA nunca acceden directamente a la base ni a las imágenes. Cuatro principios guían el diseño:
+
+	- Ningún campo almacena datos que identifiquen a un paciente (RNF-05).
+
+	- Todo caso tiene diagnóstico de referencia, fuente y licencia; sin ellos no puede activarse.
+
+	- Nada se presenta como guardado si no se almacenó (excepciones A2 y A3 de la SRS).
+
+			- Las respuestas del tutor se guardan tal como se generaron, con modelo y versión del prompt, para poder auditarlas.
+
+	- Fuentes de datos
+
+Derma-Sim recibe datos de cinco fuentes; las dos primeras entran por curaduría controlada y las demás se generan durante el uso.
+
+| **Fuente** | **Datos**** ****que**** ****aporta** | **Quién**** ****la**** ****controla** | **Formato** | **Requisito** |
+| --- | --- | --- | --- | --- |
+| Fuentes públicas de casos (p. ej. HAM10000) | Imagen dermatoscópica, diagnóstico de referencia, metadatos de origen y licencia | Equipo de desarrollo (curaduría) | Imágenes y metadatos tabulares | RF-05, RNF-06 |
+| Casos aportados por el docente | Historia clínica desidentificada, imagen, diagnóstico de referencia | Docente o profesional de la salud | Documento o archivos | RF-05, RF-10 |
+| Estudiante (uso del aplicativo) | Decisión diagnóstica, hipótesis clínica, aceptación de avisos | Estudiante | Formulario web | RF-02, RF-08 |
+| Servicio de IA generativa | Resultado, explicación, evidencias y sugerencias del tutor | Servicio externo | JSON estructurado | RF-03, RF-04 |
+| Revisor Clínico (revisión) | Aprobación de casos y calificación de coherencia y pertinencia | Revisor Clínico | Formulario web | RF-10, RF-07 |
+
+Los datos generados por el sistema (marcas de tiempo, tiempo de respuesta, estado del servicio de IA) no provienen de una fuente externa y se registran automáticamente por la capa de lógica de negocio.
+
+	- Almacenes de datos
+
+Derma-Sim usa tres almacenes con responsabilidades separadas; ninguno es accedido directamente por la interfaz ni por el servicio de IA.
+
+| **Almacén** | **Qué**** ****guarda** | **Tecnología**** ****propuesta** | **Acceso** |
+| --- | --- | --- | --- |
+| Base de datos relacional | Usuarios, casos, metadatos de imágenes, revisiones, sesiones, decisiones, evaluaciones, métricas, avisos | PostgreSQL (SQLite en desarrollo) | Solo la capa de lógica de negocio |
+| Almacenamiento de imágenes | Archivos de imágenes dermatoscópicas; la base guarda ruta y metadatos | Carpeta del servidor o almacenamiento de objetos | Lógica de negocio escribe; la interfaz lee mediante la API |
+| Registro técnico (logs) | Errores de integración con la IA, tiempos agotados y fallos al guardar métricas (excepciones A2 y A3 de la SRS) | Archivos de registro del servidor | Equipo de desarrollo |
+
+La elección de PostgreSQL mantiene el costo cercano a cero (RNF6 de la matriz) y permite restricciones CHECK y campos JSON. Es una propuesta que el equipo debe confirmar.
+
+	- Flujo de datos de una sesión (CU-01)
+
+Una sesión completa mueve datos entre la interfaz, la lógica de negocio, la base de datos y el servicio de IA en siete pasos.
+
+	- El estudiante selecciona un caso. La API lee el caso activo y su imagen, y crea la sesión (estado "iniciada").
+
+	- La interfaz muestra los avisos de IA y de uso educativo; su aceptación se guarda en la sesión.
+
+	- El estudiante registra su decisión. La API verifica que no esté vacía y la guarda (estado "decisión registrada").
+
+			- La lógica de negocio arma el contexto (historia clínica, diagnóstico de referencia, decisión), marca el tiempo de inicio y llama al tutor.
+
+			- El servicio de IA devuelve el resultado estructurado. La lógica calcula el tiempo de respuesta y guarda la evaluación y la métrica.
+
+	- La API entrega el resultado a la interfaz (estado "evaluada").
+
+	- Después, el Revisor Clínico califica coherencia y pertinencia, que se completan en la métrica de la sesión. **Casos de excepción. **Si el servicio de IA no responde o excede el tiempo límite, la sesión pasa a "evaluación fallida", la métrica guarda el estado del servicio y el error va al registro técnico; no se genera texto alternativo (A2).
+
+Si falla el guardado de la métrica, el sistema no la presenta como guardada (A3). Si el caso no está disponible, se
+
+informa y se vuelve a la selección (A4).
+
+	- Ciclo de vida del dato
+
+Cada tipo de dato tiene un momento de creación, un uso principal y una regla de conservación y eliminación.
+
+| **Dato** | **Creación** | **Uso** | **Conservación**** ****y**** ****eliminación**** ****(propuesta)** |
+| --- | --- | --- | --- |
+| Caso e imagen | Curaduría y carga al banco | Práctica del estudiante | Se conserva mientras esté activo; un caso retirado pasa a "inactivo" y no se borra, para no romper sesiones previas. |
+| Revisión de caso | Revisor Clínico | Habilitar el caso | Se conserva como evidencia de la validación clínica. |
+| Sesión y decisión | Estudiante | Evaluación y análisis | Se conservan durante el proyecto y hasta el cierre académico. |
+| Evaluación del tutor | Servicio de IA | Retroalimentación y auditoría | Se conserva con modelo y versión de prompt. |
+
+| **Dato** | **Creación** | **Uso** | **Conservación**** ****y**** ****eliminación**** ****(propuesta)** |
+| --- | --- | --- | --- |
+| Métrica de sesión | Sistema y Revisor Clínico | Informe de pruebas y validación (E4) | Se conserva hasta el cierre; se exporta para el informe. |
+| Registro técnico | Sistema | Diagnóstico de fallos | Se rota o elimina al cierre. |
+
+Al cierre del proyecto, el equipo y el docente deciden qué se archiva y qué se elimina; los datos de estudiantes se anonimizan o eliminan antes de cualquier entrega externa.
+
+	- Calidad y gobierno de datos
+
+Cada conjunto de datos tiene un responsable y reglas de calidad verificables antes de que llegue al estudiante.
+
+| **Conjunto**** ****de ****datos** | **Responsable** | **Regla**** ****de**** ****calidad** | **Verificación** |
+| --- | --- | --- | --- |
+| Banco de casos | Revisor Clínico (contenido); equipo (carga) | Mínimo 10 casos, cada uno con historia, imagen, diagnóstico de referencia y revisión aprobada (RF-10). | Consulta de auditoría sobre estados y revisiones. |
+| Imágenes | Equipo de desarrollo | Fuente y licencia registradas y verificadas; sin datos identificables (RNF-05, RNF-06). | Indicadores de verificación por imagen y auditoría del banco. |
+| Decisiones | Estudiante (origen); lógica de negocio (validación) | No vacías y de longitud máxima definida. | Pruebas de validación (RF-02). |
+| Evaluaciones | Lógica de negocio | Respuesta estructurada completa; registra modelo y versión de prompt. | Prueba de integración con decisión correcta, parcial e incorrecta. |
+| Métricas | Lógica de negocio (tiempo); Revisor Clínico (calificación) | Tiempo medido en cada sesión; calificaciones dentro de la escala acordada. | Consultas consolidadas y prueba de exactitud del tiempo. |
+
+Reglas de gobierno
+
+	- Un caso solo pasa a "activo" con diagnóstico de referencia, imagen con licencia y desidentificación verificadas, y una revisión aprobada.
+
+	- Solo el rol Revisor Clínico puede gestionar casos, calificar respuestas y consultar métricas.
+
+	- Todo cambio en el modelo de datos pasa por el control de cambios del proyecto (SRS, sección de gestión de cambios).
+
+	- Seguridad y privacidad de los datos
+
+El dato más sensible del sistema son las decisiones de los estudiantes; los casos ya llegan desidentificados, por lo que el riesgo principal es la reidentificación y la exposición de credenciales.
+
+| **Clase**** ****de**** ****dato** | **Sensibilidad** | **Controles** |
+| --- | --- | --- |
+| Caso e imagen | Media | Solo fuentes públicas o del docente, desidentificadas; fuente y licencia por imagen (Ley 1581 de 2012, Decreto 1377 de 2013). |
+| Usuario (alias y correo institucional) | Media | Solo lo necesario para identificar la sesión; sin datos de pacientes. |
+| Decisión y sesión del estudiante | Media | Acceso limitado al propio estudiante y al Revisor Clínico; anonimización antes de reportes. |
+| Evaluación y métricas | Baja | Acceso por rol; sin datos personales. |
+| Credenciales del servicio de IA | Alta | Fuera del código y de la base de datos, en variables de entorno del servidor. |
+
+Controles generales
+
+	- Acceso a la base solo desde el servidor, con un usuario de aplicación de privilegios mínimos.
+
+	- Comunicación cifrada entre el cliente y el servidor.
+
+	- Al servicio de IA se envía únicamente el contexto necesario, nunca datos del usuario.
+
+	- Copias de respaldo antes de cada entrega y antes de la carga del banco.
+
+	- Auditoría del banco de casos antes de la entrega (RNF-05).
+
+	- Capas de software y contrato con el agente tutor
+
+La arquitectura de datos se apoya en cuatro capas; la regla central es que cada dato cruza solo por la capa vecina.
+
+| **Capa** | **Responsabilidad**** ****sobre**** ****los**** ****datos** |
+| --- | --- |
+| Presentación (cliente web responsive) | Muestra casos, captura decisiones y avisos; solo habla con la API. |
+| API y lógica de negocio | Valida, orquesta el flujo, escribe y lee la base, mide tiempos y llama al tutor. |
+| Datos | Base relacional y almacenamiento de imágenes, accedidos solo por la lógica de negocio. |
+| Agente tutor de IA (desacoplado) | Recibe contexto y devuelve una evaluación estructurada; cambiar de proveedor solo modifica su adaptador (RNF-07). |
+
+**Contrato de datos con el tutor. **Entrada: identificador de sesión, historia clínica, diagnóstico de referencia, decisión del estudiante y versión del prompt. La imagen se envía solo si el modelo elegido la admite.
+
+| **Campo**** ****de**** ****salida** | **Descripción** |
+| --- | --- |
+| resultado | Categoría educativa: correcto, parcial o incorrecto. |
+| explicacion | Justificación con criterios clínicos. |
+| evidencias | Evidencias visuales o clínicas citadas. |
+| sugerencias | Qué debe reforzar el estudiante. |
+| modelo | Servicio y modelo de IA utilizado. |
+
+El tiempo límite de respuesta es de 10 segundos en condiciones normales (RNF2 de la matriz).
+
+	- Diseño de la base de datos
+
+La base relacional sigue las cinco fases del proceso de diseño. Esta sección cubre las fases 1 y 2; el modelo lógico y las fases 4 y 5 siguen más abajo.
+
+Fase 1. Recogida y análisis de requisitos de información
+
+| **Caso**** ****de**** ****uso** | **Actor** | **Información**** ****que**** ****lee**** ****o**** ****escribe** |
+| --- | --- | --- |
+| Visualizar caso clínico | Estudiante | Caso, imagen. |
+| Avisos de transparencia (incluido) | Estudiante | Texto del aviso, aceptación por sesión. |
+| Registrar diagnóstico | Estudiante | Sesión, decisión. |
+| Evaluar decisión con IA (incluido) | Sistema y servicio de IA | Evaluación, modelo, versión de prompt. |
+| Registrar métricas (incluido) | Sistema | Tiempo de respuesta, estado del servicio, coherencia, pertinencia. |
+| Ver retroalimentación | Estudiante | Evaluación de la sesión. |
+| Gestionar banco de casos | Revisor Clínico | Casos, imágenes, fuente, licencia, estado. |
+| Revisar casos y respuestas | Revisor Clínico | Revisión de caso, calificación de respuestas. |
+| Consultar métricas | Revisor Clínico | Métricas por sesión y consolidadas. |
+
+Reglas de negocio
+
+	- Un caso solo se ofrece a estudiantes si está activo, con diagnóstico de referencia, fuente, licencia verificada y una revisión clínica aprobada.
+
+	- Una sesión relaciona un estudiante con un caso; en el alcance actual tiene una decisión y una evaluación.
+
+	- Una decisión no puede estar vacía.
+
+	- Cada sesión tiene como máximo un registro de métricas.
+
+Fase 2. Diseño conceptual
+
+Nueve entidades modelan el dominio; el diagrama siguiente muestra sus relaciones y cardinalidades.
+
+| **Entidad** | **Descripción** |
+| --- | --- |
+| Usuario | Persona con rol Estudiante o Revisor Clínico. |
+| Caso | Caso dermatológico desidentificado con historia clínica y diagnóstico de referencia. |
+| Imagen | Imagen dermatoscópica con fuente y licencia. |
+| Revisión de caso | Validación clínica de un caso por un revisor. |
+| Sesión | Interacción de un estudiante con un caso. |
+| Decisión | Diagnóstico e hipótesis registrados por el estudiante. |
+| Evaluación | Resultado y retroalimentación generados por el tutor. |
+| Métrica de sesión | Tiempo de respuesta, estado del servicio y calificaciones. |
+| Aviso | Texto de transparencia vigente (IA y uso educativo). |
+
+**La sesión es el centro del modelo: de ella cuelgan decisión, evaluación y ****métrica**
+
+**revision_caso**
+
+resultado, fecha
+
+1:N
+
+**caso**
+
+estado, referencia
+
+1:N
+
+**imagen**
+
+fuente, licencia
+
+1:N
+
+1:N
+
+**usuario**
+
+rol, correo
+
+1:N
+
+**sesion**
+
+estado, fechas
+
+1:1
+
+**decision**
+
+diagnóstico
+
+1:N
+
+**aceptacion_aviso**
+
+fecha_aceptacion
+
+1:1
+
+**evaluacion**
+
+resultado, modelo_ia
+
+N:1
+
+**Cardinalidad**
+
+1:N uno a muchos 1:1 uno a uno
+
+**aviso**
+
+tipo, texto, version
+
+1:1
+
+**metrica_sesion**
+
+tiempo, coherencia
+
+El usuario con rol revisor valida casos y califica métricas; el estudiante inicia sesiones. La relación entre sesión y aviso es de muchos a muchos, resuelta con la tabla aceptacion_aviso.
+
+Fase 3. Diseño lógico y diccionario de datos
+
+El modelo relacional tiene diez tablas en tercera forma normal. Las evidencias del tutor se guardan como un solo campo estructurado porque siempre se consultan junto con la evaluación. Nomenclatura: PK clave primaria, FK clave foránea, UQ único, NN no nulo.
+
+| **Tabla** | **Atributo** | **Tipo** | **Restricciones** |
+| --- | --- | --- | --- |
+| usuario | id_usuario | UUID o entero | PK |
+| usuario | nombre_visible | texto | NN (alias) |
+| usuario | correo_institucional | texto | UQ, NN |
+| usuario | rol | texto | NN: estudiante o revisor |
+| usuario | fecha_registro | fecha y hora | NN |
+| caso | id_caso | UUID o entero | PK |
+| caso | titulo | texto | NN |
+| caso | historia_clinica | texto | NN, desidentificada |
+| caso | diagnostico_referencia | texto | NN |
+| caso | dificultad | texto | baja, media o alta |
+| caso | origen | texto | NN (p. ej. HAM10000, docente) |
+| caso | estado | texto | NN: borrador, revisado, activo, inactivo |
+| caso | fecha_creacion | fecha y hora | NN |
+| imagen | id_imagen | UUID o entero | PK |
+| imagen | id_caso | FK a caso | NN |
+
+| **Tabla** | **Atributo** | **Tipo** | **Restricciones** |
+| --- | --- | --- | --- |
+| imagen | ruta_archivo | texto | NN |
+| imagen | fuente | texto | NN |
+| imagen | licencia | texto | NN |
+| imagen | licencia_verificada | booleano | NN, por defecto falso |
+| imagen | desidentificada_verificada | booleano | NN, por defecto falso |
+| revision_caso | id_revision | UUID o entero | PK |
+| revision_caso | id_caso | FK a caso | NN |
+| revision_caso | id_revisor | FK a usuario | NN |
+| revision_caso | resultado | texto | NN: aprobado, observado o rechazado |
+| revision_caso | comentario | texto |  |
+| revision_caso | fecha_revision | fecha y hora | NN |
+| sesion | id_sesion | UUID o entero | PK |
+| sesion | id_usuario | FK a usuario | NN |
+| sesion | id_caso | FK a caso | NN |
+| sesion | estado | texto | NN: iniciada, decision_registrada, evaluada, evaluacion_fallida |
+| sesion | fecha_inicio | fecha y hora | NN |
+| sesion | fecha_fin | fecha y hora |  |
+| decision | id_decision | UUID o entero | PK |
+| decision | id_sesion | FK a sesion | UQ, NN |
+| decision | diagnostico_estudiante | texto | NN, no vacío, longitud máxima |
+| decision | hipotesis_clinica | texto |  |
+| decision | fecha_registro | fecha y hora | NN |
+| evaluacion | id_evaluacion | UUID o entero | PK |
+| evaluacion | id_sesion | FK a sesion | UQ, NN |
+| evaluacion | resultado | texto | NN: correcto, parcial o incorrecto |
+| evaluacion | explicacion | texto | NN |
+| evaluacion | evidencias | JSON o texto |  |
+| evaluacion | sugerencias | texto |  |
+| evaluacion | modelo_ia | texto | NN |
+| evaluacion | version_prompt | texto | NN |
+| evaluacion | fecha_generacion | fecha y hora | NN |
+| metrica_sesion | id_metrica | UUID o entero | PK |
+| metrica_sesion | id_sesion | FK a sesion | UQ, NN |
+| metrica_sesion | tiempo_respuesta_ms | entero | NN, mayor o igual a 0 |
+| metrica_sesion | estado_servicio_ia | texto | NN: ok, tiempo_agotado o error |
+| metrica_sesion | coherencia | entero | 0 a 5 (escala por confirmar); nulo hasta la revisión |
+| metrica_sesion | pertinencia | entero | 0 a 5 (escala por confirmar); nulo hasta la revisión |
+
+| **Tabla** | **Atributo** | **Tipo** | **Restricciones** |
+| --- | --- | --- | --- |
+| metrica_sesion | id_revisor | FK a usuario | nulo hasta la revisión |
+| metrica_sesion | fecha_revision | fecha y hora |  |
+| aviso | id_aviso | UUID o entero | PK |
+| aviso | tipo | texto | NN: ia o educativo |
+| aviso | texto | texto | NN |
+| aviso | version | texto | NN |
+| aviso | vigente | booleano | NN |
+| aceptacion_aviso | id_sesion | FK a sesion | PK compuesta con id_aviso |
+| aceptacion_aviso | id_aviso | FK a aviso | PK compuesta con id_sesion |
+| aceptacion_aviso | fecha_aceptacion | fecha y hora | NN |
+
+Fase 4. Diseño físico
+
+| **Tema** | **Propuesta** | **Justificación** |
+| --- | --- | --- |
+| Motor | PostgreSQL (SQLite en desarrollo) | Gratuito, relacional, con restricciones CHECK y JSON. |
+| Imágenes | Archivos en el servidor; la base guarda ruta y metadatos | Evita inflar la base y facilita el visor. |
+| Identificadores | UUID o entero autoincremental | Definir según el framework elegido. |
+| Fechas | Marca de tiempo con zona horaria, en UTC | Permite medir tiempos con precisión. |
+
+| **Índice** | **Objetivo** |
+| --- | --- |
+| caso(estado) | Listar casos activos para el estudiante. |
+| imagen(id_caso) | Cargar imágenes de un caso. |
+| sesion(id_usuario, fecha_inicio) | Historial del estudiante. |
+| sesion(id_caso) | Análisis por caso. |
+
+Fragmento de la definición física:
+
+CREATE TABLE caso (
+
+id_caso UUID PRIMARY KEY, titulo VARCHAR(150) NOT NULL,
+
+historia_clinica TEXT NOT NULL, diagnostico_referencia VARCHAR(200) NOT NULL, origen VARCHAR(100) NOT NULL,
+
+estado VARCHAR(15) NOT NULL
+
+CHECK (estado IN ('borrador','revisado','activo','inactivo')), fecha_creacion TIMESTAMPTZ NOT NULL DEFAULT now()
+
+);
+
+CREATE TABLE imagen ( id_imagen UUID PRIMARY KEY,
+
+id_caso UUID NOT NULL REFERENCES caso(id_caso), ruta_archivo VARCHAR(255) NOT NULL,
+
+fuente VARCHAR(200) NOT NULL, licencia VARCHAR(100) NOT NULL,
+
+licencia_verificada BOOLEAN NOT NULL DEFAULT FALSE, desidentificada_verificada BOOLEAN NOT NULL DEFAULT FALSE
+
+);
+
+CREATE TABLE metrica_sesion ( id_metrica UUID PRIMARY KEY,
+
+id_sesion UUID NOT NULL UNIQUE REFERENCES sesion(id_sesion), tiempo_respuesta_ms INTEGER NOT NULL CHECK (tiempo_respuesta_ms >= 0), estado_servicio_ia VARCHAR(15) NOT NULL
+
+CHECK (estado_servicio_ia IN ('ok','tiempo_agotado','error')), coherencia SMALLINT CHECK (coherencia BETWEEN 0 AND 5), pertinencia SMALLINT CHECK (pertinencia BETWEEN 0 AND 5), id_revisor UUID REFERENCES usuario(id_usuario),
+
+fecha_revision TIMESTAMPTZ
+
+);
+
+La regla de activación de casos se implementa en la lógica de negocio y, si el motor lo permite, con un disparador de respaldo.
+
+Fase 5. Implementación y optimización
+
+| **Paso** | **Actividad** | **Relación**** ****con**** ****la**** ****EDT** |
+| --- | --- | --- |
+| 1 | Crear el esquema con scripts versionados (migraciones). | 1.4.3 API y lógica de negocio |
+| 2 | Cargar datos semilla: roles, avisos y los 10 casos del banco. | 1.4.6 Carga del banco de casos |
+| 3 | Implementar consultas clave: casos activos, sesión completa y métricas. | 1.4.3 y 1.4.5 |
+| 4 | Probar restricciones: caso sin licencia, decisión vacía, doble evaluación por sesión. | 1.5 Pruebas |
+| 5 | Medir tiempos de consulta y de respuesta del tutor; ajustar índices. | 1.5 Pruebas |
+| 6 | Auditar el banco: sin datos identificables y con licencias verificadas. | 1.2.3 y 1.5 |
+
+**Consultas de métricas previstas: **porcentaje de respuestas coherentes y pertinentes frente a la meta del 80 % (RNF-01); promedio, mediana y máximo del tiempo de respuesta con el porcentaje de sesiones de 10 s o menos; y cantidad de sesiones con evaluación fallida por indisponibilidad del servicio de IA.
+
+	- Trazabilidad entre requisitos y arquitectura de datos
+
+| **Requisito** | **Elemento**** ****de**** ****la**** ****arquitectura**** ****de**** ****datos** |
+| --- | --- |
+| RF-01 | Tablas caso e imagen; almacén de imágenes; API de casos. |
+| RF-02 | Tablas sesion y decision. |
+| RF-03, RF-04 | Tabla evaluacion; contrato de datos con el tutor. |
+| RF-05, RF-10 | Tablas caso, imagen y revision_caso; reglas de gobierno de casos. |
+| RF-06 | Tabla sesion con claves hacia usuario y caso. |
+| RF-07 | Tabla metrica_sesion; consultas de métricas. |
+| RF-08, RNF-09 | Tablas aviso y aceptacion_aviso. |
+| RNF-05, RNF-06 | Modelo sin datos de pacientes; campos de fuente, licencia y verificación; sección de seguridad. |
+| RNF-07 | Capas separadas y contrato con el tutor. |
+| RNF-10 | Estado del servicio de IA en la métrica y registro técnico de fallos. |
+
+	- Decisiones pendientes para el equipo
+
+	- Confirmar el motor de base de datos y el framework del servidor.
+
+			- Definir si el estudiante se autentica con correo institucional o si las sesiones son anónimas; el modelo admite ambas con ajustes mínimos.
+
+	- Decidir la escala de coherencia y pertinencia (0 a 5 o sí/no) con el Revisor Clínico.
+
+	- Elegir el servicio de IA generativa y verificar sus límites de uso (riesgo R1).
+
+	- Acordar las reglas de conservación y eliminación de datos al cierre del proyecto.
+
+	- Unificar la numeración de requisitos entre la SRS y la matriz de trazabilidad.
+
+	- Aprobación
+
+| **Responsable** | **Función** | **Aprobación**** ****y**** ****fecha** |
+| --- | --- | --- |
+| H. Idrobo | Responsable de la arquitectura (act. 1017) |  |
+| J. Restrepo | Responsable del modelo de datos (act. 1018) |  |
+| C. Lasso | Director de proyecto |  |
+
+Derma-Sim · Arquitectura de Datos · v1.0
+
+Página 10

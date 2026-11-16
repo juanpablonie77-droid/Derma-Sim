@@ -1,0 +1,93 @@
+|  |  |  |
+| --- | --- | --- |
+
+Lista de actividades
+
+Derma-Sim
+
+Universidad Santiago de Cali (USC)
+
+Facultad de Ingeniería – Ingeniería de Sistemas
+
+Cali, Valle del Cauca, Colombia
+
+06/10/2026 · Versión 1.0
+
+                                                                                                    
+
+**LISTA DE ACTIVIDAD CONSOLIDADO**
+
+**1: Gestión e Inicio del Proyecto PMBOK**
+
+| **ID** | **Nombre de la Actividad** | **Paquete EDT/Semana** | **Descripción del Trabajo** | **Responsabilidad** |
+| --- | --- | --- | --- | --- |
+| 1001 | Elaborar el Acta de Constitución del Proyecto | Paquete  EDT 1.1.1 · S1 | Redactar el acta sobre la plantilla PM2, resumen ejecutivo, caso de negocio, alcance, criterios de éxito, necesidades, riesgos e hitos y presentarla al docente para su aprobación. | C. Lasso: Responsabilidad  Principal J. Buitrago:  Responsabilidad Alterno |
+| 1002 | Elaborar la Matriz de Partes Interesadas | Paquete  EDT 1.1.2 · S1 | Identificar partes interesadas, asignar impacto rol PM2,  definir canales de comunicación y completar las hojas correspondientes. | C. Lasso: Responsabilidad  Principal J. Buitrago:  Responsabilidad Alterno |
+| 1003 | Elaborar el Plan de Gestión del Alcance y la EDT | Paquete  EDT 1.1.3 · S2 | Documentar el enfoque de gestión del alcance, declaración del alcance, la EDT con su diccionario y procesos de control. | C. Lasso: Responsabilidad  Principal J. Buitrago:  Responsabilidad Alterno |
+| 1004 | Elaborar el Plan de Gestión del Cronograma, Lista de Actividades y Hitos | Paquete  EDT 1.1.3 · S2 | Definir actividades, secuencia, duraciones, responsables S1-S10  y hitos con criterios de verificación para fijar la línea base. | C. Lasso: Responsabilidad  Principal J. Buitrago:  Responsabilidad Alterno |
+| 1005 | Realizar la reunión de arranque del proyecto | Paquete  EDT 1.1.4 · S2 | Presentar acta, roles, EDT y cronograma al equipo; acordar reglas de trabajo, repositorios y canales de comunicación. | C. Lasso: Responsable Principal  Todo el equipo |
+| 1006 | Elaborar el plan TSP del equipo | Paquete  EDT 1.1.4 · S2 | Definir metas del equipo, reparto de tareas por rol/semana y horas disponibles como base de seguimiento semanal. | C. Lasso: Responsabilidad  Principal J. Buitrago:  Responsabilidad Alterno |
+| 1007 | Realizar la reunión semanal de seguimiento | Paquete EDT 1.1.5 · S2 a S10 | Revisar avance frente a hitos, registrar fechas reales, detectar desviaciones y acordar acciones correctivas. | C. Lasso: Responsable Principal Todo el equipo |
+| 1008 | Elaborar el informe de avance semanal | Paquete EDT 1.1.5 · S2 a S10 | Consolidar el estado de hitos, paquetes de trabajo, desviaciones y riesgos para el docente. | C. Lasso: Responsabilidad  Principal J. Buitrago:  Responsabilidad Alterno |
+| 1009 | Mantener el registro de riesgos | Paquete EDT 1.1.6 · S2 a S10 | Revisar semanalmente los riesgos R1-R6, actualizar probabilidad y impacto, registrar nuevos riesgos y verificar respuestas. | C. Lasso: Responsable Principal  J. P. Nieto: Responsabilidad Alterno |
+| 1010 | Gestionar las solicitudes de cambio | Paquete EDT 1.1.6 · S2 a S10 | Recibir solicitudes de cambio, evaluar impacto en alcance, tiempo y calidad y tramitarlas según el plan. | C. Lasso: Responsabilidad  Principal J. Buitrago:  Responsabilidad Alterno |
+
+** 2: Análisis TSP****,**** Requisitos y Curaduría de Casos**
+
+| **ID** | **Nombre de la Actividad** | **Paquete EDT / Semana** | **Descripción del Trabajo** | **Responsabilidad** |
+| --- | --- | --- | --- | --- |
+| 1011 | Levantar los requisitos con docentes y estudiantes | Paquete EDT 1.2.1 · S2 a S3 | Conversar con docentes y estudiantes de ciencias de la salud para precisar qué debe permitir hacer el simulador y qué retroalimentación se espera del tutor. | J. Buitrago : Responsabilidad  Principal C. Lasso: Responsabilidad Alterno |
+| 1012 | Especificar los requisitos funcionales y no funcionales | Paquete EDT 1.2.1 · S3 | Redactar cada requisito con su prioridad y criterio de aceptación, y relacionarlo con las necesidades N1 a N5 del acta. | J. Buitrago : Responsabilidad  Principal C. Lasso: Responsabilidad Alterno |
+| 1013 | Seleccionar los casos clínicos candidatos | Paquete EDT 1.2.2 · S2 a S3 | Elegir casos variados de fuentes públicas HAM10000 o suministrados por el docente para entrenar el razonamiento clínico. | J. Buitrago Responsabilidad  Principal  J. P. Nieto: Responsabilidad Alterno |
+| 1014 | Estructurar los casos del banco inicial | Paquete EDT 1.2.2 · S3 | Dar a cada caso una historia clínica, imagen dermatoscópica y diagnóstico de referencia (mínimo 10 casos revisados por personal médico). | J. Buitrago :Responsabilidad  Principal J. P. Nieto: Responsabilidad Alterno |
+| 1015 | Verificar licencias y desidentificación de los casos | Paquete EDT 1.2.3 · S3 | Registrar fuente y licencia de cada imagen y comprobar ausencia de datos identificables Ley 1581 de 2012 y el Decreto 1377 de 2013. | J. Buitrago Responsabilidad  Principal C. Lasso: Responsabilidad Alterno |
+| 1016 | Validar los supuestos y fijar la línea base de requisitos | Paquete EDT 1.2.4 · S3 | Confirmar o descartar supuestos del acta, pasar a riesgos los no validados y obtener aprobación de la línea base. | C. Lasso: Responsabilidad  Principal J. Buitrago:  Responsabilidad Alterno |
+
+**3****: Diseño TSP****, **** Arquitectura y Agente Tutor de IA**
+
+| **ID** | **Nombre de la Actividad** | **Paquete EDT / Semana** | **Descripción del Trabajo** | **Responsabilidad** |
+| --- | --- | --- | --- | --- |
+| 1017 | Diseñar la arquitectura en capas | Paquete EDT 1.3.1 · S4 | Definir capas interfaz, API y lógica, datos y agente de IA con el agente totalmente desacoplado de la interfaz. | H. Idrobo: Responsabilidad  Principal  J. Restrepo: Responsabilidad Alterno |
+| 1018 | Diseñar el modelo de datos | Paquete EDT 1.3.2 · S4 | Modelar entidades de casos, imágenes, sesiones, decisiones, métricas y sus relaciones. | J. Restrepo: Responsabilidad  Principal H. Idrobo: Responsabilidad Alterno |
+| 1019 | Diseñar la interfaz y los prototipos | Paquete EDT 1.3.3 · S4 | Prototipar visor del caso, captura de decisión y pantalla de resultado con el aviso de uso educativo visible. | J. Restrepo: Responsabilidad  Principal H. Idrobo: Responsabilidad Alterno |
+| 1020 | Diseñar el agente tutor de IA | Paquete EDT 1.3.4 · S4 | Diseñar prompts del tutor con diagnóstico de referencia e incluir formato de retroalimentación explicable (evidencia/criterio). | H. Idrobo: Responsabilidad  Principal J. Buitrago: Responsabilidad Alterno |
+| 1021 | Definir las métricas de evaluación del tutor | Paquete EDT 1.3.4 · S4 | Definir cómo se medirán coherencia, pertinencia y tiempo de respuesta meta: ≤ 10 segundos | J. P. Nieto: Responsabilidad  Principal H. Idrobo: Responsabilidad Alterno |
+| 1022 | Revisar y aprobar el diseño | Paquete EDT 1.3.5 · S4 | Revisión entre pares de arquitectura, datos, interfaz y prompts corregir observaciones y obtener aprobación del DP. | C. Lasso: Responsabilidad  Principal J. P. Nieto: Responsabilidad Alterno |
+
+**4****: Construcción TSP****, **** Aplicativo Web e Integración**
+
+| **ID** | **Nombre de la Actividad** | **Paquete EDT / Semana** | **Descripción del Trabajo** | **Responsabilidad** |
+| --- | --- | --- | --- | --- |
+| 1023 | Desarrollar el visor de casos | Paquete EDT 1.4.1 · S5 a S6 | Construir la pantalla que presenta la historia clínica y la imagen dermatoscópica del caso seleccionado. | J. Restrepo: Responsabilidad  Principal H. Idrobo: Responsabilidad Alterno |
+| 1024 | Desarrollar la captura de la decisión y pantalla de resultado | Paquete EDT 1.4.2 · S5 a S6 | Construir el formulario donde el estudiante propone su diagnóstico y la pantalla con la evaluación y retroalimentación. | J. Restrepo: Responsabilidad  Principal H. Idrobo: Responsabilidad Alterno |
+| 1025 | Desarrollar la API y la lógica de negocio | Paquete EDT 1.4.3 · S5 a S6 | Construir servicios que gestionan casos y sesiones y conectan la interfaz con el agente tutor y los datos. | H. Idrobo: Responsabilidad  Principal  J. Restrepo: Responsabilidad Alterno |
+| 1026 | Integrar el agente tutor de IA | Paquete EDT 1.4.4 · S6 | Conectar el modelo de IA generativa con la lógica de negocio para que el flujo completo funcione de forma automatizada. | H. Idrobo: Responsabilidad  Principal  J. Restrepo: Responsabilidad Alterno |
+| 1027 | Revisar el código entre pares | Paquete EDT 1.4.4 · S6 | Revisar código de módulos para detectar defectos y verificar cumplimiento del diseño antes de la primera versión funcional. | H. Idrobo y  J. Restrepo responsabilidad mutua  C. Lasso: Responsabilidad Alterno |
+| 1028 | Implementar el registro de métricas de la sesión | Paquete EDT 1.4.5 · S7 | Guardar automáticamente en cada sesión la coherencia, pertinencia y tiempo de respuesta del tutor. | H. Idrobo: Responsabilidad  Principal J. P. Nieto: Responsabilidad Alterno |
+| 1029 | Cargar el banco de casos e integrar el aplicativo | Paquete EDT 1.4.6 · S7 | Cargar casos iniciales, integrar módulos en versión única y verificar ejecución de punta a punta. | J. Restrepo: Responsabilidad  Principal J. Buitrago: Responsabilidad Alterno |
+
+**5****: Pruebas y Validación ****TSP**
+
+| **ID** | **Nombre de la Actividad** | **Paquete EDT / Semana** | **Descripción del Trabajo** | **Responsabilidad** |
+| --- | --- | --- | --- | --- |
+| 1030 | Elaborar el plan de pruebas y los casos de prueba | Paquete EDT 1.5.1 · S7 | Definir alcance, criterios de aprobación, casos de prueba para requisitos de alta prioridad e instrumentos de evaluación. | J. P. Nieto: Responsabilidad  Principal J. Buitrago: Responsabilidad Alterno |
+| 1031 | Ejecutar las pruebas funcionales | Paquete EDT 1.5.2 · S8 | Ejecutar casos de prueba, registrar resultados y reportar cada defecto con su nivel de gravedad. | J. P. Nieto Responsabilidad  Principal J. Buitrago Responsabilidad Alterno |
+| 1032 | Ejecutar las pruebas de las respuestas de la IA | Paquete EDT 1.5.3 · S8 | Probar el tutor sobre casos de muestra, medir coherencia, pertinencia y tiempo de respuesta (meta: ≥ 80%). | J. P. Nieto Responsabilidad  Principal J. Buitrago Responsabilidad Alterno |
+| 1033 | Obtener la revisión clínica de la muestra | Paquete EDT 1.5.3 · S8 | Gestionar que un docente o profesional de la salud revise la muestra de respuestas generadas por la IA. | J. Buitrago: Responsabilidad  Principal C. Lasso: Responsabilidad Alterno |
+| 1034 | Realizar la prueba de usabilidad con estudiantes | Paquete EDT 1.5.4 · S8 | Pruebas con estudiantes de ciencias de la salud completando casos (meta: ≥ 80% sin ayuda). | J. P. Nieto: Responsabilidad  Principal C. Lasso: Responsabilidad Alterno |
+| 1035 | Corregir los defectos encontrados | Paquete EDT 1.5.5 · S8 | Corregir defectos por orden de gravedad, re-probar y asegurar cero defectos críticos abiertos. | H. Idrobo Y J. Restrepo Responsabilidad compartida |
+| 1036 | Elaborar el Informe de pruebas y validación | Paquete EDT 1.5.6 · S8 | Consolidar resultados, defectos, correcciones y grado de cumplimiento de los criterios de éxito. | P. Nieto: Responsabilidad  Principal C. Lasso: Responsabilidad Alterno |
+
+**6: Documentación, Entrega y Cierre PMBOK**** y TSP**
+
+| **ID** | **Nombre de la Actividad** | **Paquete EDT / Semana** | **Descripción del Trabajo** | **Responsabilidad** |
+| --- | --- | --- | --- | --- |
+| 1037 | Elaborar la documentación técnica | Paquete EDT 1.6.1 · S9 | Documentar arquitectura, modelo de datos, configuración de prompts y pasos de instalación. | H. Idrobo: Responsabilidad  Principal  J. Restrepo: Responsabilidad Alterno |
+| 1038 | Elaborar la guía de usuario | Paquete EDT 1.6.2 · S9 | Redactar manual para docentes y estudiantes, destacando el aviso de carácter puramente educativo. | J. Buitrago: Responsabilidad  Principal J. P. Nieto Responsabilidad Alterno |
+| 1039 | Preparar la demostración y la presentación de la sustentación | Paquete EDT 1.6.3 · S10 | Preparar guion de demo en vivo, diapositivas y ensayar la sustentación con el equipo. | C. Lasso: Responsabilidad  Principal J. P. Nieto: Responsabilidad Alterno |
+| 1040 | Realizar la entrega y la sustentación final | Paquete EDT 1.6.4 · S10 | Entregar formalmente los 5 entregables E1 a E5 y sustentar ante el docente en la fecha fijada. | C. Lasso (Coordinación) Todo el equipo |
+| 1041 | Gestionar la aceptación formal de los entregables | Paquete EDT 1.6.5 · S10 | Presentar verificación de criterios de éxito al docente y obtener acta escrita de aceptación. | C. Lasso: Responsabilidad  Principal J. Buitrago:  Responsabilidad Alterno |
+| 1042 | Documentar las lecciones aprendidas y archivar el proyecto | Paquete EDT 1.6.6 · S10 | Realizar reunión de cierre, documentar lecciones aprendidas y archivar código y documentos finales. | C. Lasso: Responsabilidad  Principal J. Buitrago:  Responsabilidad Alterno |
+
+|  |  |  |
+| --- | --- | --- |

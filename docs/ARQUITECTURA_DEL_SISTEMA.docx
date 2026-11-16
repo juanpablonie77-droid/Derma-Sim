@@ -1,0 +1,88 @@
+**ARQUITECTURA DEL SISTEMA**
+
+**Derma****-Sim**
+
+Universidad Santiago de Cali (USC)
+
+Facultad de Ingeniería – Ingeniería de Sistemas
+
+Cali, Valle del Cauca, Colombia
+
+- **Introducción**
+
+La arquitectura de software describe como se organiza un sistema, cuales son sus componentes principales y como se comunican entre sí. Una arquitectura bien definida ayuda a distribuir las responsabilidades, facilita el mantenimiento y permite que el equipo trabaje de manera ordenada. Además, elegir una arquitectura adecuada desde el inicio reduce la posibilidad de que el sistema crezca de forma desorganizada.
+
+Este documento revisa seis patrones arquitectónicos comunes y explica como se relacionan con Derma Sim un aplicativo web educativo de simulación clínica dermatológica con un agente tutor de inteligencia artificial. Según el Plan de Gestión del Alcance del proyecto, Derma Sim contempla un visor de casos, captura de la decisión diagnostica, evaluación y retroalimentación de IA, una API, lógica de negocio y registro de métricas por sesión. 
+
+- **Patrones arquitectónicos**
+
+Los patrones arquitectónicos son formas conocidas de organizar los componentes de un sistema. Cada patrón tiene características que lo hacen mas conveniente para ciertos tipos de proyectos.
+
+**CAP****: Arquitectura por capas (N ****Tier****)**
+
+Organiza el sistema en niveles con responsabilidades separadas, por ejemplo, presentación, lógica de negocio y acceso a datos. Facilita el mantenimiento y permite modificar una capa sin tener que rehacer todo el sistema, siempre que se respeten sus límites.
+
+**CLI: Arquitectura cliente servidor**
+
+Divide el sistema entre clientes que solicitan servicios y un servidor que procesa solicitudes y devuelve respuestas. Es común en aplicaciones web y permite centralizar la lógica y los datos.
+
+**EVT: Arquitectura dirigida por eventos**
+
+Los componentes reaccionan a eventos que ocurren en el sistema, en lugar de depender solamente de llamadas directas entre ellos. Puede ser útil cuando se necesita procesar actividades de forma desacoplada o responder a cambios y notificaciones.
+
+**MIC: Arquitectura de microservicios**
+
+Divide la aplicación en servicios pequeños y relativamente independientes, cada uno encargado de una capacidad concreta. Puede facilitar el despliegue separado, aunque también aumenta la complejidad de comunicación, monitoreo y operación.
+
+**MON: Arquitectura monolítica**
+
+Agrupa las principales funcionalidades en una sola aplicación que normalmente se construye y despliega como una unidad. Puede ser sencilla para proyectos pequeños, pero con el crecimiento puede resultar más difícil separar y modificar módulos sin afectar otros.
+
+**SER: Arquitectura orientada a servicios (SOA)**
+
+Organiza las funcionalidades como servicios que se comunican mediante interfaces definidas. Busca reutilizar capacidades entre diferentes aplicaciones; suele ser útil en organizaciones con varios sistemas que deben interoperar.
+
+- **Arquitectura seleccionada para ****Derma**** Sim**
+
+El plan de gestión del alcance establece que Derma Sim utilizará una arquitectura cliente servidor en capas y que el agente de inteligencia artificial estará desacoplado de la interfaz. Por ello, la arquitectura seleccionada combina principalmente el patrón cliente servidor (CLI) con la organización por capas (CAP). Esta elección corresponde a lo que ya esta definido en el documento base.
+
+- **Organización propuesta de los ****componentes****aa**
+
+| **Capa o componente** | **Responsabilidad** | **Ejemplo en ****Derma****-Sim** |
+| --- | --- | --- |
+| Presentación / cliente | Muestra información y recibe las acciones del usuario. | Visor del caso, formulario de diagnóstico y pantalla de resultados. |
+| Lógica de negocio / servidor | Aplica reglas, coordina el flujo y valida las solicitudes. | Gestión de casos y sesiones; coordinación de evaluación y retroalimentación. |
+| Acceso a datos | Guarda y consulta la información que necesita el sistema. | Casos clínicos des identificados, sesiones y métricas. |
+| Servicio del agente tutor de IA | Evalúa la respuesta y genera retroalimentación explicable. | Servicio de IA integrado mediante una interfaz definida y separado de la interfaz visual. |
+
+La tabla representa una organización conceptual de los componentes basada en el alcance del proyecto; no remplaza el diseño técnico detallado ni afirma tecnologías específicas que no estén definidas en el plan.
+
+- **Flujo general de funcionamiento**
+
+- El estudiante abre un caso y consulta la historia clínica junto con la imagen dermatoscopia.
+
+- El estudiante registra su decisión diagnostica en la aplicación web.
+
+- El servidor procesa la solicitud y coordina la evaluación con el agente tutor de IA.
+
+- El sistema presenta el resultado y la retroalimentación explicable al estudiante.
+
+- La aplicación registrar las métricas de la sesión, como coherencia, pertinencia y tiempo de respuesta.
+
+- **Justificación de la arquitectura**
+
+La combinación cliente servidor y por capas es adecuada para Derma Sim porque el proyecto es un aplicativo web y necesita separar la interfaz que usa el estudiante de las reglas que gestionan los casos y las sesiones. Esta separación hace que el código sea más fácil de comprender, probar y mantener. También permite que el agente tutor de IA se conecte como un componente diferenciado, sin mezclar directamente su funcionamiento con la interfaz.
+
+Además, el proyecto se desarrolla dentro de un calendario académico de diez semanas y con un equipo de cinco estudiantes con dedicación parcial. Mantener una arquitectura clara y sin complejidad innecesaria ayuda a organizar el trabajo ya a cumplir los entregables. Con la información del plan no se justifica adoptar microservicios a una arquitectura dirigida por eventos como base principal; podrían evaluarse en el futuro si aparecen necesidades que lo requieran.
+
+- **Conclusiones**
+
+Existen diferentes patrones arquitectónicos y cada uno resuelve necesidades distintas. Para Derma Sim, el plan del proyecto define una arquitectura cliente servidor en capas, que permiten separar la presentación, la lógica del sistema, los datos y el servicio de inteligencia artificial. Esta organización favorece el orden del desarrollo, las pruebas y el mantenimiento, y se ajusta al alcance educativo del aplicativo.
+
+**Referencias**
+
+Universidad Santiago de Cali. (2026). Plan de Gestión del Alcance Derma-Sim, versión 1.0. Documento de proyecto suministrado para la elaboración de este trabajo.
+
+Google Books. (s. f.). Ingeniería de software: visión general de la prevalencia de diferentes patrones arquitectónicos en sistemas de software modernos. https://books.google.com/books/edition/Ingenier%C3%ADa_de_Software/BU-CEQAAQBAJ
+
+Escalated. (s. f.). Recursos de ingeniería de software: libro 9. https://gc.scalahed.com/recursos/files/r161r/w25469w/ingdelsoftwarelibro9_compressed.pdf

@@ -1,0 +1,129 @@
+ProjectManagementDocs.com
+
+Plan de Gestión del Cronograma
+
+Derma-Sim
+
+Universidad Santiago de Cali (USC)
+
+Facultad de Ingeniería – Ingeniería de Sistemas
+
+Cali, Valle del Cauca, Colombia
+
+06/10/2026 · Versión 1.0
+
+Tabla de Contenido
+
+	Introducción	3
+
+	Enfoque de la Gestión del Cronograma	3
+
+	Control del Cronograma	5
+
+	Cambios del Cronograma y Umbrales	5
+
+	Cambio del Alcance	6
+
+Introducción
+
+En esta sección se presenta el propósito y la importancia del plan de gestión del cronograma de Derma-Sim, y define una descripción general de lo que incluye. En la sección correspondiente se detallan más cada uno de sus elementos.
+
+El cronograma del proyecto es la descripción de cómo se ejecutará el proyecto. Es una parte relevante del proyecto porque ofrece al equipo, al docente y a los demás interesados una imagen del estado en cualquier momento. El propósito de este plan es definir el enfoque que usará el equipo para elaborar el cronograma de Derma-Sim, que se desarrolla en 10 semanas dentro del calendario académico del semestre, cómo se realizará el seguimiento del cronograma y cómo se gestionarán los cambios una vez aprobada la línea base. Esto incluye identificar, analizar, documentar, priorizar, aprobar o rechazar y publicar todos los cambios relacionados con el cronograma. El plan también cuida que el tiempo no se recupere recortando entregables ni omitiendo revisiones, el cronograma debe respetar el alcance y la calidad definidos en el Acta de Constitución del Proyecto.
+
+Enfoque de la Gestión del Cronograma
+
+Esta sección ofrece el marco general del enfoque que se seguirá para elaborar el cronograma: la herramienta y el formato, los hitos y los roles y responsabilidades para su desarrollo.
+
+ 
+
+El cronograma se realizará como un diagrama de Gantt en GanttPRO, a partir de los entregables identificados en la EDT (Estructura de Definición del Trabajo). La definición de actividades identifica el trabajo de cada paquete (ver la Lista de Actividades); la secuenciación establece el orden de las actividades y sus relaciones; la estimación de duraciones deducen las semanas que requiere cada paquete; y la estimación de recursos asigna roles del equipo a cada paquete. La unidad de planificación es la semana: S1 a S10, contadas desde la aprobación del acta (S1 es la semana del 28/09/2026).
+
+Una vez elaborado el cronograma preliminar, el equipo lo revisará y los integrantes asignados a las tareas deberán aceptar las asignaciones, las duraciones y las fechas propuestas. Logrado esto, el docente revisará y aprobará el cronograma, que quedará como línea base.
+
+Se designan como hitos del cronograma los siguientes (H1 a H9 del acta; ver la Lista de Hitos):
+
+- Acta de Constitución del Proyecto aprobada (S1)
+
+- Plan de gestión y cronograma aprobados, y plan TSP del equipo (S2)
+
+- Etapa de Análisis completa: requisitos, banco inicial de casos y supuestos validados (S3)
+
+- Etapa de Diseño completa: arquitectura, datos, interfaz y prompts del tutor aprobados (S4)
+
+- Primera versión funcional del aplicativo con el recorrido completo (S6)
+
+- Aplicativo integrado con el banco de casos y el registro de métricas (S7)
+
+- Etapa de Pruebas completa y defectos críticos corregidos (S8)
+
+- Documentación técnica y de usuario entregada (S9)
+
+- Entrega y sustentación final; cierre del proyecto (S10)
+
+**Tabla 1.** Resumen del cronograma por etapa (las fechas son indicativas y se confirmarán con el calendario académico)
+
+| **Etapa** | **Semanas** | **Fechas indicativas (lunes a viernes)** | **Hitos**** de ****cierre** |
+| --- | --- | --- | --- |
+| Inicio y planeación (1.1) | S1 a S2 | 28/09/2026 a 09/10/2026 | H1, H2 |
+| Análisis (1.2) | S2 a S3 | 05/10/2026 a 16/10/2026 | H3 |
+| Diseño (1.3) | S4 | 19/10/2026 a 23/10/2026 | H4 |
+| Construcción (1.4) | S5 a S7 | 26/10/2026 a 13/11/2026 | H5, H6 |
+| Pruebas (1.5) | S7 a S8 | 09/11/2026 a 20/11/2026 | H7 |
+| Seguimiento y control (1.1.5, 1.1.6) | S2 a S10 | 05/10/2026 a 04/12/2026 | Transversal |
+| Documentación y cierre (1.6) | S9 a S10 | 23/11/2026 a 04/12/2026 | H8, H9 |
+
+Los roles y responsabilidades para elaborar el cronograma son los siguientes:
+
+El Director de Proyecto (Cristian Orlando Lasso Mulato) es responsable de guiar al equipo en la definición de los paquetes de trabajo, la secuenciación y la estimación de duraciones y recursos. También elabora el cronograma, lo valida con el equipo y con el docente, obtiene la aprobación del docente y fija la línea base.
+
+El equipo (Jhon Steven Buitrago Quitiaquez, Harold Alexis Idrobo Puertocarrero, Jacobo Restrepo Cadavid y Juan Pablo Nieto Cobo) es responsable de participar en la definición de los paquetes de trabajo, la secuenciación y la estimación de duraciones y recursos. También revisa y valida el cronograma propuesto y realiza las actividades asignadas una vez aprobado.
+
+El docente (patrocinador y aprobador académico) participa en las revisiones del cronograma propuesto y aprueba el cronograma final antes de fijar la línea base.
+
+Las demás partes interesadas (el revisor clínico y los estudiantes usuarios) participan, cuando corresponda, en la revisión de las fechas de las pruebas (hito 7) y ayudan a validarlas confirmando su disponibilidad.
+
+Control del Cronograma
+
+Esta sección define cómo se controlará el cronograma durante la vida del proyecto, la periodicidad de las actualizaciones y revisiones, la comunicación del cronograma y de los avances, y los roles y responsabilidades del control del cronograma, esto con el fin de asegurar que las actividades se desarrollen según lo planificado.
+
+El cronograma se revisará y actualizará cada semana, en la reunión de seguimiento del equipo (TSP), con las fechas reales de inicio y fin y el porcentaje de avance que reporta el responsable de cada tarea. Una tarea solo se reporta terminada al 100 % cuando se cumple el criterio de verificación de su entregable (revisión entre pares o aceptación, según la Lista de Actividades y la Lista de Hitos).
+
+El Director de Proyecto es responsable de convocar las reuniones semanales de actualización y revisión del cronograma, determinar los impactos de las variaciones, presentar las solicitudes de cambio del cronograma y reportar su estado de acuerdo con el plan de comunicaciones del proyecto.
+
+El equipo es responsable de participar en las reuniones semanales, comunicar al Director de Proyecto cualquier cambio en las fechas reales de inicio y fin y participar, cuando se requiera, en las actividades para resolver las variaciones.
+
+El docente se mantendrá al tanto del estado del cronograma y revisará y aprobará las solicitudes de cambio que presente el Director de Proyecto.
+
+Cambios del Cronograma y Umbrales
+
+Al elaborar el cronograma, es importante que el docente establezca los límites que definen los parámetros en los que el proyecto debe desarrollarse. Cualquier evento que pueda causar un cambio del cronograma que exceda esos límites, requiere una solicitud de cambio aprobada por el docente antes de realizar el cambio. Para Derma-Sim se usan umbrales del 20 % para un paquete de trabajo individual y del 10 % (una semana) para el cronograma total y para cada hito.
+
+Si algún integrante del equipo determina que es necesario cambiar el cronograma, el Director de Proyecto y el equipo se reúnen para revisar y evaluar el cambio. Deben determinar qué tareas se ven afectadas, la variación que produciría el cambio y las alternativas o actividades de resolución, y cómo afectarían al alcance, al cronograma, a la calidad y a los recursos. Si, tras la evaluación, el Director de Proyecto determina que el cambio excederá las condiciones límite, debe presentarse una solicitud de cambio del cronograma.
+
+Se requiere presentar al docente una solicitud de cambio del cronograma para su aprobación si se cumple cualquiera de las dos condiciones siguientes:
+
+- Se estima que el cambio propuesto reduce o aumenta en un 20 % o más la duración de un paquete de trabajo individual.
+
+- Se estima que el cambio reduce o aumenta en un 10 % o más (es decir, una semana o más) la duración total del cronograma de la línea base, o desplaza un hito más de una semana.
+
+Las solicitudes de cambio que no alcancen estos umbrales pueden presentarse al Director de Proyecto para su aprobación.
+
+Una vez revisada y aprobada la solicitud de cambio, el Director de Proyecto es responsable de ajustar el cronograma y de comunicar todos los cambios y sus impactos al equipo, al docente y a los demás interesados. También debe asegurar que todas las solicitudes de cambio queden archivadas en el repositorio de registros del proyecto. Un cambio de fechas no se compensa reduciendo el alcance ni la calidad sin una solicitud de cambio del alcance aprobada.
+
+Cambio del Alcance
+
+Los cambios en el alcance pueden afectar directamente el cronograma del proyecto, especialmente si implican nuevas funcionalidades o modificaciones importantes. En estos casos, el Director de Proyecto y el equipo deben considerar el estado actual del cronograma y cómo el cambio de alcance afectará al cronograma y a los recursos a medida que avanza el proyecto.
+
+Todo cambio del alcance aprobado por el docente exige que el equipo evalúe su efecto sobre el cronograma vigente. Si el Director de Proyecto determina que el cambio afectará de forma significativa el cronograma, puede solicitar que se fije una nueva línea base que incorpore los cambios del nuevo alcance. El docente debe revisar y aprobar esta solicitud antes de fijar la nueva línea base.
+
+**Aceptación del Patrocinador**
+
+Aprobado por el Patrocinador del Proyecto (aprobador académico):
+
+			Fecha: 10/10/2026
+
+Docente de Gestión de Proyectos TI (Jair Enrique Sanclemente)
+
+Universidad Santiago de Cali – Facultad de Ingeniería
+
+1
