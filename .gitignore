@@ -2,3 +2,9 @@ node_modules/
 .env
 *.db
 dist/
+
+# Dataset HAM10000: no subir datos ni imágenes a GitHub
+/datasets/HAM10000/
+
+# Imágenes seleccionadas copiadas al backend
+/server/public/imagenes/ham10000/
