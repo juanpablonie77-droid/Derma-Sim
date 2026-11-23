@@ -26,7 +26,7 @@ cd client && npm install && npm run dev                            # http://loca
 # 3. Pruebas unitarias
 cd server && npm test
 ```
-Sin `IA_API_KEY` el servidor usa un **tutor simulado**. Para usar el servicio real, define `IA_API_KEY` e `IA_MODEL` en `server/.env` (la clave nunca va al repositorio).
+El tutor usa Gemini Developer API con el modelo `gemini-3.5-flash-lite` cuando `GEMINI_API_KEY` está configurada. El nivel gratuito tiene límites que Google puede modificar y el contenido enviado puede utilizarse para mejorar sus productos; no envíes datos personales ni información de pacientes reales. Sin clave, el servidor usa el tutor simulado. Configura `GEMINI_API_KEY` en `server/.env`; nunca la publiques ni la incluyas en el cliente.
 
 Usuarios de demostración (solo desarrollo): `estudiante@usc.edu.co` y `revisor@usc.edu.co`, clave `Demo1234`.
 
