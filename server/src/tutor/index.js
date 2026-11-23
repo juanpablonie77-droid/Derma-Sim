@@ -31,6 +31,43 @@ export class ClienteSimulado {
   }
 }
 
+// Integración directa con Gemini Developer API (sin SDK ni dependencia adicional).
+export class ClienteGemini {
+  constructor({ clave, modelo = 'gemini-2.5-flash', timeoutMs = 30000 }) {
+    Object.assign(this, { clave, modelo, timeoutMs });
+  }
+  get nombre() { return this.modelo; }
+  async completar(prompt) {
+    try {
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${this.modelo}:generateContent`, {
+        method: 'POST',
+        signal: AbortSignal.timeout(this.timeoutMs),
+        headers: { 'content-type': 'application/json', 'x-goog-api-key': this.clave },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: 'Eres un tutor de dermatología para estudiantes. Uso exclusivamente educativo: no diagnosticas pacientes reales ni sustituyes a profesionales. Evalúa únicamente el caso educativo proporcionado. Responde solo un objeto JSON válido con las propiedades veredicto (correcto, parcial o incorrecto), texto y evidencia (cadenas de texto).' }] },
+          contents: [{ role: 'user', parts: [{ text: prompt }] }],
+          generationConfig: { responseMimeType: 'application/json', temperature: 0.2, maxOutputTokens: 700 }
+        })
+      });
+      if (!r.ok) {
+        const estado = r.status === 429 ? 'limite' : r.status === 401 || r.status === 403 ? 'configuracion' : 'error';
+        throw new ErrorIANoDisponible(`Gemini respondió HTTP ${r.status}`, estado);
+      }
+      const data = await r.json();
+      const texto = data.candidates?.[0]?.content?.parts?.map(p => p.text ?? '').join('').trim();
+      if (!texto) throw new ErrorIANoDisponible('Gemini no devolvió contenido', 'respuesta_vacia');
+      const resultado = JSON.parse(texto);
+      if (!['correcto', 'parcial', 'incorrecto'].includes(resultado.veredicto) || typeof resultado.texto !== 'string') {
+        throw new ErrorIANoDisponible('Gemini devolvió un formato inesperado', 'respuesta_invalida');
+      }
+      return resultado;
+    } catch (e) {
+      if (e instanceof ErrorIANoDisponible) throw e;
+      throw new ErrorIANoDisponible(e.message, e.name === 'TimeoutError' ? 'tiempo_agotado' : 'error');
+    }
+  }
+}
+
 export class ClienteHTTP {
   constructor({ url = 'https://api.anthropic.com/v1/messages', clave, modelo, timeoutMs = 30000 }) { Object.assign(this, { url, clave, modelo, timeoutMs }); }
   get nombre() { return this.modelo; }
@@ -85,5 +122,13 @@ export class TutorFactory {
 export class TutorFactoryReal extends TutorFactory {
   crearCliente(c) { return new ClienteHTTP({ clave: c.claveIA, modelo: c.modelo, timeoutMs: c.timeoutMs }); }
 }
+export class TutorFactoryGemini extends TutorFactory {
+  crearCliente(c) { return new ClienteGemini({ clave: c.claveIA, modelo: c.modelo || 'gemini-2.5-flash', timeoutMs: c.timeoutMs }); }
+}
 export class TutorFactorySimulado extends TutorFactory { crearCliente() { return new ClienteSimulado(); } }
-export const fabricaDesdeEntorno = (env) => (env.IA_API_KEY ? new TutorFactoryReal() : new TutorFactorySimulado());
+
+export const fabricaDesdeEntorno = (env) => {
+  if (env.GEMINI_API_KEY && env.IA_PROVIDER !== 'anthropic') return new TutorFactoryGemini();
+  if (env.IA_API_KEY) return new TutorFactoryReal();
+  return new TutorFactorySimulado();
+};
