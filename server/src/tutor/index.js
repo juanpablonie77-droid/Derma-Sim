@@ -33,7 +33,7 @@ export class ClienteSimulado {
 
 // Integración directa con Gemini Developer API (sin SDK ni dependencia adicional).
 export class ClienteGemini {
-  constructor({ clave, modelo = 'gemini-2.5-flash', timeoutMs = 30000 }) {
+  constructor({ clave, modelo = 'gemini-3.5-flash-lite', timeoutMs = 30000 }) {
     Object.assign(this, { clave, modelo, timeoutMs });
   }
   get nombre() { return this.modelo; }
@@ -123,7 +123,7 @@ export class TutorFactoryReal extends TutorFactory {
   crearCliente(c) { return new ClienteHTTP({ clave: c.claveIA, modelo: c.modelo, timeoutMs: c.timeoutMs }); }
 }
 export class TutorFactoryGemini extends TutorFactory {
-  crearCliente(c) { return new ClienteGemini({ clave: c.claveIA, modelo: c.modelo || 'gemini-2.5-flash', timeoutMs: c.timeoutMs }); }
+  crearCliente(c) { return new ClienteGemini({ clave: c.claveIA, modelo: c.modelo || 'gemini-3.5-flash-lite', timeoutMs: c.timeoutMs }); }
 }
 export class TutorFactorySimulado extends TutorFactory { crearCliente() { return new ClienteSimulado(); } }
 
