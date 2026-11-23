@@ -10,7 +10,7 @@ import { SesionService } from './services/SesionService.js';
 import { fabricaDesdeEntorno } from './tutor/index.js';
 
 const env = process.env;
-const tutor = fabricaDesdeEntorno(env).crear({ retro: env.RETRO, claveIA: env.IA_API_KEY, modelo: env.IA_MODEL || 'claude-sonnet-5-5', timeoutMs: Number(env.IA_TIMEOUT_MS) || 30000 });
+const tutor = fabricaDesdeEntorno(env).crear({ retro: env.RETRO, claveIA: env.GEMINI_API_KEY || env.IA_API_KEY, modelo: env.IA_MODEL || (env.GEMINI_API_KEY ? 'gemini-2.5-flash' : 'claude-sonnet-5-5'), timeoutMs: Number(env.IA_TIMEOUT_MS) || 30000 });
 const sesiones = new SesionService(tutor);
 export const router = Router();
 
