@@ -1,10 +1,27 @@
+# Dependencias
 node_modules/
+
+# Variables de entorno y secretos
 .env
+.env.*
+!.env.example
+
+# Bases de datos locales
 *.db
+*.sqlite
+*.sqlite3
+
+# Credenciales y claves privadas
+*.pem
+*.key
+service-account*.json
+credentials*.json
+
+# Archivos compilados
 dist/
 
-# Dataset HAM10000: no subir datos ni imágenes a GitHub
+# Dataset HAM10000
 /datasets/HAM10000/
 
-# Imágenes seleccionadas copiadas al backend
+# Imágenes locales
 /server/public/imagenes/ham10000/
